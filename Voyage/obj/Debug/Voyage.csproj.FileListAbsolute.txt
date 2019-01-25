@@ -1,0 +1,61 @@
+F:\Github Projects\Voyage\Voyage\bin\Debug\Voyage.exe.config
+F:\Github Projects\Voyage\Voyage\bin\Debug\Voyage.exe
+F:\Github Projects\Voyage\Voyage\bin\Debug\Voyage.pdb
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.csprojAssemblyReference.cache
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.fAuthorization.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.Properties.Resources.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.csproj.GenerateResource.cache
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.csproj.CoreCompileInputs.cache
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.exe
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.pdb
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.MainMenu.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usMain.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usClients.resources
+C:\Users\PC\Desktop\Voyage\Voyage\bin\Debug\Voyage.exe.config
+C:\Users\PC\Desktop\Voyage\Voyage\bin\Debug\Voyage.exe
+C:\Users\PC\Desktop\Voyage\Voyage\bin\Debug\Voyage.pdb
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.csprojAssemblyReference.cache
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.fAuthorization.resources
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.MainMenu.resources
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.Properties.Resources.resources
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.usClients.resources
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.usMain.resources
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.csproj.GenerateResource.cache
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.csproj.CoreCompileInputs.cache
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.exe
+C:\Users\PC\Desktop\Voyage\Voyage\obj\Debug\Voyage.pdb
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usRoutes.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usGroups.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usSales.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usReturn.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usWorkers.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.usPunct.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.csproj.ResolveComReference.cache
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.ClientsWithSales.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.createNewGroup.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.changeGroup.resources
+F:\Github Projects\Voyage\Voyage\obj\Debug\Voyage.workWithClients.resources
+F:\Github Projects\Voyage-travel-service\Voyage\bin\Debug\Voyage.exe.config
+F:\Github Projects\Voyage-travel-service\Voyage\bin\Debug\Voyage.exe
+F:\Github Projects\Voyage-travel-service\Voyage\bin\Debug\Voyage.pdb
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.csprojAssemblyReference.cache
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.csproj.ResolveComReference.cache
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.changeGroup.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.ClientsWithSales.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.createNewGroup.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.fAuthorization.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.MainMenu.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.Properties.Resources.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.usClients.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.usGroups.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.usMain.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.usPunct.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.usReturn.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.usRoutes.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.usSales.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.usWorkers.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.workWithClients.resources
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.csproj.GenerateResource.cache
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.csproj.CoreCompileInputs.cache
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.exe
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.pdb

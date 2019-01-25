@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BCBC672B-5280-4248-81A5-B3F89398BF96}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Voyage</RootNamespace>
+    <AssemblyName>Voyage</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="changeGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="changeGroup.Designer.cs">
+      <DependentUpon>changeGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ClientsWithSales.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ClientsWithSales.Designer.cs">
+      <DependentUpon>ClientsWithSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="createNewGroup.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="createNewGroup.Designer.cs">
+      <DependentUpon>createNewGroup.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainMenu.Designer.cs">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="usClients.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usClients.Designer.cs">
+      <DependentUpon>usClients.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usGroups.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usGroups.Designer.cs">
+      <DependentUpon>usGroups.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usMain.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usMain.Designer.cs">
+      <DependentUpon>usMain.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usPunct.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usPunct.Designer.cs">
+      <DependentUpon>usPunct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usReturn.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usReturn.Designer.cs">
+      <DependentUpon>usReturn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usRoutes.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usRoutes.Designer.cs">
+      <DependentUpon>usRoutes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usSales.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usSales.Designer.cs">
+      <DependentUpon>usSales.cs</DependentUpon>
+    </Compile>
+    <Compile Include="usWorkers.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usWorkers.Designer.cs">
+      <DependentUpon>usWorkers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="workWithClients.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="workWithClients.Designer.cs">
+      <DependentUpon>workWithClients.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="changeGroup.resx">
+      <DependentUpon>changeGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ClientsWithSales.resx">
+      <DependentUpon>ClientsWithSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="createNewGroup.resx">
+      <DependentUpon>createNewGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainMenu.resx">
+      <DependentUpon>MainMenu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="usClients.resx">
+      <DependentUpon>usClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usGroups.resx">
+      <DependentUpon>usGroups.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usMain.resx">
+      <DependentUpon>usMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usPunct.resx">
+      <DependentUpon>usPunct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usReturn.resx">
+      <DependentUpon>usReturn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usRoutes.resx">
+      <DependentUpon>usRoutes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usSales.resx">
+      <DependentUpon>usSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usWorkers.resx">
+      <DependentUpon>usWorkers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="workWithClients.resx">
+      <DependentUpon>workWithClients.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
