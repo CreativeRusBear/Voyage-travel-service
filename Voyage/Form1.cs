@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -22,6 +23,7 @@ namespace Voyage
             topPanel.BackColor = Color.FromArgb(0, 71, 160);
             this.ForeColor = Color.FromArgb(0, 71, 160);
             signInBtn.BackColor = Color.FromArgb(0, 71, 160); 
+            lLogAndPassword.ForeColor = Color.FromArgb(0, 71, 160);
         }
 
         private void seePassword_CheckedChanged(object sender, EventArgs e)
@@ -85,6 +87,22 @@ namespace Voyage
             Registration reg = new Registration();
             reg.Owner = this;
             reg.Show();
+        }
+
+        private void pbGitHub_Click(object sender, EventArgs e)
+        {
+            //переход по ссылке
+            Process.Start("https://github.com/CreativeRusBear/Voyage-travel-service");
+        }
+
+        private void pbSite_Click(object sender, EventArgs e)
+        {
+            Process.Start("https://creativerusbear.github.io/education/dist/main.html");
+        }
+
+        private void pbDocs_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

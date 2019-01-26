@@ -60,7 +60,7 @@ namespace Voyage
         {
             if (isCollapsed)
             {
-                pItemsOfMenu.Width += 35;
+                pItemsOfMenu.Width += 10;
                 if (pItemsOfMenu.Width >= panelWidth)
                 {
                     timer1.Stop();
@@ -70,7 +70,7 @@ namespace Voyage
             }
             else
             {
-                pItemsOfMenu.Width -= 35;
+                pItemsOfMenu.Width -= 10;
                 if (pItemsOfMenu.Width <= 76)
                 {
                     timer1.Stop();

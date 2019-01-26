@@ -41,8 +41,14 @@
             this.seePassword = new System.Windows.Forms.CheckBox();
             this.signInBtn = new System.Windows.Forms.Button();
             this.lCopyright = new System.Windows.Forms.Label();
+            this.pbGitHub = new System.Windows.Forms.PictureBox();
+            this.pbSite = new System.Windows.Forms.PictureBox();
+            this.pbDocs = new System.Windows.Forms.PictureBox();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSectionLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGitHub)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSite)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDocs)).BeginInit();
             this.SuspendLayout();
             // 
             // topPanel
@@ -180,6 +186,42 @@
             this.lCopyright.TabIndex = 10;
             this.lCopyright.Text = "Copyright © Gusev Artem 2019";
             // 
+            // pbGitHub
+            // 
+            this.pbGitHub.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbGitHub.Image = ((System.Drawing.Image)(resources.GetObject("pbGitHub.Image")));
+            this.pbGitHub.Location = new System.Drawing.Point(880, 675);
+            this.pbGitHub.Name = "pbGitHub";
+            this.pbGitHub.Size = new System.Drawing.Size(34, 33);
+            this.pbGitHub.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbGitHub.TabIndex = 2;
+            this.pbGitHub.TabStop = false;
+            this.pbGitHub.Click += new System.EventHandler(this.pbGitHub_Click);
+            // 
+            // pbSite
+            // 
+            this.pbSite.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbSite.Image = ((System.Drawing.Image)(resources.GetObject("pbSite.Image")));
+            this.pbSite.Location = new System.Drawing.Point(800, 675);
+            this.pbSite.Name = "pbSite";
+            this.pbSite.Size = new System.Drawing.Size(34, 33);
+            this.pbSite.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbSite.TabIndex = 2;
+            this.pbSite.TabStop = false;
+            this.pbSite.Click += new System.EventHandler(this.pbSite_Click);
+            // 
+            // pbDocs
+            // 
+            this.pbDocs.Cursor = System.Windows.Forms.Cursors.Default;
+            this.pbDocs.Image = ((System.Drawing.Image)(resources.GetObject("pbDocs.Image")));
+            this.pbDocs.Location = new System.Drawing.Point(840, 675);
+            this.pbDocs.Name = "pbDocs";
+            this.pbDocs.Size = new System.Drawing.Size(34, 33);
+            this.pbDocs.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pbDocs.TabIndex = 2;
+            this.pbDocs.TabStop = false;
+            this.pbDocs.Click += new System.EventHandler(this.pbDocs_Click);
+            // 
             // fAuthorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -193,6 +235,9 @@
             this.Controls.Add(this.lPassword);
             this.Controls.Add(this.tbLog);
             this.Controls.Add(this.lLogAndPassword);
+            this.Controls.Add(this.pbDocs);
+            this.Controls.Add(this.pbSite);
+            this.Controls.Add(this.pbGitHub);
             this.Controls.Add(this.pbSectionLogo);
             this.Controls.Add(this.lLog);
             this.Controls.Add(this.topPanel);
@@ -204,6 +249,9 @@
             this.Text = "Form1";
             this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbSectionLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbGitHub)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbSite)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDocs)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -223,6 +271,9 @@
         private System.Windows.Forms.Label lCopyright;
         private System.Windows.Forms.Button shutdownBtn;
         private System.Windows.Forms.Button regBtn;
+        private System.Windows.Forms.PictureBox pbGitHub;
+        private System.Windows.Forms.PictureBox pbSite;
+        private System.Windows.Forms.PictureBox pbDocs;
     }
 }
 
