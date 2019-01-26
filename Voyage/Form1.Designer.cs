@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fAuthorization));
             this.topPanel = new System.Windows.Forms.Panel();
+            this.regBtn = new System.Windows.Forms.Button();
             this.shutdownBtn = new System.Windows.Forms.Button();
             this.lLog = new System.Windows.Forms.Label();
             this.pbSectionLogo = new System.Windows.Forms.PictureBox();
@@ -47,12 +48,29 @@
             // topPanel
             // 
             this.topPanel.BackColor = System.Drawing.Color.SteelBlue;
+            this.topPanel.Controls.Add(this.regBtn);
             this.topPanel.Controls.Add(this.shutdownBtn);
             this.topPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.topPanel.Location = new System.Drawing.Point(0, 0);
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(926, 76);
             this.topPanel.TabIndex = 0;
+            // 
+            // regBtn
+            // 
+            this.regBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.regBtn.FlatAppearance.BorderSize = 0;
+            this.regBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.regBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.regBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.regBtn.ForeColor = System.Drawing.Color.White;
+            this.regBtn.Image = ((System.Drawing.Image)(resources.GetObject("regBtn.Image")));
+            this.regBtn.Location = new System.Drawing.Point(0, 0);
+            this.regBtn.Name = "regBtn";
+            this.regBtn.Size = new System.Drawing.Size(122, 76);
+            this.regBtn.TabIndex = 12;
+            this.regBtn.UseVisualStyleBackColor = true;
+            this.regBtn.Click += new System.EventHandler(this.regBtn_Click);
             // 
             // shutdownBtn
             // 
@@ -82,9 +100,9 @@
             // pbSectionLogo
             // 
             this.pbSectionLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbSectionLogo.Image")));
-            this.pbSectionLogo.Location = new System.Drawing.Point(301, 82);
+            this.pbSectionLogo.Location = new System.Drawing.Point(315, 82);
             this.pbSectionLogo.Name = "pbSectionLogo";
-            this.pbSectionLogo.Size = new System.Drawing.Size(309, 262);
+            this.pbSectionLogo.Size = new System.Drawing.Size(308, 262);
             this.pbSectionLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pbSectionLogo.TabIndex = 2;
             this.pbSectionLogo.TabStop = false;
@@ -204,6 +222,7 @@
         private System.Windows.Forms.Button signInBtn;
         private System.Windows.Forms.Label lCopyright;
         private System.Windows.Forms.Button shutdownBtn;
+        private System.Windows.Forms.Button regBtn;
     }
 }
 

@@ -42,9 +42,7 @@
             this.homeBtn = new System.Windows.Forms.Button();
             this.pBurger = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
             this.exitBtn = new System.Windows.Forms.Button();
             this.lHeaderNameOfComapny = new System.Windows.Forms.Label();
@@ -136,7 +134,6 @@
             this.returnBtn.Text = "     Возвраты";
             this.returnBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.returnBtn.UseVisualStyleBackColor = true;
-            this.returnBtn.Visible = false;
             this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
             // 
             // salesBtn
@@ -154,7 +151,6 @@
             this.salesBtn.Text = "     Скидки";
             this.salesBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.salesBtn.UseVisualStyleBackColor = true;
-            this.salesBtn.Visible = false;
             this.salesBtn.Click += new System.EventHandler(this.salesBtn_Click);
             // 
             // groupsBtn
@@ -228,9 +224,7 @@
             // pBurger
             // 
             this.pBurger.Controls.Add(this.button1);
-            this.pBurger.Controls.Add(this.label2);
             this.pBurger.Controls.Add(this.pictureBox1);
-            this.pBurger.Controls.Add(this.label1);
             this.pBurger.Dock = System.Windows.Forms.DockStyle.Top;
             this.pBurger.Location = new System.Drawing.Point(0, 0);
             this.pBurger.Name = "pBurger";
@@ -254,37 +248,15 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(131, 99);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(57, 18);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "\"Вояж\"";
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(114, 0);
+            this.pictureBox1.Location = new System.Drawing.Point(53, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(89, 80);
+            this.pictureBox1.Size = new System.Drawing.Size(151, 110);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(70, 83);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Туристическая компания";
             // 
             // panel2
             // 
@@ -320,9 +292,9 @@
             this.lHeaderNameOfComapny.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lHeaderNameOfComapny.Location = new System.Drawing.Point(27, 18);
             this.lHeaderNameOfComapny.Name = "lHeaderNameOfComapny";
-            this.lHeaderNameOfComapny.Size = new System.Drawing.Size(319, 23);
+            this.lHeaderNameOfComapny.Size = new System.Drawing.Size(373, 23);
             this.lHeaderNameOfComapny.TabIndex = 0;
-            this.lHeaderNameOfComapny.Text = "Туристическая компнаия \"Вояж\"";
+            this.lHeaderNameOfComapny.Text = "Сервис по организации путешествий";
             // 
             // pSection
             // 
@@ -388,7 +360,6 @@
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.pItemsOfMenu.ResumeLayout(false);
             this.pBurger.ResumeLayout(false);
-            this.pBurger.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -406,9 +377,7 @@
         private System.Windows.Forms.Panel pSection;
         private System.Windows.Forms.Panel pYourChoice;
         private System.Windows.Forms.Button homeBtn;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button salesBtn;
         private System.Windows.Forms.Button groupsBtn;
         private System.Windows.Forms.Button routesBtn;

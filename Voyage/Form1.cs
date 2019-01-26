@@ -20,14 +20,8 @@ namespace Voyage
         {
             InitializeComponent();
             topPanel.BackColor = Color.FromArgb(0, 71, 160);
-            lLogAndPassword.ForeColor = Color.FromArgb(0, 71, 160);
-            signInBtn.BackColor = Color.FromArgb(0, 71, 160);
-            lLog.ForeColor= Color.FromArgb(0, 71, 160);
-            lPassword.ForeColor = Color.FromArgb(0, 71, 160);
-            seePassword.ForeColor= Color.FromArgb(0, 71, 160);
-            lCopyright.ForeColor = Color.FromArgb(0, 71, 160);
-            shutdownBtn.BackColor= Color.FromArgb(0, 71, 160);
-            
+            this.ForeColor = Color.FromArgb(0, 71, 160);
+            signInBtn.BackColor = Color.FromArgb(0, 71, 160); 
         }
 
         private void seePassword_CheckedChanged(object sender, EventArgs e)
@@ -84,6 +78,13 @@ namespace Voyage
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void regBtn_Click(object sender, EventArgs e)
+        {
+            Registration reg = new Registration();
+            reg.Owner = this;
+            reg.Show();
         }
     }
 }

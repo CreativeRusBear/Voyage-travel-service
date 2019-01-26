@@ -59,7 +59,6 @@
             this.cbCountries = new System.Windows.Forms.ComboBox();
             this.cbWorker = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.pbPlaneLogo = new System.Windows.Forms.PictureBox();
             this.mtbDays = new System.Windows.Forms.MaskedTextBox();
             this.mtbMoney = new System.Windows.Forms.MaskedTextBox();
             this.mtbSale = new System.Windows.Forms.MaskedTextBox();
@@ -73,14 +72,13 @@
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoutes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPlaneLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // label9
             // 
             this.label9.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(35, 188);
+            this.label9.Location = new System.Drawing.Point(37, 232);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(215, 21);
             this.label9.TabIndex = 37;
@@ -90,7 +88,7 @@
             // 
             this.dateOfFly.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dateOfFly.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateOfFly.Location = new System.Drawing.Point(469, 489);
+            this.dateOfFly.Location = new System.Drawing.Point(471, 533);
             this.dateOfFly.Name = "dateOfFly";
             this.dateOfFly.Size = new System.Drawing.Size(163, 27);
             this.dateOfFly.TabIndex = 36;
@@ -101,7 +99,7 @@
             // 
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(35, 494);
+            this.label8.Location = new System.Drawing.Point(37, 538);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(108, 21);
             this.label8.TabIndex = 35;
@@ -111,7 +109,7 @@
             // 
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(35, 369);
+            this.label7.Location = new System.Drawing.Point(37, 413);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(97, 21);
             this.label7.TabIndex = 33;
@@ -121,7 +119,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(35, 325);
+            this.label6.Location = new System.Drawing.Point(37, 369);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(210, 21);
             this.label6.TabIndex = 27;
@@ -131,7 +129,7 @@
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(35, 280);
+            this.label4.Location = new System.Drawing.Point(37, 324);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(128, 21);
             this.label4.TabIndex = 26;
@@ -141,7 +139,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(35, 143);
+            this.label3.Location = new System.Drawing.Point(37, 187);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(174, 21);
             this.label3.TabIndex = 25;
@@ -151,7 +149,7 @@
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(35, 100);
+            this.label2.Location = new System.Drawing.Point(37, 144);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(178, 21);
             this.label2.TabIndex = 24;
@@ -176,7 +174,7 @@
             // nameOfRoute
             // 
             this.nameOfRoute.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.nameOfRoute.Location = new System.Drawing.Point(469, 97);
+            this.nameOfRoute.Location = new System.Drawing.Point(471, 141);
             this.nameOfRoute.Name = "nameOfRoute";
             this.nameOfRoute.Size = new System.Drawing.Size(163, 27);
             this.nameOfRoute.TabIndex = 21;
@@ -405,7 +403,7 @@
             "Испания",
             "Нидерланды",
             "США"});
-            this.cbCountries.Location = new System.Drawing.Point(469, 140);
+            this.cbCountries.Location = new System.Drawing.Point(471, 184);
             this.cbCountries.Name = "cbCountries";
             this.cbCountries.Size = new System.Drawing.Size(163, 29);
             this.cbCountries.TabIndex = 41;
@@ -416,7 +414,7 @@
             this.cbWorker.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbWorker.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbWorker.FormattingEnabled = true;
-            this.cbWorker.Location = new System.Drawing.Point(469, 277);
+            this.cbWorker.Location = new System.Drawing.Point(471, 321);
             this.cbWorker.Name = "cbWorker";
             this.cbWorker.Size = new System.Drawing.Size(163, 29);
             this.cbWorker.TabIndex = 41;
@@ -426,27 +424,16 @@
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(35, 412);
+            this.label5.Location = new System.Drawing.Point(37, 456);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(122, 21);
             this.label5.TabIndex = 33;
             this.label5.Text = "Неустойка (%)";
             // 
-            // pbPlaneLogo
-            // 
-            this.pbPlaneLogo.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.pbPlaneLogo.Image = ((System.Drawing.Image)(resources.GetObject("pbPlaneLogo.Image")));
-            this.pbPlaneLogo.Location = new System.Drawing.Point(39, 692);
-            this.pbPlaneLogo.Name = "pbPlaneLogo";
-            this.pbPlaneLogo.Size = new System.Drawing.Size(593, 167);
-            this.pbPlaneLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pbPlaneLogo.TabIndex = 42;
-            this.pbPlaneLogo.TabStop = false;
-            // 
             // mtbDays
             // 
             this.mtbDays.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtbDays.Location = new System.Drawing.Point(469, 185);
+            this.mtbDays.Location = new System.Drawing.Point(471, 229);
             this.mtbDays.Mask = "00";
             this.mtbDays.Name = "mtbDays";
             this.mtbDays.Size = new System.Drawing.Size(163, 27);
@@ -457,7 +444,7 @@
             // mtbMoney
             // 
             this.mtbMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtbMoney.Location = new System.Drawing.Point(469, 322);
+            this.mtbMoney.Location = new System.Drawing.Point(471, 366);
             this.mtbMoney.Mask = "000000";
             this.mtbMoney.Name = "mtbMoney";
             this.mtbMoney.Size = new System.Drawing.Size(163, 27);
@@ -468,7 +455,7 @@
             // mtbSale
             // 
             this.mtbSale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtbSale.Location = new System.Drawing.Point(469, 366);
+            this.mtbSale.Location = new System.Drawing.Point(471, 410);
             this.mtbSale.Mask = "00";
             this.mtbSale.Name = "mtbSale";
             this.mtbSale.Size = new System.Drawing.Size(163, 27);
@@ -479,7 +466,7 @@
             // mtbReturn
             // 
             this.mtbReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtbReturn.Location = new System.Drawing.Point(469, 409);
+            this.mtbReturn.Location = new System.Drawing.Point(471, 453);
             this.mtbReturn.Mask = "0";
             this.mtbReturn.Name = "mtbReturn";
             this.mtbReturn.Size = new System.Drawing.Size(163, 27);
@@ -492,7 +479,7 @@
             this.cbAllPuncts.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbAllPuncts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAllPuncts.FormattingEnabled = true;
-            this.cbAllPuncts.Location = new System.Drawing.Point(280, 586);
+            this.cbAllPuncts.Location = new System.Drawing.Point(282, 630);
             this.cbAllPuncts.Name = "cbAllPuncts";
             this.cbAllPuncts.Size = new System.Drawing.Size(163, 29);
             this.cbAllPuncts.TabIndex = 41;
@@ -502,7 +489,7 @@
             this.cbAddPuncts.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cbAddPuncts.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbAddPuncts.FormattingEnabled = true;
-            this.cbAddPuncts.Location = new System.Drawing.Point(468, 586);
+            this.cbAddPuncts.Location = new System.Drawing.Point(470, 630);
             this.cbAddPuncts.Name = "cbAddPuncts";
             this.cbAddPuncts.Size = new System.Drawing.Size(163, 29);
             this.cbAddPuncts.TabIndex = 41;
@@ -511,7 +498,7 @@
             // 
             this.label10.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(35, 589);
+            this.label10.Location = new System.Drawing.Point(37, 633);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(155, 21);
             this.label10.TabIndex = 35;
@@ -526,7 +513,7 @@
             this.addPunct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addPunct.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.addPunct.ForeColor = System.Drawing.Color.White;
-            this.addPunct.Location = new System.Drawing.Point(525, 630);
+            this.addPunct.Location = new System.Drawing.Point(528, 784);
             this.addPunct.Name = "addPunct";
             this.addPunct.Size = new System.Drawing.Size(50, 42);
             this.addPunct.TabIndex = 1;
@@ -543,7 +530,7 @@
             this.delPunct.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.delPunct.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.delPunct.ForeColor = System.Drawing.Color.White;
-            this.delPunct.Location = new System.Drawing.Point(581, 630);
+            this.delPunct.Location = new System.Drawing.Point(584, 784);
             this.delPunct.Name = "delPunct";
             this.delPunct.Size = new System.Drawing.Size(50, 42);
             this.delPunct.TabIndex = 1;
@@ -562,7 +549,6 @@
             this.Controls.Add(this.mtbMoney);
             this.Controls.Add(this.addPunct);
             this.Controls.Add(this.mtbDays);
-            this.Controls.Add(this.pbPlaneLogo);
             this.Controls.Add(this.cbAddPuncts);
             this.Controls.Add(this.cbAllPuncts);
             this.Controls.Add(this.cbWorker);
@@ -589,7 +575,6 @@
             this.panel3.ResumeLayout(false);
             this.pForBtn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvRoutes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbPlaneLogo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -625,7 +610,6 @@
         private System.Windows.Forms.ComboBox cbCountries;
         private System.Windows.Forms.ComboBox cbWorker;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.PictureBox pbPlaneLogo;
         private System.Windows.Forms.MaskedTextBox mtbDays;
         private System.Windows.Forms.MaskedTextBox mtbMoney;
         private System.Windows.Forms.MaskedTextBox mtbSale;
