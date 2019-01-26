@@ -12,6 +12,7 @@ namespace Voyage
 {
     public partial class Registration : Form
     {
+        Form tAuth;
         public Registration()
         {
             InitializeComponent();
@@ -19,7 +20,6 @@ namespace Voyage
             this.ForeColor = Color.FromArgb(0, 71, 160);
             signInBtn.BackColor = Color.FromArgb(0, 71, 160);
         }
-
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Close();

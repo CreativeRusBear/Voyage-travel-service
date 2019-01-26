@@ -247,6 +247,7 @@
             this.Name = "fAuthorization";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.fAuthorization_Load);
             this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbSectionLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGitHub)).EndInit();

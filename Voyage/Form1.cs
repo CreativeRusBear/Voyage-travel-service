@@ -86,7 +86,8 @@ namespace Voyage
         {
             Registration reg = new Registration();
             reg.Owner = this;
-            reg.Show();
+            formAnimationAPI.AnimateWindow(reg.Handle, 2000, formAnimationAPI.V_Positive);
+            reg.Show(this);
         }
 
         private void pbGitHub_Click(object sender, EventArgs e)
@@ -102,7 +103,12 @@ namespace Voyage
 
         private void pbDocs_Click(object sender, EventArgs e)
         {
+            Process.Start("https://github.com/CreativeRusBear/Voyage-travel-service/blob/master/docs/docs.md");
+        }
 
+        private void fAuthorization_Load(object sender, EventArgs e)
+        {
+            formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.Center);
         }
     }
 }
