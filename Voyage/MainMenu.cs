@@ -22,15 +22,6 @@ namespace Voyage
         public MainMenu()
         {
             InitializeComponent();
-           /* pItemsOfMenu.BackColor=Color.FromArgb(0, 71, 160);
-            pSection.BackColor = Color.FromArgb(0, 71, 160);
-            lHeaderNameOfComapny.ForeColor= Color.FromArgb(0, 71, 160);
-            isCollapsed = false;
-            panelWidth = pItemsOfMenu.Width;
-
-            usMain mainPage = new usMain();
-            loadNecessaryPage(mainPage);*/
-
         }
 
         public MainMenu(string role, string username)

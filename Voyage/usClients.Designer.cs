@@ -48,7 +48,6 @@
             this.pForBtn = new System.Windows.Forms.Panel();
             this.dgvClients = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.photoOfClient = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbSurname = new System.Windows.Forms.TextBox();
@@ -70,6 +69,7 @@
             this.tbSeries = new System.Windows.Forms.MaskedTextBox();
             this.tbNumber = new System.Windows.Forms.MaskedTextBox();
             this.lbDocIssue = new System.Windows.Forms.TextBox();
+            this.photoOfClient = new Voyage.CircularPictureBoxAPI();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -294,17 +294,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Личные данные клиента";
             // 
-            // photoOfClient
-            // 
-            this.photoOfClient.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.photoOfClient.Location = new System.Drawing.Point(505, 106);
-            this.photoOfClient.Name = "photoOfClient";
-            this.photoOfClient.Size = new System.Drawing.Size(163, 141);
-            this.photoOfClient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.photoOfClient.TabIndex = 4;
-            this.photoOfClient.TabStop = false;
-            this.photoOfClient.DoubleClick += new System.EventHandler(this.photoOfClient_DoubleClick);
-            // 
             // label2
             // 
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -525,11 +514,23 @@
             this.lbDocIssue.TabIndex = 22;
             this.lbDocIssue.TextChanged += new System.EventHandler(this.lbDocIssue_TextChanged);
             // 
+            // photoOfClient
+            // 
+            this.photoOfClient.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.photoOfClient.Location = new System.Drawing.Point(516, 106);
+            this.photoOfClient.Name = "photoOfClient";
+            this.photoOfClient.Size = new System.Drawing.Size(152, 141);
+            this.photoOfClient.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.photoOfClient.TabIndex = 23;
+            this.photoOfClient.TabStop = false;
+            this.photoOfClient.DoubleClick += new System.EventHandler(this.photoOfClient_DoubleClick);
+            // 
             // usClients
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.photoOfClient);
             this.Controls.Add(this.lbDocIssue);
             this.Controls.Add(this.tbNumber);
             this.Controls.Add(this.tbSeries);
@@ -550,7 +551,6 @@
             this.Controls.Add(this.tbSurname);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.photoOfClient);
             this.Controls.Add(this.pForBtn);
             this.Controls.Add(this.tbName);
             this.Controls.Add(this.label1);
@@ -587,7 +587,6 @@
         private System.Windows.Forms.Label lCountOfClients;
         private System.Windows.Forms.DataGridView dgvClients;
         private System.Windows.Forms.Label lCount;
-        private System.Windows.Forms.PictureBox photoOfClient;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbSurname;
@@ -611,5 +610,6 @@
         private System.Windows.Forms.MaskedTextBox tbSeries;
         private System.Windows.Forms.MaskedTextBox tbNumber;
         private System.Windows.Forms.TextBox lbDocIssue;
+        private CircularPictureBoxAPI photoOfClient;
     }
 }
