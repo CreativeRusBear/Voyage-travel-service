@@ -40,6 +40,10 @@ namespace Voyage
             this.username = username;
             lName.Text += this.username;
             lRole.Text += this.role;
+            //для отображения вкладки "Сотрудники"
+            if (this.username == "admin") {
+                employeeBtn.Visible = true;
+            }
         }
 
         private void exitBtn_Click(object sender, EventArgs e)
@@ -143,6 +147,13 @@ namespace Voyage
             moveSidePanel(punctBtn);
             usPunct punct = new usPunct();
             loadNecessaryPage(punct);
+        }
+
+        private void settingsBtn_Click(object sender, EventArgs e)
+        {
+            moveSidePanel(settingsBtn);
+            usSettings settings= new usSettings();
+            loadNecessaryPage(settings);
         }
     }
 }

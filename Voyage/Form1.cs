@@ -64,7 +64,7 @@ namespace Voyage
                         tbPassword.Text = "";
                         MainMenu mm = new MainMenu(role, username);
                         mm.Owner = this;
-                        formAnimationAPI.AnimateWindow(mm.Handle, 2000, formAnimationAPI.Center);
+                        //formAnimationAPI.AnimateWindow(mm.Handle, 2000, formAnimationAPI.H_Negative);
                         mm.Show();
                     }
                     else

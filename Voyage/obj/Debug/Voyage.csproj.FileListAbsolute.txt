@@ -60,3 +60,4 @@ F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.exe
 F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.pdb
 F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.Registration.resources
 F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.csprojAssemblyReference.cache
+F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.usSettings.resources

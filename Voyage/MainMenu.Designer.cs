@@ -34,6 +34,8 @@
             this.pYourChoice = new System.Windows.Forms.Panel();
             this.punctBtn = new System.Windows.Forms.Button();
             this.workersBtn = new System.Windows.Forms.Button();
+            this.settingsBtn = new System.Windows.Forms.Button();
+            this.employeeBtn = new System.Windows.Forms.Button();
             this.returnBtn = new System.Windows.Forms.Button();
             this.salesBtn = new System.Windows.Forms.Button();
             this.groupsBtn = new System.Windows.Forms.Button();
@@ -64,6 +66,8 @@
             this.pItemsOfMenu.Controls.Add(this.pYourChoice);
             this.pItemsOfMenu.Controls.Add(this.punctBtn);
             this.pItemsOfMenu.Controls.Add(this.workersBtn);
+            this.pItemsOfMenu.Controls.Add(this.settingsBtn);
+            this.pItemsOfMenu.Controls.Add(this.employeeBtn);
             this.pItemsOfMenu.Controls.Add(this.returnBtn);
             this.pItemsOfMenu.Controls.Add(this.salesBtn);
             this.pItemsOfMenu.Controls.Add(this.groupsBtn);
@@ -118,6 +122,40 @@
             this.workersBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.workersBtn.UseVisualStyleBackColor = true;
             this.workersBtn.Click += new System.EventHandler(this.workersBtn_Click);
+            // 
+            // settingsBtn
+            // 
+            this.settingsBtn.FlatAppearance.BorderSize = 0;
+            this.settingsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.settingsBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.settingsBtn.ForeColor = System.Drawing.Color.White;
+            this.settingsBtn.Image = ((System.Drawing.Image)(resources.GetObject("settingsBtn.Image")));
+            this.settingsBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.settingsBtn.Location = new System.Drawing.Point(7, 950);
+            this.settingsBtn.Name = "settingsBtn";
+            this.settingsBtn.Size = new System.Drawing.Size(276, 55);
+            this.settingsBtn.TabIndex = 2;
+            this.settingsBtn.Text = "     Настройки";
+            this.settingsBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.settingsBtn.UseVisualStyleBackColor = true;
+            this.settingsBtn.Click += new System.EventHandler(this.settingsBtn_Click);
+            // 
+            // employeeBtn
+            // 
+            this.employeeBtn.FlatAppearance.BorderSize = 0;
+            this.employeeBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.employeeBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.employeeBtn.ForeColor = System.Drawing.Color.White;
+            this.employeeBtn.Image = ((System.Drawing.Image)(resources.GetObject("employeeBtn.Image")));
+            this.employeeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.employeeBtn.Location = new System.Drawing.Point(7, 623);
+            this.employeeBtn.Name = "employeeBtn";
+            this.employeeBtn.Size = new System.Drawing.Size(276, 55);
+            this.employeeBtn.TabIndex = 2;
+            this.employeeBtn.Text = "     Пользователи";
+            this.employeeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.employeeBtn.UseVisualStyleBackColor = true;
+            this.employeeBtn.Visible = false;
             // 
             // returnBtn
             // 
@@ -393,5 +431,7 @@
         private System.Windows.Forms.Timer timer1;
         private System.Windows.Forms.Panel contentPanel;
         private System.Windows.Forms.Button punctBtn;
+        private System.Windows.Forms.Button employeeBtn;
+        private System.Windows.Forms.Button settingsBtn;
     }
 }

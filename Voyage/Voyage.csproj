@@ -131,6 +131,12 @@
     <Compile Include="usSales.Designer.cs">
       <DependentUpon>usSales.cs</DependentUpon>
     </Compile>
+    <Compile Include="usSettings.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="usSettings.Designer.cs">
+      <DependentUpon>usSettings.cs</DependentUpon>
+    </Compile>
     <Compile Include="usWorkers.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -190,6 +196,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="usSales.resx">
       <DependentUpon>usSales.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="usSettings.resx">
+      <DependentUpon>usSettings.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="usWorkers.resx">
       <DependentUpon>usWorkers.cs</DependentUpon>
