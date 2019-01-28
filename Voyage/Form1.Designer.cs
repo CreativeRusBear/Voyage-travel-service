@@ -131,6 +131,7 @@
             this.tbLog.Name = "tbLog";
             this.tbLog.Size = new System.Drawing.Size(452, 31);
             this.tbLog.TabIndex = 5;
+            this.tbLog.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLog_KeyPress);
             // 
             // tbPassword
             // 
@@ -140,6 +141,7 @@
             this.tbPassword.Size = new System.Drawing.Size(452, 31);
             this.tbPassword.TabIndex = 7;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLog_KeyPress);
             // 
             // lPassword
             // 

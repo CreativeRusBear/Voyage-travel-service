@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Registration));
             this.backBtn = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lCopyright = new System.Windows.Forms.Label();
             this.lLog = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -39,12 +40,11 @@
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.seePassword = new System.Windows.Forms.CheckBox();
             this.signInBtn = new System.Windows.Forms.Button();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.cbPosition = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.topPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // backBtn
@@ -73,6 +73,16 @@
             this.topPanel.Name = "topPanel";
             this.topPanel.Size = new System.Drawing.Size(926, 76);
             this.topPanel.TabIndex = 11;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(851, 8);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(75, 60);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 13;
+            this.pictureBox2.TabStop = false;
             // 
             // lCopyright
             // 
@@ -109,6 +119,7 @@
             this.tbLog.Name = "tbLog";
             this.tbLog.Size = new System.Drawing.Size(452, 31);
             this.tbLog.TabIndex = 15;
+            this.tbLog.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLog_KeyPress);
             // 
             // lPassword
             // 
@@ -127,6 +138,7 @@
             this.tbPassword.Size = new System.Drawing.Size(452, 31);
             this.tbPassword.TabIndex = 17;
             this.tbPassword.UseSystemPasswordChar = true;
+            this.tbPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbLog_KeyPress);
             // 
             // seePassword
             // 
@@ -137,6 +149,7 @@
             this.seePassword.TabIndex = 18;
             this.seePassword.Text = "Показать пароль";
             this.seePassword.UseVisualStyleBackColor = true;
+            this.seePassword.CheckedChanged += new System.EventHandler(this.seePassword_CheckedChanged);
             // 
             // signInBtn
             // 
@@ -151,11 +164,13 @@
             this.signInBtn.TabIndex = 19;
             this.signInBtn.Text = "Зарегестрироваться";
             this.signInBtn.UseVisualStyleBackColor = false;
+            this.signInBtn.Click += new System.EventHandler(this.signInBtn_Click);
             // 
-            // comboBox1
+            // cbPosition
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbPosition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbPosition.FormattingEnabled = true;
+            this.cbPosition.Items.AddRange(new object[] {
             "Руководитель",
             "Администратор",
             "Менеджер по работе с клиентами",
@@ -166,12 +181,11 @@
             "Специалист по паспортно-визовым вопросам и страхованию",
             "Бухгалтер ",
             "Кассир",
-            "Турагент",
-            ""});
-            this.comboBox1.Location = new System.Drawing.Point(278, 339);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(452, 29);
-            this.comboBox1.TabIndex = 22;
+            "Турагент"});
+            this.cbPosition.Location = new System.Drawing.Point(278, 339);
+            this.cbPosition.Name = "cbPosition";
+            this.cbPosition.Size = new System.Drawing.Size(452, 29);
+            this.cbPosition.TabIndex = 22;
             // 
             // pictureBox1
             // 
@@ -183,23 +197,13 @@
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(851, 8);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(75, 60);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 13;
-            this.pictureBox2.TabStop = false;
-            // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(926, 717);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbPosition);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.lCopyright);
@@ -217,8 +221,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Registration";
             this.topPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -236,7 +240,7 @@
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.CheckBox seePassword;
         private System.Windows.Forms.Button signInBtn;
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox cbPosition;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
     }

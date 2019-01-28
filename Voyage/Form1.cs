@@ -110,5 +110,14 @@ namespace Voyage
         {
             formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.H_Negative);
         }
+
+        private void tbLog_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char word = e.KeyChar;
+            if ((word < 'A' || word > 'Z') && word != '\b' && (word < 'a' || word > 'z') && (word < '0' || word > '9'))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
