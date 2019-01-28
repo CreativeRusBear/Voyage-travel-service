@@ -60,9 +60,9 @@ namespace Voyage
                             username = reader[0].ToString().Trim();
                             role = reader[1].ToString();
                         }
+                        MainMenu mm = new MainMenu(role, username, tbPassword.Text);
                         tbLog.Text = "";
                         tbPassword.Text = "";
-                        MainMenu mm = new MainMenu(role, username);
                         mm.Owner = this;
                         //formAnimationAPI.AnimateWindow(mm.Handle, 2000, formAnimationAPI.H_Negative);
                         mm.Show();

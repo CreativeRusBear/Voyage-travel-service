@@ -79,6 +79,7 @@
             // 
             // panelForChange
             // 
+            this.panelForChange.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.panelForChange.Controls.Add(this.changeBtn);
             this.panelForChange.Controls.Add(this.seePassword);
             this.panelForChange.Controls.Add(this.tbNewPassword);
@@ -105,6 +106,7 @@
             this.changeBtn.TabIndex = 21;
             this.changeBtn.Text = "Изменить";
             this.changeBtn.UseVisualStyleBackColor = false;
+            this.changeBtn.Click += new System.EventHandler(this.changeBtn_Click);
             // 
             // seePassword
             // 
@@ -116,6 +118,7 @@
             this.seePassword.TabIndex = 20;
             this.seePassword.Text = "Показать пароль";
             this.seePassword.UseVisualStyleBackColor = true;
+            this.seePassword.CheckedChanged += new System.EventHandler(this.seePassword_CheckedChanged);
             // 
             // tbNewPassword
             // 
@@ -126,6 +129,7 @@
             this.tbNewPassword.Size = new System.Drawing.Size(452, 31);
             this.tbNewPassword.TabIndex = 19;
             this.tbNewPassword.UseSystemPasswordChar = true;
+            this.tbNewPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbOldPassword_KeyPress);
             // 
             // lNewPassword
             // 
@@ -145,6 +149,8 @@
             this.tbOldPassword.Name = "tbOldPassword";
             this.tbOldPassword.Size = new System.Drawing.Size(452, 31);
             this.tbOldPassword.TabIndex = 17;
+            this.tbOldPassword.UseSystemPasswordChar = true;
+            this.tbOldPassword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbOldPassword_KeyPress);
             // 
             // lOldPassword
             // 
@@ -166,7 +172,7 @@
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "usSettings";
             this.Size = new System.Drawing.Size(997, 886);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

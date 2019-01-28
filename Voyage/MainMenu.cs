@@ -15,7 +15,7 @@ namespace Voyage
         /*переменные для отображения личных данных пользователя*/
         string username = "";
         string role = "";
-
+        string password = "";
         int panelWidth;
         /*свернуть/развернуть меню*/
         bool isCollapsed;
@@ -24,7 +24,7 @@ namespace Voyage
             InitializeComponent();
         }
 
-        public MainMenu(string role, string username)
+        public MainMenu(string role, string username, string password)
         {
             InitializeComponent();
             pItemsOfMenu.BackColor = Color.FromArgb(0, 71, 160);
@@ -38,6 +38,7 @@ namespace Voyage
 
             this.role = role;
             this.username = username;
+            this.password = password;
             lName.Text += this.username;
             lRole.Text += this.role;
             //для отображения вкладки "Сотрудники"
@@ -152,7 +153,7 @@ namespace Voyage
         private void settingsBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(settingsBtn);
-            usSettings settings= new usSettings();
+            usSettings settings= new usSettings(username, password);
             loadNecessaryPage(settings);
         }
     }

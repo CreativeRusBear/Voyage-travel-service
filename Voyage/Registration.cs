@@ -47,7 +47,7 @@ namespace Voyage
 
         private void signInBtn_Click(object sender, EventArgs e)
         {
-            if (tbLog.Text.Trim()!="" || tbPassword.Text.Trim() != "")
+            if (tbLog.Text!="" || tbPassword.Text!= "")
             {
                 try
                 {
@@ -58,6 +58,7 @@ namespace Voyage
                     Insert.Parameters.AddWithValue("@Password", tbPassword.Text);
                     Insert.Parameters.AddWithValue("@Position", cbPosition.SelectedItem);
                     Insert.ExecuteNonQuery();
+                    connection.Close();
                     MessageBox.Show("Регистрация пройдена успешно", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
