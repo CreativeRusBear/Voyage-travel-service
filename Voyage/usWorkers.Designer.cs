@@ -56,18 +56,18 @@
             this.label1 = new System.Windows.Forms.Label();
             this.pForBtn = new System.Windows.Forms.Panel();
             this.dgvWorkers = new System.Windows.Forms.DataGridView();
-            this.photoOfWorker = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.nameOfPhoto = new System.Windows.Forms.Label();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.photoOfWorker = new Voyage.CircularPictureBoxAPI();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorkers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.photoOfWorker)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoOfWorker)).BeginInit();
             this.SuspendLayout();
             // 
             // AbroadDoc
@@ -380,17 +380,6 @@
             this.dgvWorkers.TabIndex = 5;
             this.dgvWorkers.SelectionChanged += new System.EventHandler(this.dgvWorkers_SelectionChanged);
             // 
-            // photoOfWorker
-            // 
-            this.photoOfWorker.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.photoOfWorker.Location = new System.Drawing.Point(475, 103);
-            this.photoOfWorker.Name = "photoOfWorker";
-            this.photoOfWorker.Size = new System.Drawing.Size(130, 115);
-            this.photoOfWorker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.photoOfWorker.TabIndex = 43;
-            this.photoOfWorker.TabStop = false;
-            this.photoOfWorker.DoubleClick += new System.EventHandler(this.photoOfWorker_DoubleClick);
-            // 
             // pictureBox2
             // 
             this.pictureBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -417,7 +406,7 @@
             // 
             this.nameOfPhoto.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nameOfPhoto.AutoSize = true;
-            this.nameOfPhoto.Location = new System.Drawing.Point(513, 233);
+            this.nameOfPhoto.Location = new System.Drawing.Point(513, 265);
             this.nameOfPhoto.Name = "nameOfPhoto";
             this.nameOfPhoto.Size = new System.Drawing.Size(57, 21);
             this.nameOfPhoto.TabIndex = 44;
@@ -430,15 +419,26 @@
             this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
             this.imageList1.Images.SetKeyName(0, "client_default_photo.png");
             // 
+            // photoOfWorker
+            // 
+            this.photoOfWorker.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.photoOfWorker.Location = new System.Drawing.Point(460, 103);
+            this.photoOfWorker.Name = "photoOfWorker";
+            this.photoOfWorker.Size = new System.Drawing.Size(145, 143);
+            this.photoOfWorker.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.photoOfWorker.TabIndex = 45;
+            this.photoOfWorker.TabStop = false;
+            this.photoOfWorker.DoubleClick += new System.EventHandler(this.photoOfWorker_DoubleClick);
+            // 
             // usWorkers
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.photoOfWorker);
             this.Controls.Add(this.nameOfPhoto);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.photoOfWorker);
             this.Controls.Add(this.AbroadDoc);
             this.Controls.Add(this.dtpBithday);
             this.Controls.Add(this.groupBtn);
@@ -460,9 +460,9 @@
             this.panel3.ResumeLayout(false);
             this.pForBtn.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvWorkers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.photoOfWorker)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.photoOfWorker)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -495,11 +495,11 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel pForBtn;
         private System.Windows.Forms.DataGridView dgvWorkers;
-        private System.Windows.Forms.PictureBox photoOfWorker;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.Label nameOfPhoto;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.ImageList imageList1;
+        private CircularPictureBoxAPI photoOfWorker;
     }
 }

@@ -156,5 +156,12 @@ namespace Voyage
             usSettings settings= new usSettings(username, password);
             loadNecessaryPage(settings);
         }
+
+        private void employeeBtn_Click(object sender, EventArgs e)
+        {
+            moveSidePanel(employeeBtn);
+            usUsers users = new usUsers();
+            loadNecessaryPage(users);
+        }
     }
 }

@@ -156,6 +156,7 @@
             this.employeeBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.employeeBtn.UseVisualStyleBackColor = true;
             this.employeeBtn.Visible = false;
+            this.employeeBtn.Click += new System.EventHandler(this.employeeBtn_Click);
             // 
             // returnBtn
             // 

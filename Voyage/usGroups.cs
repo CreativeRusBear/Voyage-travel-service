@@ -221,5 +221,35 @@ namespace Voyage
             excelApp.Visible = true;
             excelApp.UserControl = true;
         }
+
+        private void borderTop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void borderRight_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void borderBottom_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void headerPanel_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void dgvGroups_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void borderLeft_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
