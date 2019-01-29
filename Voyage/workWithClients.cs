@@ -24,15 +24,7 @@ namespace Voyage
 
         public workWithClients()
         {
-            InitializeComponent();
-
-            LoadDataFromGroupsClients();
-            workWithFreePlaces();
-            this.ForeColor = Color.FromArgb(0, 71, 160);
-            panel1.BackColor = Color.FromArgb(0, 71, 160);
-            panel2.BackColor = Color.FromArgb(0, 71, 160);
-            panel3.BackColor = Color.FromArgb(0, 71, 160);
-            panel4.BackColor = Color.FromArgb(0, 71, 160);
+            InitializeComponent();         
         }
 
         public workWithClients(int ID, int pCount, string country)
@@ -44,10 +36,7 @@ namespace Voyage
             LoadDataFromGroupsClients();
             workWithFreePlaces();
             this.ForeColor = Color.FromArgb(0, 71, 160);
-            panel1.BackColor = Color.FromArgb(0, 71, 160);
-            panel2.BackColor = Color.FromArgb(0, 71, 160);
-            panel3.BackColor = Color.FromArgb(0, 71, 160);
-            panel4.BackColor = Color.FromArgb(0, 71, 160);
+            topPanel.BackColor = Color.FromArgb(0, 71, 160);
         }
 
         /*отображение всего имеющегося списка клиентов*/
@@ -159,6 +148,11 @@ namespace Voyage
                     workWithFreePlaces();
                 }
             }
+        }
+
+        private void workWithClients_Load(object sender, EventArgs e)
+        {
+            formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.Center);
         }
 
         //загрузка добавленных пунктов

@@ -45,8 +45,13 @@ namespace Voyage
         private void addBtn_Click(object sender, EventArgs e)
         {
             Registration reg = new Registration();
-           // formAnimationAPI.AnimateWindow(reg.Handle, 2000, formAnimationAPI.V_Positive);
             reg.ShowDialog();
+            LoadDataFromTable();
+        }
+
+        private void editBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

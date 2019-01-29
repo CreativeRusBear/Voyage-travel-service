@@ -87,6 +87,7 @@
             this.editBtn.Text = "     Изменить данные аккаунта";
             this.editBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // addBtn
             // 
