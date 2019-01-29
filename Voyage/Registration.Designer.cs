@@ -42,6 +42,7 @@
             this.signInBtn = new System.Windows.Forms.Button();
             this.cbPosition = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.dragComponent1 = new Voyage.DragComponent();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -197,6 +198,10 @@
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
             // 
+            // dragComponent1
+            // 
+            this.dragComponent1.SelectControl = this.topPanel;
+            // 
             // Registration
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -218,8 +223,9 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "Registration";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Registration";
+            this.Load += new System.EventHandler(this.Registration_Load);
             this.topPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -243,5 +249,6 @@
         private System.Windows.Forms.ComboBox cbPosition;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
+        private DragComponent dragComponent1;
     }
 }

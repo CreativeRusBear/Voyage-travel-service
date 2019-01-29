@@ -15,21 +15,13 @@ namespace Voyage
     public partial class changeGroup : Form
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
-        DataTable dt, dtRoutes;
-        DataSet ds;
-        SqlDataAdapter adapter;
-        BindingSource bs, bsRoutes;
+        DataTable dtRoutes;
+        BindingSource  bsRoutes;
         int ID_group = 0;
 
         public changeGroup()
         {
             InitializeComponent();
-            loadComboRoutes();
-            this.ForeColor = Color.FromArgb(0, 71, 160);
-            panel1.BackColor = Color.FromArgb(0, 71, 160);
-            panel2.BackColor = Color.FromArgb(0, 71, 160);
-            panel3.BackColor = Color.FromArgb(0, 71, 160);
-            panel4.BackColor = Color.FromArgb(0, 71, 160);
         }
 
         public changeGroup(int ID)
@@ -39,10 +31,7 @@ namespace Voyage
             loadComboRoutes();
             loadData(ID_group);
             this.ForeColor = Color.FromArgb(0, 71, 160);
-            panel1.BackColor = Color.FromArgb(0, 71, 160);
-            panel2.BackColor = Color.FromArgb(0, 71, 160);
-            panel3.BackColor = Color.FromArgb(0, 71, 160);
-            panel4.BackColor = Color.FromArgb(0, 71, 160);
+            topPanel.BackColor = Color.FromArgb(0, 71, 160);
         }
 
         private void shutdownBtn_Click(object sender, EventArgs e)
@@ -76,6 +65,11 @@ namespace Voyage
                 connection.Close();
                 this.Dispose();
             }
+        }
+
+        private void changeGroup_Load(object sender, EventArgs e)
+        {
+            formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.V_Negative);
         }
 
         void loadComboRoutes()

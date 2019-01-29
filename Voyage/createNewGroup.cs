@@ -16,10 +16,8 @@ namespace Voyage
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
         DataTable dt, dtGroup;
-        DataSet ds;
         SqlDataAdapter adapter;
         BindingSource bs, bsGroup;
-        bool forBtn;
 
 
         /*загрузка маршрутов*/
@@ -48,15 +46,17 @@ namespace Voyage
             LoadDataFromRoutes();
             saveBtn.Enabled = false;
             this.ForeColor = Color.FromArgb(0, 71, 160);
-            panel1.BackColor = Color.FromArgb(0, 71, 160);
-            panel2.BackColor = Color.FromArgb(0, 71, 160);
-            panel3.BackColor = Color.FromArgb(0, 71, 160);
-            panel4.BackColor = Color.FromArgb(0, 71, 160);
+            topPanel.BackColor = Color.FromArgb(0, 71, 160);
         }
 
         private void shutdownBtn_Click(object sender, EventArgs e)
         {
             this.Dispose();
+        }
+
+        private void createNewGroup_Load(object sender, EventArgs e)
+        {
+            formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.H_Positive);
         }
 
         private void saveBtn_Click(object sender, EventArgs e)

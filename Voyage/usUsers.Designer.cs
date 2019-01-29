@@ -102,6 +102,7 @@
             this.addBtn.Text = "     Добавить пользователя ";
             this.addBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addBtn.UseVisualStyleBackColor = true;
+            this.addBtn.Click += new System.EventHandler(this.addBtn_Click);
             // 
             // borderRight
             // 
@@ -181,7 +182,7 @@
             this.Controls.Add(this.borderLeft);
             this.Controls.Add(this.dgvUsers);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "usUsers";
             this.Size = new System.Drawing.Size(997, 886);
             this.headerPanel.ResumeLayout(false);

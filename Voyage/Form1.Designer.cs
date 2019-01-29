@@ -44,6 +44,7 @@
             this.pbGitHub = new System.Windows.Forms.PictureBox();
             this.pbSite = new System.Windows.Forms.PictureBox();
             this.pbDocs = new System.Windows.Forms.PictureBox();
+            this.dragComponent1 = new Voyage.DragComponent();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbSectionLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbGitHub)).BeginInit();
@@ -224,6 +225,10 @@
             this.pbDocs.TabStop = false;
             this.pbDocs.Click += new System.EventHandler(this.pbDocs_Click);
             // 
+            // dragComponent1
+            // 
+            this.dragComponent1.SelectControl = this.topPanel;
+            // 
             // fAuthorization
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -277,6 +282,7 @@
         private System.Windows.Forms.PictureBox pbGitHub;
         private System.Windows.Forms.PictureBox pbSite;
         private System.Windows.Forms.PictureBox pbDocs;
+        private DragComponent dragComponent1;
     }
 }
 

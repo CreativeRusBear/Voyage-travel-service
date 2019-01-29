@@ -60,12 +60,11 @@ namespace Voyage
                             username = reader[0].ToString().Trim();
                             role = reader[1].ToString();
                         }
-                        MainMenu mm = new MainMenu(role, username, tbPassword.Text);
                         tbLog.Text = "";
                         tbPassword.Text = "";
                         seePassword.Checked = false;
+                        MainMenu mm = new MainMenu(role, username, tbPassword.Text);
                         mm.Owner = this;
-                        //formAnimationAPI.AnimateWindow(mm.Handle, 2000, formAnimationAPI.H_Negative);
                         mm.Show();
                     }
                     else
@@ -87,8 +86,7 @@ namespace Voyage
         {
             Registration reg = new Registration();
             reg.Owner = this;
-            formAnimationAPI.AnimateWindow(reg.Handle, 2000, formAnimationAPI.V_Positive);
-            reg.Show(this);
+            reg.ShowDialog();
         }
 
         private void pbGitHub_Click(object sender, EventArgs e)

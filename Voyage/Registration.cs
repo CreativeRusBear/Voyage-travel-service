@@ -72,5 +72,10 @@ namespace Voyage
                 MessageBox.Show("Введите все данные и повторите попытку", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private void Registration_Load(object sender, EventArgs e)
+        {
+            formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.V_Positive);
+        }
     }
 }
