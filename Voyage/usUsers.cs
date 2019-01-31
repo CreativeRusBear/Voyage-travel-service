@@ -51,7 +51,51 @@ namespace Voyage
 
         private void editBtn_Click(object sender, EventArgs e)
         {
+            int ID_SS = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_User"]);
+            Registration reg = new Registration(ID_SS);
+            reg.ShowDialog();
+            LoadDataFromTable();
+        }
 
+        private void delBtn_Click(object sender, EventArgs e)
+        {
+            if (bs.Count > 0)
+            {
+                int rowPosition = bs.Position;
+                int delId = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_User"]);
+                try
+                {
+                    DialogResult result = MessageBox.Show(
+                    "Вы действительно хотите удалить данную запись",
+                    "Удаление",
+                    MessageBoxButtons.YesNo,
+                    MessageBoxIcon.Question,
+                    MessageBoxDefaultButton.Button1,
+                    MessageBoxOptions.DefaultDesktopOnly);
+                    if (result == DialogResult.No)
+                    {
+                        LoadDataFromTable();
+                        return;
+                    }
+                    if (result == DialogResult.Yes)
+                    {
+                        connection.Open();
+                        SqlCommand del = new SqlCommand("Delete From tUser where ID_User=@ID", connection);
+                        del.Parameters.AddWithValue("@ID", delId);
+                        del.ExecuteNonQuery();
+                        connection.Close();
+                    }
+                }
+                catch (SqlException ex)
+                {
+                    MessageBox.Show(ex.ToString());
+                }
+                finally
+                {
+                    connection.Close();
+                    LoadDataFromTable();
+                }
+            }
         }
     }
 }

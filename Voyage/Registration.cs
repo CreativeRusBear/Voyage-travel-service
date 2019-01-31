@@ -16,14 +16,53 @@ namespace Voyage
     public partial class Registration : Form
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
-
-        public Registration()
+        int i=0;
+        //стартовые настройки
+        void Settings()
         {
-            InitializeComponent();
             topPanel.BackColor = Color.FromArgb(0, 71, 160);
             this.ForeColor = Color.FromArgb(0, 71, 160);
             signInBtn.BackColor = Color.FromArgb(0, 71, 160);
             cbPosition.SelectedIndex = 0;
+            cbPosition.Items.Add("Главный");
+        }
+        //загрузка данных о пользователе
+        void loadData(int ID)
+        {
+            SqlCommand SelectCommand = new SqlCommand("SELECT sLog, sPassword, sRole from tUser WHERE ID_User =" + ID + ";", connection);
+            connection.Open();
+            SqlDataReader reader = SelectCommand.ExecuteReader();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    tbLog.Text = Convert.ToString(reader.GetValue(0));
+                    tbPassword.Text = Convert.ToString(reader.GetValue(1));
+                    cbPosition.Text = Convert.ToString(reader.GetValue(2));
+                }
+            }
+            connection.Close();
+        }
+        //работа с данными при нажатии на кнопку "Зарегестрироваться"
+        void workWithLoadData(SqlCommand nameOfCommand)
+        {
+            nameOfCommand.Parameters.AddWithValue("@Log", tbLog.Text);
+            nameOfCommand.Parameters.AddWithValue("@Password", tbPassword.Text);
+            nameOfCommand.Parameters.AddWithValue("@Position", cbPosition.SelectedItem);
+        }
+
+        public Registration()
+        {
+            InitializeComponent();
+            Settings();
+        }
+        public Registration(int i)
+        {
+            InitializeComponent();
+            this.i = i;
+            Settings();
+            loadData(i);
+            signInBtn.Text = "Обновить";
         }
         private void backBtn_Click(object sender, EventArgs e)
         {
@@ -52,17 +91,26 @@ namespace Voyage
                 try
                 {
                     connection.Open();
-                    SqlCommand MaxID = new SqlCommand("Select MAX(ID_User) from tUser",connection);
-                    SqlCommand Insert = new SqlCommand("Insert Into [tUser] Values (@Log, @Password, @Position)",connection);
-                    Insert.Parameters.AddWithValue("@Log", tbLog.Text);
-                    Insert.Parameters.AddWithValue("@Password", tbPassword.Text);
-                    Insert.Parameters.AddWithValue("@Position", cbPosition.SelectedItem);
-                    Insert.ExecuteNonQuery();
+                    if (i == 0)
+                    {
+                        SqlCommand MaxID = new SqlCommand("Select MAX(ID_User) from tUser", connection);
+                        SqlCommand Insert = new SqlCommand("Insert Into [tUser] Values (@Log, @Password, @Position)", connection);
+                        workWithLoadData(Insert);
+                        Insert.ExecuteNonQuery();
+                        MessageBox.Show("Регистрация пройдена успешно", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                    else
+                    {
+                        SqlCommand commandUpdate = new SqlCommand("UPDATE tUser SET sLog=@Log, sPassword=@Password, sRole= @Position WHERE ID_User=@IDSS", connection);
+                        workWithLoadData(commandUpdate);
+                        commandUpdate.Parameters.AddWithValue("@IDSS", i);
+                        commandUpdate.ExecuteNonQuery();
+                        MessageBox.Show("Запись обновлена");
+                    }
                     connection.Close();
-                    MessageBox.Show("Регистрация пройдена успешно", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     this.Close();
                 }
-                catch(Exception ex)
+                catch (Exception ex)
                 {
                     MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
@@ -77,5 +125,7 @@ namespace Voyage
         {
             formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.V_Positive);
         }
+
+
     }
 }

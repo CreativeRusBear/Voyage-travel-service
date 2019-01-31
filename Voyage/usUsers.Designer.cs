@@ -72,6 +72,7 @@
             this.delBtn.Text = "     Удалить пользователя";
             this.delBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.delBtn.UseVisualStyleBackColor = true;
+            this.delBtn.Click += new System.EventHandler(this.delBtn_Click);
             // 
             // editBtn
             // 
