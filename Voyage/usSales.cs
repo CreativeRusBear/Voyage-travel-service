@@ -16,7 +16,6 @@ namespace Voyage
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
         DataTable dtForRoutes;
-        DataSet ds;
         SqlDataAdapter adapter;
         BindingSource bsForRoutes;
         public usSales()
@@ -28,18 +27,13 @@ namespace Voyage
 
         private void addNewClientsWithSales_Click(object sender, EventArgs e)
         {
-        string route = cbNameOfRoute.Text;
-        int countOfPeople =Convert.ToInt32(nudCountOfPeople.Value);
-            int abroadDoc;
-            if (tbCountry.Text != "Россия") abroadDoc = 1;
-            else abroadDoc = 0;
-            //ClientsWithSales cws = new ClientsWithSales(route, countOfPeople, abroadDoc);
-            //cws.Show();
+           DataRouteGroupForSale groupRoute = new DataRouteGroupForSale(Convert.ToInt32(cbNameOfRoute.SelectedValue), Convert.ToInt32(nudCountOfPeople.Value));
+           groupRoute.ShowDialog();
         }
 
         void LoadDataFromTable()
         {
-            adapter = new SqlDataAdapter("SELECT ID_Route, sNameOfRoute, sCountry from tRoutes", connection);
+            adapter = new SqlDataAdapter("SELECT ID_Route, sNameOfRoute from tRoutes", connection);
             dtForRoutes = new DataTable();
             adapter.Fill(dtForRoutes);
             bsForRoutes = new BindingSource();
@@ -47,8 +41,6 @@ namespace Voyage
             cbNameOfRoute.DataSource = bsForRoutes;
             cbNameOfRoute.ValueMember = "ID_Route";
             cbNameOfRoute.DisplayMember = "sNameOfRoute";
-            tbCountry.DataBindings.Clear();
-            tbCountry.DataBindings.Add(new Binding("Text", bsForRoutes, "sCountry"));
         }
     }
 }

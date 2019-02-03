@@ -41,7 +41,6 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.nudCountOfPeople = new System.Windows.Forms.NumericUpDown();
-            this.tbCountry = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -180,7 +179,7 @@
             this.nudCountOfPeople.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.nudCountOfPeople.Location = new System.Drawing.Point(50, 464);
             this.nudCountOfPeople.Maximum = new decimal(new int[] {
-            10,
+            7,
             0,
             0,
             0});
@@ -198,20 +197,11 @@
             0,
             0});
             // 
-            // tbCountry
-            // 
-            this.tbCountry.Location = new System.Drawing.Point(351, 210);
-            this.tbCountry.Name = "tbCountry";
-            this.tbCountry.Size = new System.Drawing.Size(151, 27);
-            this.tbCountry.TabIndex = 8;
-            this.tbCountry.Visible = false;
-            // 
             // usSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.tbCountry);
             this.Controls.Add(this.nudCountOfPeople);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -252,6 +242,5 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudCountOfPeople;
-        private System.Windows.Forms.TextBox tbCountry;
     }
 }

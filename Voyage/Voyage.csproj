@@ -68,6 +68,12 @@
     <Compile Include="createNewGroup.Designer.cs">
       <DependentUpon>createNewGroup.cs</DependentUpon>
     </Compile>
+    <Compile Include="DataRouteGroupForSale.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataRouteGroupForSale.Designer.cs">
+      <DependentUpon>DataRouteGroupForSale.cs</DependentUpon>
+    </Compile>
     <Compile Include="DragComponent.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -166,6 +172,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="createNewGroup.resx">
       <DependentUpon>createNewGroup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataRouteGroupForSale.resx">
+      <DependentUpon>DataRouteGroupForSale.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
