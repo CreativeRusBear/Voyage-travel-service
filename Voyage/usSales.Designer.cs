@@ -33,7 +33,7 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.cbNameOfRoute = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
+            this.textAboutSale = new System.Windows.Forms.Label();
             this.addNewClientsWithSales = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -79,6 +79,7 @@
             this.cbNameOfRoute.Name = "cbNameOfRoute";
             this.cbNameOfRoute.Size = new System.Drawing.Size(275, 29);
             this.cbNameOfRoute.TabIndex = 2;
+            this.cbNameOfRoute.DropDownClosed += new System.EventHandler(this.cbNameOfRoute_DropDownClosed);
             // 
             // label2
             // 
@@ -91,16 +92,16 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "Название маршрута";
             // 
-            // label3
+            // textAboutSale
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(46, 285);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(405, 88);
-            this.label3.TabIndex = 3;
-            this.label3.Text = "При покупке билетов группой от 3-ех и более человек предоставляется скидка ... ка" +
+            this.textAboutSale.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textAboutSale.BackColor = System.Drawing.Color.Transparent;
+            this.textAboutSale.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.textAboutSale.Location = new System.Drawing.Point(46, 285);
+            this.textAboutSale.Name = "textAboutSale";
+            this.textAboutSale.Size = new System.Drawing.Size(405, 88);
+            this.textAboutSale.TabIndex = 3;
+            this.textAboutSale.Text = "При покупке билетов группой от 3-ех и более человек предоставляется скидка ... ка" +
     "ждому";
             // 
             // addNewClientsWithSales
@@ -208,7 +209,7 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.addNewClientsWithSales);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.textAboutSale);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbNameOfRoute);
@@ -234,7 +235,7 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.ComboBox cbNameOfRoute;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label textAboutSale;
         private System.Windows.Forms.Button addNewClientsWithSales;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.PictureBox pictureBox2;

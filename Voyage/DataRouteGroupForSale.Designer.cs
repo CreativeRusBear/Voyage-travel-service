@@ -30,9 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DataRouteGroupForSale));
             this.dragComponent1 = new Voyage.DragComponent();
-            this.backBtn = new System.Windows.Forms.Button();
             this.topPanel = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.backBtn = new System.Windows.Forms.Button();
             this.cbGroup = new System.Windows.Forms.ComboBox();
             this.furtherBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,22 +44,6 @@
             // dragComponent1
             // 
             this.dragComponent1.SelectControl = this.topPanel;
-            // 
-            // backBtn
-            // 
-            this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
-            this.backBtn.FlatAppearance.BorderSize = 0;
-            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
-            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.backBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.backBtn.ForeColor = System.Drawing.Color.White;
-            this.backBtn.Image = ((System.Drawing.Image)(resources.GetObject("backBtn.Image")));
-            this.backBtn.Location = new System.Drawing.Point(0, 0);
-            this.backBtn.Name = "backBtn";
-            this.backBtn.Size = new System.Drawing.Size(122, 76);
-            this.backBtn.TabIndex = 12;
-            this.backBtn.UseVisualStyleBackColor = true;
-            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
             // 
             // topPanel
             // 
@@ -82,22 +66,26 @@
             this.pictureBox2.TabIndex = 13;
             this.pictureBox2.TabStop = false;
             // 
+            // backBtn
+            // 
+            this.backBtn.Dock = System.Windows.Forms.DockStyle.Left;
+            this.backBtn.FlatAppearance.BorderSize = 0;
+            this.backBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Red;
+            this.backBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.backBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.backBtn.ForeColor = System.Drawing.Color.White;
+            this.backBtn.Image = ((System.Drawing.Image)(resources.GetObject("backBtn.Image")));
+            this.backBtn.Location = new System.Drawing.Point(0, 0);
+            this.backBtn.Name = "backBtn";
+            this.backBtn.Size = new System.Drawing.Size(122, 76);
+            this.backBtn.TabIndex = 12;
+            this.backBtn.UseVisualStyleBackColor = true;
+            this.backBtn.Click += new System.EventHandler(this.backBtn_Click);
+            // 
             // cbGroup
             // 
             this.cbGroup.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbGroup.FormattingEnabled = true;
-            this.cbGroup.Items.AddRange(new object[] {
-            "Руководитель",
-            "Администратор",
-            "Менеджер по работе с клиентами",
-            "Менеджер по индивидуальным турам",
-            "Менеджер по работе с корпоративными клиентами",
-            "Менеджер по бронированию и продажи билетов",
-            "Эвент-менеджер",
-            "Специалист по паспортно-визовым вопросам и страхованию",
-            "Бухгалтер ",
-            "Кассир",
-            "Турагент"});
             this.cbGroup.Location = new System.Drawing.Point(122, 238);
             this.cbGroup.Name = "cbGroup";
             this.cbGroup.Size = new System.Drawing.Size(342, 29);
@@ -149,7 +137,7 @@
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "DataRouteGroupForSale";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "DataRouteGroupForSale";
