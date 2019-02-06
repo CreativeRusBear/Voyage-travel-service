@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,24 +14,40 @@ namespace Voyage
 {
     public partial class DataRouteGroupForSale : Form
     {
+        SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
+        DataTable dt;
+        DataSet ds;
+        SqlDataAdapter adapter;
+        BindingSource bs;
         int idRoute, count;
         public DataRouteGroupForSale()
         {
             InitializeComponent();
         }
+
         public DataRouteGroupForSale(int idRoute, int count)
         {
             InitializeComponent();
             this.ForeColor = Color.FromArgb(0, 71, 160);
             topPanel.BackColor= Color.FromArgb(0, 71, 160);
+            furtherBtn.BackColor= Color.FromArgb(0, 71, 160);
             this.idRoute = idRoute;
             this.count = count;
             LoadDataFromTable();
         }
         void LoadDataFromTable()
         {
-
+            adapter = new SqlDataAdapter("SELECT tGroupsRoutes.ID_Route, tGroupsRoutes.ID_Group, tGroups.ID_Group, tGroups.sCount, tGroups.sName FROM tGroups INNER JOIN tGroupsRoutes ON tGroups.ID_Group =tGroupsRoutes.ID_Group" +
+ " inner join tRoutes ON tGroupsRoutes.ID_Route = tRoutes.ID_Route WHERE tRoutes.ID_Route=" + this.idRoute, connection);
+            dt = new DataTable();
+            adapter.Fill(dt);
+            bs = new BindingSource();
+            bs.DataSource = dt;
+            cbGroup.DataSource = bs;
+            cbGroup.ValueMember = "ID_Group";
+            cbGroup.DisplayMember = "sName";
         }
+
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Dispose();
