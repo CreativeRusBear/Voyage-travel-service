@@ -37,6 +37,7 @@
             this.furtherBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
@@ -104,6 +105,7 @@
             this.furtherBtn.TabIndex = 30;
             this.furtherBtn.Text = "Далее";
             this.furtherBtn.UseVisualStyleBackColor = false;
+            this.furtherBtn.Click += new System.EventHandler(this.furtherBtn_Click);
             // 
             // label1
             // 
@@ -124,12 +126,22 @@
             this.label2.Text = "Продолжим?\r\nВыберите необходимую группу из списка";
             this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(507, 291);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(57, 21);
+            this.label3.TabIndex = 35;
+            this.label3.Text = "label3";
+            // 
             // DataRouteGroupForSale
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(589, 412);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.cbGroup);
@@ -159,5 +171,6 @@
         private System.Windows.Forms.Button furtherBtn;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
     }
 }

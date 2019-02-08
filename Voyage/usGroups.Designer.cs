@@ -54,7 +54,6 @@
             this.borderLeft.Name = "borderLeft";
             this.borderLeft.Size = new System.Drawing.Size(7, 886);
             this.borderLeft.TabIndex = 0;
-            this.borderLeft.Paint += new System.Windows.Forms.PaintEventHandler(this.borderLeft_Paint);
             // 
             // borderTop
             // 
@@ -63,7 +62,6 @@
             this.borderTop.Name = "borderTop";
             this.borderTop.Size = new System.Drawing.Size(990, 7);
             this.borderTop.TabIndex = 0;
-            this.borderTop.Paint += new System.Windows.Forms.PaintEventHandler(this.borderTop_Paint);
             // 
             // borderRight
             // 
@@ -72,7 +70,6 @@
             this.borderRight.Name = "borderRight";
             this.borderRight.Size = new System.Drawing.Size(7, 872);
             this.borderRight.TabIndex = 0;
-            this.borderRight.Paint += new System.Windows.Forms.PaintEventHandler(this.borderRight_Paint);
             // 
             // borderBottom
             // 
@@ -81,7 +78,6 @@
             this.borderBottom.Name = "borderBottom";
             this.borderBottom.Size = new System.Drawing.Size(990, 7);
             this.borderBottom.TabIndex = 0;
-            this.borderBottom.Paint += new System.Windows.Forms.PaintEventHandler(this.borderBottom_Paint);
             // 
             // headerPanel
             // 
@@ -97,7 +93,6 @@
             this.headerPanel.Name = "headerPanel";
             this.headerPanel.Size = new System.Drawing.Size(983, 89);
             this.headerPanel.TabIndex = 1;
-            this.headerPanel.Paint += new System.Windows.Forms.PaintEventHandler(this.headerPanel_Paint);
             // 
             // deleteBtn
             // 
@@ -212,7 +207,6 @@
             this.dgvGroups.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvGroups.Size = new System.Drawing.Size(983, 783);
             this.dgvGroups.TabIndex = 3;
-            this.dgvGroups.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvGroups_CellContentClick);
             // 
             // usGroups
             // 

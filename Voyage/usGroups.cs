@@ -19,6 +19,7 @@ namespace Voyage
         DataTable dt;
         SqlDataAdapter adapter;
         BindingSource bs;
+
         public usGroups()
         {
             InitializeComponent();
@@ -26,7 +27,65 @@ namespace Voyage
             headerPanel.BackColor = Color.FromArgb(0, 71, 160);
         }
 
-        /*для редактирования необходимой записи*/
+        //метод удаления, связанных записей
+        void deletRelatedEntries(int delId)
+        {
+            connection.Open();
+            SqlCommand forGroupsPuncts = new SqlCommand("UPDATE tGroupsRoutes SET " +
+                "ID_Group=NULL, ID_Route=NULL WHERE ID_Group='" + delId + "'", connection);
+            forGroupsPuncts.ExecuteNonQuery();
+            forGroupsPuncts = new SqlCommand("Delete From tGroupsRoutes where ID_Group is NULL", connection);
+            forGroupsPuncts.ExecuteNonQuery();
+            connection.Close();
+            connection.Open();
+            SqlCommand forGroupsClients = new SqlCommand("UPDATE tGroupsClients SET " +
+                "ID_Group=NULL, ID_Client=NULL WHERE ID_Group='" + delId + "'", connection);
+            forGroupsClients.ExecuteNonQuery();
+            forGroupsClients = new SqlCommand("Delete From tGroupsClients where ID_Group is NULL", connection);
+            forGroupsClients.ExecuteNonQuery();
+            connection.Close();
+            connection.Open();
+            SqlCommand del = new SqlCommand("Delete From tGroups where ID_Group=@ID", connection);
+            del.Parameters.AddWithValue("@ID", delId);
+            del.ExecuteNonQuery();
+            connection.Close();
+        }
+
+        //удаление групп, которые отправились в путешествие или уже прилетели
+        void delNotes()
+        {
+            for (int i=0; i < dgvGroups.RowCount; i++)
+            {
+                if (DateTime.Now >= Convert.ToDateTime(dgvGroups[6, i].Value))
+                {
+                    int rowPosition = bs.Position;
+                    int delId = Convert.ToInt32(dgvGroups[0, i].Value);
+                    try
+                    {
+                        deletRelatedEntries(delId);
+                    }
+                    catch (SqlException ex)
+                    {
+                        if ((uint)ex.ErrorCode == 0x80004005)
+                            MessageBox.Show(
+                            "В таблицах есть связанные записи",
+                            "Ошибка",
+                            MessageBoxButtons.OK,
+                            MessageBoxIcon.Error,
+                            MessageBoxDefaultButton.Button1,
+                            MessageBoxOptions.DefaultDesktopOnly);
+                        else
+                            MessageBox.Show(ex.ToString());
+                    }
+                    finally
+                    {
+                        connection.Close();
+                    }
+                }
+            } 
+        }
+
+        //для редактирования необходимой записи
         private void EditApplic(string command)
         {
             if ((bs.Count > 0) && (dgvGroups.SelectedRows.Count > 0))
@@ -48,7 +107,8 @@ namespace Voyage
                 bs.Position = bs.Find("ID_Group", ID_SS);
             }
         }
-        /*загрузка данных в DataGridView*/
+
+        //загрузка данных в DataGridView
         void LoadDataFromTables()
         {
             adapter = new SqlDataAdapter("select tGroups.ID_Group, tGroups.sName, tRoutes.sNameOfRoute, tRoutes.sCountry, tWorkers.sName, tWorkers.sSurname, tRoutes.DayStart, tGroups.sCount " +
@@ -72,8 +132,9 @@ namespace Voyage
             dgvGroups.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvGroups.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvGroups.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
-
+            delNotes();
         }
+
         private void createNewGroupBtn_Click(object sender, EventArgs e)
         {
             createNewGroup cng = new createNewGroup();
@@ -113,28 +174,7 @@ namespace Voyage
                     }
                     if (result == DialogResult.Yes)
                     {
-                        /*удаление связанных записей*/
-                        connection.Open();
-                        SqlCommand forGroupsPuncts = new SqlCommand("UPDATE tGroupsRoutes SET " +
-                            "ID_Group=NULL, ID_Route=NULL WHERE ID_Group='"+delId+"'", connection);
-                        forGroupsPuncts.ExecuteNonQuery();
-                        forGroupsPuncts = new SqlCommand("Delete From tGroupsRoutes where ID_Group is NULL", connection);
-                        forGroupsPuncts.ExecuteNonQuery();
-                        connection.Close();
-
-                        connection.Open();
-                        SqlCommand forGroupsClients = new SqlCommand("UPDATE tGroupsClients SET " +
-                            "ID_Group=NULL, ID_Client=NULL WHERE ID_Group='" + delId + "'", connection);
-                        forGroupsClients.ExecuteNonQuery();
-                        forGroupsClients = new SqlCommand("Delete From tGroupsClients where ID_Group is NULL", connection);
-                        forGroupsClients.ExecuteNonQuery();
-                        connection.Close();
-
-                        connection.Open();
-                        SqlCommand del = new SqlCommand("Delete From tGroups where ID_Group=@ID", connection);
-                        del.Parameters.AddWithValue("@ID", delId);
-                        del.ExecuteNonQuery();
-                        connection.Close();
+                        deletRelatedEntries(delId);
                     }
                 }
                 catch (SqlException ex)
@@ -220,36 +260,6 @@ namespace Voyage
             }
             excelApp.Visible = true;
             excelApp.UserControl = true;
-        }
-
-        private void borderTop_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void borderRight_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void borderBottom_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void headerPanel_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void dgvGroups_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
-        private void borderLeft_Paint(object sender, PaintEventArgs e)
-        {
-
         }
     }
 }
