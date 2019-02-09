@@ -23,7 +23,8 @@ namespace Voyage
         /*загрузка маршрутов*/
         void LoadDataFromRoutes()
         {
-            adapter = new SqlDataAdapter("SELECT ID_Route, sNameOfRoute from tRoutes", connection);
+            adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tRoutes.sNameOfRoute from tRoutes LEFT JOIN tGroupsRoutes ON tRoutes.ID_Route=tGroupsRoutes.ID_Route WHERE tGroupsRoutes.ID_Route IS NULL", connection);
+          
             dt = new DataTable();
             adapter.Fill(dt);
             bs = new BindingSource();
@@ -32,7 +33,7 @@ namespace Voyage
             cbRoutes.ValueMember = "ID_Route";
             cbRoutes.DisplayMember = "sNameOfRoute";
         }
-        void LoadIdGroup(string name)
+       void LoadIdGroup(string name)
         {
             adapter = new SqlDataAdapter("SELECT ID_Group from tGroups where sName='"+name+"'", connection);
             dtGroup = new DataTable();

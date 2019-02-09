@@ -180,6 +180,7 @@ namespace Voyage
                 catch (SqlException ex)
                 {
                     if ((uint)ex.ErrorCode == 0x80004005)
+                    {
                         MessageBox.Show(
                         "В таблицах есть связанные записи",
                         "Ошибка",
@@ -187,8 +188,11 @@ namespace Voyage
                         MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1,
                         MessageBoxOptions.DefaultDesktopOnly);
+                    }
                     else
+                    {
                         MessageBox.Show(ex.ToString());
+                    }     
                 }
                 finally
                 {
@@ -233,17 +237,20 @@ namespace Voyage
                 {
                     if (i >= 4)
                     {
-                        if (i==4)
-                            workSheet.Cells[j + 2, i] = workSheet.Cells[j + 2, i].Value+" " + dgvGroups.Rows[j].Cells[i + 1].Value.ToString();
+                        if (i == 4)
+                        {
+                            workSheet.Cells[j + 2, i] = workSheet.Cells[j + 2, i].Value + " " + dgvGroups.Rows[j].Cells[i + 1].Value.ToString();
+                        }
                         else
+                        {
                             workSheet.Cells[j + 2, i].Value = dgvGroups.Rows[j].Cells[i + 1].Value.ToString();
-                            workSheet.Cells[j + 2, i].Font.Name = "Tahoma";
-                            workSheet.Cells[j + 2, i].Font.Size = "14";
-                            workSheet.Cells[j + 2, i].EntireColumn.AutoFit();
-                            workSheet.Cells[j + 2, i].EntireRow.AutoFit();
-                            workSheet.Cells[j + 2, i].VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-                            workSheet.Cells[j + 2, i].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-
+                        }
+                        workSheet.Cells[j + 2, i].Font.Name = "Tahoma";
+                        workSheet.Cells[j + 2, i].Font.Size = "14";
+                        workSheet.Cells[j + 2, i].EntireColumn.AutoFit();
+                        workSheet.Cells[j + 2, i].EntireRow.AutoFit();
+                        workSheet.Cells[j + 2, i].VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+                        workSheet.Cells[j + 2, i].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                     }
                     else
                     {
@@ -256,7 +263,6 @@ namespace Voyage
                         workSheet.Cells[j + 2, i + 1].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
                     }
                 }
-
             }
             excelApp.Visible = true;
             excelApp.UserControl = true;
