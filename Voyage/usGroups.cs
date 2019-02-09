@@ -67,6 +67,7 @@ namespace Voyage
                     catch (SqlException ex)
                     {
                         if ((uint)ex.ErrorCode == 0x80004005)
+                        {
                             MessageBox.Show(
                             "В таблицах есть связанные записи",
                             "Ошибка",
@@ -74,8 +75,12 @@ namespace Voyage
                             MessageBoxIcon.Error,
                             MessageBoxDefaultButton.Button1,
                             MessageBoxOptions.DefaultDesktopOnly);
+                        }
                         else
+                        {
                             MessageBox.Show(ex.ToString());
+                        }
+                            
                     }
                     finally
                     {
@@ -111,15 +116,16 @@ namespace Voyage
         //загрузка данных в DataGridView
         void LoadDataFromTables()
         {
-            adapter = new SqlDataAdapter("select tGroups.ID_Group, tGroups.sName, tRoutes.sNameOfRoute, tRoutes.sCountry, tWorkers.sName, tWorkers.sSurname, tRoutes.DayStart, tGroups.sCount " +
-            " FROM tGroups INNER JOIN tGroupsRoutes ON tGroups.ID_Group = tGroupsRoutes.ID_Group" +
-            " inner join tRoutes ON tGroupsRoutes.ID_Route = tRoutes.ID_Route" +
-            " inner join tWorkers on tRoutes.ID_Worker = tWorkers.ID_Worker", connection);
+            adapter = new SqlDataAdapter("select tGroups.ID_Group, tGroups.sName, " +
+            "tRoutes.sNameOfRoute, tRoutes.sCountry, tWorkers.sName, tWorkers.sSurname, " +
+            "tRoutes.DayStart, tGroups.sCount FROM tGroups INNER JOIN tGroupsRoutes ON " +
+            "tGroups.ID_Group = tGroupsRoutes.ID_Group inner join tRoutes ON " +
+            "tGroupsRoutes.ID_Route = tRoutes.ID_Route inner join tWorkers on " +
+            "tRoutes.ID_Worker = tWorkers.ID_Worker", connection);
             dt = new DataTable();
             adapter.Fill(dt);
             bs = new BindingSource();
             bs.DataSource = dt;
-
             dgvGroups.DataSource = bs;
             dgvGroups.Columns[0].Visible = false;
             dgvGroups.Columns[1].HeaderText = "Название группы";
@@ -140,11 +146,15 @@ namespace Voyage
             createNewGroup cng = new createNewGroup();
             cng.ShowDialog();
             LoadDataFromTables();
+            delNotes();
         }
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            EditApplic("editGroup");
+            int ID_SS = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Group"]);
+            createNewGroup cg = new createNewGroup(ID_SS);
+            cg.ShowDialog();
+            LoadDataFromTables();
         }
 
         private void workWithClientsBtn_Click(object sender, EventArgs e)

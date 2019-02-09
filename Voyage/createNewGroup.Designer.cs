@@ -122,6 +122,7 @@
             this.cbRoutes.Name = "cbRoutes";
             this.cbRoutes.Size = new System.Drawing.Size(357, 29);
             this.cbRoutes.TabIndex = 164;
+            this.cbRoutes.SelectionChangeCommitted += new System.EventHandler(this.cbRoutes_SelectionChangeCommitted);
             // 
             // label5
             // 
