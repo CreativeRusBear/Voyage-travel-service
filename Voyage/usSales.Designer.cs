@@ -41,6 +41,8 @@
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.label5 = new System.Windows.Forms.Label();
             this.nudCountOfPeople = new System.Windows.Forms.NumericUpDown();
+            this.lIdOfGroup = new System.Windows.Forms.Label();
+            this.lCountOfGroup = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -198,11 +200,32 @@
             0,
             0});
             // 
+            // lIdOfGroup
+            // 
+            this.lIdOfGroup.AutoSize = true;
+            this.lIdOfGroup.Location = new System.Drawing.Point(515, 175);
+            this.lIdOfGroup.Name = "lIdOfGroup";
+            this.lIdOfGroup.Size = new System.Drawing.Size(57, 21);
+            this.lIdOfGroup.TabIndex = 9;
+            this.lIdOfGroup.Text = "label3";
+            // 
+            // lCountOfGroup
+            // 
+            this.lCountOfGroup.AutoSize = true;
+            this.lCountOfGroup.Location = new System.Drawing.Point(46, 373);
+            this.lCountOfGroup.Name = "lCountOfGroup";
+            this.lCountOfGroup.Size = new System.Drawing.Size(57, 21);
+            this.lCountOfGroup.TabIndex = 10;
+            this.lCountOfGroup.Text = "label3";
+            // 
             // usSales
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.lCountOfGroup);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.lIdOfGroup);
             this.Controls.Add(this.nudCountOfPeople);
             this.Controls.Add(this.pictureBox4);
             this.Controls.Add(this.pictureBox3);
@@ -213,7 +236,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbNameOfRoute);
-            this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(5);
@@ -243,5 +265,7 @@
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown nudCountOfPeople;
+        private System.Windows.Forms.Label lIdOfGroup;
+        private System.Windows.Forms.Label lCountOfGroup;
     }
 }
