@@ -98,7 +98,7 @@ namespace Voyage
                 int ID_SS = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Group"]);
                 if (command == "editGroup")
                 {
-                    changeGroup cg = new changeGroup(ID_SS);
+                    createNewGroup cg = new createNewGroup(ID_SS);
                     cg.ShowDialog();
                 }
                 else
@@ -146,15 +146,11 @@ namespace Voyage
             createNewGroup cng = new createNewGroup();
             cng.ShowDialog();
             LoadDataFromTables();
-            delNotes();
         }
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            int ID_SS = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Group"]);
-            createNewGroup cg = new createNewGroup(ID_SS);
-            cg.ShowDialog();
-            LoadDataFromTables();
+            EditApplic("editGroup");
         }
 
         private void workWithClientsBtn_Click(object sender, EventArgs e)
@@ -162,6 +158,7 @@ namespace Voyage
             EditApplic("workWithClients");
         }
 
+        //удаление записи
         private void deleteBtn_Click(object sender, EventArgs e)
         {
             if (bs.Count > 0)
@@ -211,7 +208,8 @@ namespace Voyage
                 }
             }
         }
-
+       
+        //вывод данных в excel
         private void excelBtn_Click(object sender, EventArgs e)
         {
             Excel.Application excelApp = new Excel.Application();
@@ -276,6 +274,11 @@ namespace Voyage
             }
             excelApp.Visible = true;
             excelApp.UserControl = true;
+        }
+
+        private void reloadBtn_Click(object sender, EventArgs e)
+        {
+            LoadDataFromTables();
         }
     }
 }

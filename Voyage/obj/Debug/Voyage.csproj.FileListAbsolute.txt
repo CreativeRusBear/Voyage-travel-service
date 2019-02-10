@@ -39,7 +39,6 @@ F:\Github Projects\Voyage-travel-service\Voyage\bin\Debug\Voyage.exe.config
 F:\Github Projects\Voyage-travel-service\Voyage\bin\Debug\Voyage.exe
 F:\Github Projects\Voyage-travel-service\Voyage\bin\Debug\Voyage.pdb
 F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.csproj.ResolveComReference.cache
-F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.changeGroup.resources
 F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.ClientsWithSales.resources
 F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.createNewGroup.resources
 F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.fAuthorization.resources

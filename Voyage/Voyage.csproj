@@ -47,12 +47,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="changeGroup.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="changeGroup.Designer.cs">
-      <DependentUpon>changeGroup.cs</DependentUpon>
-    </Compile>
     <Compile Include="CircularPictureBoxAPI.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -164,9 +158,6 @@
     <Compile Include="workWithClients.Designer.cs">
       <DependentUpon>workWithClients.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="changeGroup.resx">
-      <DependentUpon>changeGroup.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="ClientsWithSales.resx">
       <DependentUpon>ClientsWithSales.cs</DependentUpon>
     </EmbeddedResource>

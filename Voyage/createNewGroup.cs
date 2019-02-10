@@ -36,6 +36,7 @@ namespace Voyage
             this.ID_Group = ID_Group;
             statrterSettings();
             loadData(ID_Group);
+            label1.Text = "Изменить группу";
         }
 
         //стартовые настройки
