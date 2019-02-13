@@ -65,7 +65,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(508, 165);
+            this.pictureBox1.Location = new System.Drawing.Point(544, 165);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(477, 484);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -202,8 +202,9 @@
             // 
             // lIdOfGroup
             // 
+            this.lIdOfGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lIdOfGroup.AutoSize = true;
-            this.lIdOfGroup.Location = new System.Drawing.Point(515, 175);
+            this.lIdOfGroup.Location = new System.Drawing.Point(656, 181);
             this.lIdOfGroup.Name = "lIdOfGroup";
             this.lIdOfGroup.Size = new System.Drawing.Size(57, 21);
             this.lIdOfGroup.TabIndex = 9;
@@ -211,8 +212,9 @@
             // 
             // lCountOfGroup
             // 
+            this.lCountOfGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lCountOfGroup.AutoSize = true;
-            this.lCountOfGroup.Location = new System.Drawing.Point(46, 373);
+            this.lCountOfGroup.Location = new System.Drawing.Point(540, 181);
             this.lCountOfGroup.Name = "lCountOfGroup";
             this.lCountOfGroup.Size = new System.Drawing.Size(57, 21);
             this.lCountOfGroup.TabIndex = 10;
@@ -223,7 +225,6 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.lCountOfGroup);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.lIdOfGroup);
             this.Controls.Add(this.nudCountOfPeople);
@@ -237,6 +238,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.cbNameOfRoute);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.lCountOfGroup);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "usSales";

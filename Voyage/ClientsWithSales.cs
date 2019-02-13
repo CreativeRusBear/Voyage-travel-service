@@ -16,10 +16,17 @@ namespace Voyage
         {
             InitializeComponent();
             this.ForeColor = Color.FromArgb(0, 71, 160);
-            panel1.BackColor = Color.FromArgb(0, 71, 160);
-            panel2.BackColor = Color.FromArgb(0, 71, 160);
-            panel3.BackColor = Color.FromArgb(0, 71, 160);
-            panel4.BackColor = Color.FromArgb(0, 71, 160);
+            topPanel.BackColor = Color.FromArgb(0, 71, 160);
+        }
+
+        private void ClientsWithSales_Load(object sender, EventArgs e)
+        {
+            formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.Blend);
+        }
+
+        private void shutdownBtn_Click(object sender, EventArgs e)
+        {
+            this.Dispose();
         }
     }
 }

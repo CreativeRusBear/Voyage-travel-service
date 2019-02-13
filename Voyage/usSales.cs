@@ -25,6 +25,7 @@ namespace Voyage
             LoadDataFromTable();
             this.ForeColor = Color.FromArgb(0, 71, 160);
         }
+
         //начальная настройка для отображения и работы с данными
         void starterSettings()
         {
@@ -36,19 +37,20 @@ namespace Voyage
             $"предоставляется скидка {Convert.ToString(((DataRowView)this.bs.Current).Row["Sale"])}%" +
             $" каждому";
         }
+
         private void addNewClientsWithSales_Click(object sender, EventArgs e)
         {
             SqlCommand command = new SqlCommand("SELECT Count(ID_Client) from tGroupsClients where ID_Group=" + lIdOfGroup.Text, connection);
             connection.Open();
-            int freeCount = Convert.ToInt32(lCountOfGroup.Text) - (int)command.ExecuteScalar() - Convert.ToInt32(nudCountOfPeople.Value);
+            int freeCount = Convert.ToInt32(lCountOfGroup.Text) - Convert.ToInt32(command.ExecuteScalar()) - Convert.ToInt32(nudCountOfPeople.Value);
             if (freeCount < 0)
             {
                 MessageBox.Show("Извините, на данный момент все свободные места закончились", "Лимит свободных мест", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             else
             {
-               /* DataRouteGroupForSale groupRoute = new DataRouteGroupForSale(Convert.ToInt32(cbNameOfRoute.SelectedValue), Convert.ToInt32(nudCountOfPeople.Value));
-                groupRoute.ShowDialog();*/
+               ClientsWithSales cws = new ClientsWithSales();
+                cws.ShowDialog();
             }
             connection.Close();
         }

@@ -61,4 +61,3 @@ F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.Registration.re
 F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.csprojAssemblyReference.cache
 F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.usSettings.resources
 F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.usUsers.resources
-F:\Github Projects\Voyage-travel-service\Voyage\obj\Debug\Voyage.DataRouteGroupForSale.resources
