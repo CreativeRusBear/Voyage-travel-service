@@ -56,7 +56,7 @@ namespace Voyage
         {
             for (int i=0; i < dgvGroups.RowCount; i++)
             {
-                if (DateTime.Now >= Convert.ToDateTime(dgvGroups[6, i].Value))
+                if (DateTime.Now >= Convert.ToDateTime(dgvGroups[5, i].Value))
                 {
                     int rowPosition = bs.Position;
                     int delId = Convert.ToInt32(dgvGroups[0, i].Value);
@@ -117,7 +117,7 @@ namespace Voyage
         void LoadDataFromTables()
         {
             adapter = new SqlDataAdapter("select tGroups.ID_Group, tGroups.sName, " +
-            "tRoutes.sNameOfRoute, tRoutes.sCountry, tWorkers.sName, tWorkers.sSurname, " +
+            "tRoutes.sNameOfRoute, tRoutes.sCountry, concat(tWorkers.sName,' ', tWorkers.sSurname) as FIO, " +
             "tRoutes.DayStart, tGroups.sCount FROM tGroups INNER JOIN tGroupsRoutes ON " +
             "tGroups.ID_Group = tGroupsRoutes.ID_Group inner join tRoutes ON " +
             "tGroupsRoutes.ID_Route = tRoutes.ID_Route inner join tWorkers on " +
@@ -131,10 +131,10 @@ namespace Voyage
             dgvGroups.Columns[1].HeaderText = "Название группы";
             dgvGroups.Columns[2].HeaderText = "Название маршрута";
             dgvGroups.Columns[3].HeaderText = "Страна пребывания";
-            dgvGroups.Columns[4].HeaderText = "Имя представителя";
-            dgvGroups.Columns[5].HeaderText = "Фамилия представителя";
-            dgvGroups.Columns[6].HeaderText = "Дата вылета";
-            dgvGroups.Columns[7].HeaderText = "Общ. кол-во мест";
+            dgvGroups.Columns[4].HeaderText = "Имя и фам. представителя";
+            //dgvGroups.Columns[5].HeaderText = "Фамилия представителя";
+            dgvGroups.Columns[5].HeaderText = "Дата вылета";
+            dgvGroups.Columns[6].HeaderText = "Общ. кол-во мест";
             dgvGroups.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgvGroups.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dgvGroups.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
@@ -243,25 +243,7 @@ namespace Voyage
             {
                 for (int j = 0; j < dgvGroups.RowCount; j++)
                 {
-                    if (i >= 4)
-                    {
-                        if (i == 4)
-                        {
-                            workSheet.Cells[j + 2, i] = workSheet.Cells[j + 2, i].Value + " " + dgvGroups.Rows[j].Cells[i + 1].Value.ToString();
-                        }
-                        else
-                        {
-                            workSheet.Cells[j + 2, i].Value = dgvGroups.Rows[j].Cells[i + 1].Value.ToString();
-                        }
-                        workSheet.Cells[j + 2, i].Font.Name = "Tahoma";
-                        workSheet.Cells[j + 2, i].Font.Size = "14";
-                        workSheet.Cells[j + 2, i].EntireColumn.AutoFit();
-                        workSheet.Cells[j + 2, i].EntireRow.AutoFit();
-                        workSheet.Cells[j + 2, i].VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
-                        workSheet.Cells[j + 2, i].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                    }
-                    else
-                    {
+                    
                         workSheet.Cells[j + 2, i + 1] = dgvGroups.Rows[j].Cells[i + 1].Value.ToString();
                         workSheet.Cells[j + 2, i + 1].Font.Name = "Tahoma";
                         workSheet.Cells[j + 2, i + 1].Font.Size = "14";
@@ -269,7 +251,6 @@ namespace Voyage
                         workSheet.Cells[j + 2, i + 1].EntireRow.AutoFit();
                         workSheet.Cells[j + 2, i + 1].VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
                         workSheet.Cells[j + 2, i + 1].HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
-                    }
                 }
             }
             excelApp.Visible = true;
