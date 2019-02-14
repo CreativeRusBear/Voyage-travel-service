@@ -49,7 +49,7 @@ namespace Voyage
             }
             else
             {
-               ClientsWithSales cws = new ClientsWithSales();
+                ClientsWithSales cws = new ClientsWithSales(Convert.ToInt32(lIdOfGroup.Text), Convert.ToInt32(nudCountOfPeople.Value));
                 cws.ShowDialog();
             }
             connection.Close();
@@ -69,6 +69,8 @@ namespace Voyage
             lIdOfGroup.DataBindings.Add(new Binding("Text", bs, "ID_Group"));
             lCountOfGroup.DataBindings.Clear();
             lCountOfGroup.DataBindings.Add(new Binding("Text", bs, "sCount"));
+            lAbroadDoc.DataBindings.Clear();
+            lAbroadDoc.DataBindings.Add(new Binding("Text", bs, "sCount"));
         }
         
         private void cbNameOfRoute_DropDownClosed(object sender, EventArgs e)

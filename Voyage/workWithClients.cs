@@ -45,11 +45,11 @@ namespace Voyage
             SqlDataAdapter allClientsAdapter;
             if (country == "Россия")
             {
-                allClientsAdapter = new SqlDataAdapter("Select ID_Client, sName, sSurname from tClients Order By sSurname", connection);
+                allClientsAdapter = new SqlDataAdapter("Select ID_Client, concat(sName,' ', sSurname) as FIO from tClients Order By sSurname", connection);
             }
             else
             {
-                allClientsAdapter = new SqlDataAdapter("Select ID_Client, sName, sSurname from tClients where AbroadDoc=1 Order By sSurname ", connection);
+                allClientsAdapter = new SqlDataAdapter("Select ID_Client, concat(sName,' ', sSurname) as FIO from tClients where AbroadDoc=1 Order By sSurname ", connection);
             }
             dt = new DataTable();
             allClientsAdapter.Fill(dt);
@@ -57,7 +57,7 @@ namespace Voyage
             bs.DataSource = dt;
             cbAllClients.DataSource = dt;
             cbAllClients.ValueMember = "ID_Client";
-            cbAllClients.DisplayMember = "sSurname";
+            cbAllClients.DisplayMember = "FIO";
         }
 
         private void shutdownBtn_Click(object sender, EventArgs e)
@@ -155,10 +155,10 @@ namespace Voyage
             formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.Center);
         }
 
-        //загрузка добавленных пунктов
+        //загрузка добавленных клиентов
         void LoadDataFromGroupsClients()
         {
-            adapter = new SqlDataAdapter("SELECT tGroupsClients.ID_GroupsClients, tGroupsClients.ID_Client, tClients.sName, tClients.sSurname FROM tGroupsClients INNER JOIN tGroups ON tGroups.ID_Group = tGroupsClients.ID_Group" +
+            adapter = new SqlDataAdapter("SELECT tGroupsClients.ID_GroupsClients, tGroupsClients.ID_Client, concat(tClients.sName,' ', tClients.sSurname) as FIO FROM tGroupsClients INNER JOIN tGroups ON tGroups.ID_Group = tGroupsClients.ID_Group" +
        " inner join tClients ON tGroupsClients.ID_Client = tClients.ID_Client WHERE tGroupsClients.ID_Group=" + ID_group, connection);
             dtForAddClients = new DataTable();
             adapter.Fill(dtForAddClients);
@@ -166,7 +166,7 @@ namespace Voyage
             bsForAddClients.DataSource = dtForAddClients;
             cbClientsInThisGroup.DataSource = bsForAddClients;
             cbClientsInThisGroup.ValueMember = "ID_Client";
-            cbClientsInThisGroup.DisplayMember = "sSurname";
+            cbClientsInThisGroup.DisplayMember = "FIO";
         }
 
         void workWithFreePlaces()

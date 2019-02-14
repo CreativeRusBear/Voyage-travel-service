@@ -23,12 +23,12 @@ namespace Voyage
 
         void loadWorkersWithoutAbroadDoc()
         {
-            adapter = new SqlDataAdapter("SELECT ID_Worker, sName, sSurname from tWorkers Order by sName, sSurname", connection);
+            adapter = new SqlDataAdapter("SELECT ID_Worker, concat (sName,' ',sSurname) as FIO from tWorkers Order by sName, sSurname", connection);
         }
 
         void loadWorkersWithAbroadDoc()
         {
-            adapter = new SqlDataAdapter("SELECT ID_Worker, sName, sSurname from tWorkers WHERE AbroadDoc=1 Order by sName, sSurname", connection);
+            adapter = new SqlDataAdapter("SELECT ID_Worker, concat (sName,' ',sSurname) as FIO from tWorkers WHERE AbroadDoc=1 Order by sName, sSurname", connection);
         }
 
         //загрузка представителей компании
@@ -42,7 +42,7 @@ namespace Voyage
             bsForWorkers.DataSource = dtForWorkers;
             cbWorker.DataSource = bsForWorkers;
             cbWorker.ValueMember = "ID_Worker";
-            cbWorker.DisplayMember = "sSurname";/*добавить sName*/
+            cbWorker.DisplayMember = "FIO";/*добавить sName*/
             if (bsForRoutes.Count>0)
             cbWorker.SelectedValue = Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Worker"]);/*отмечает выбранный эл-т*/
         }
