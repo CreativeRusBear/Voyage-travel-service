@@ -49,7 +49,12 @@ namespace Voyage
             }
             else
             {
-                ClientsWithSales cws = new ClientsWithSales(Convert.ToInt32(lIdOfGroup.Text), Convert.ToInt32(nudCountOfPeople.Value));
+                int AbroadDoc = 0;
+                if (lCountry.Text != "Россия")
+                {
+                    AbroadDoc = 1;
+                } 
+                ClientsWithSales cws = new ClientsWithSales(Convert.ToInt32(lIdOfGroup.Text), Convert.ToInt32(nudCountOfPeople.Value), AbroadDoc);
                 cws.ShowDialog();
             }
             connection.Close();
@@ -57,7 +62,7 @@ namespace Voyage
 
         void LoadDataFromTable()
         {
-            adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tRoutes.sNameOfRoute, tRoutes.Sale, " +
+            adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tRoutes.sCountry, tRoutes.sNameOfRoute, tRoutes.Sale, " +
                 "tGroups.ID_Group, tGroups.sCount, tGroups.sName FROM tGroups INNER JOIN " +
                 "tGroupsRoutes ON tGroups.ID_Group =tGroupsRoutes.ID_Group " +
                 "inner join tRoutes ON tGroupsRoutes.ID_Route = tRoutes.ID_Route", connection);
@@ -69,8 +74,8 @@ namespace Voyage
             lIdOfGroup.DataBindings.Add(new Binding("Text", bs, "ID_Group"));
             lCountOfGroup.DataBindings.Clear();
             lCountOfGroup.DataBindings.Add(new Binding("Text", bs, "sCount"));
-            lAbroadDoc.DataBindings.Clear();
-            lAbroadDoc.DataBindings.Add(new Binding("Text", bs, "sCount"));
+            lCountry.DataBindings.Clear();
+            lCountry.DataBindings.Add(new Binding("Text", bs, "sCountry"));
         }
         
         private void cbNameOfRoute_DropDownClosed(object sender, EventArgs e)

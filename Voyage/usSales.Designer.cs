@@ -43,7 +43,7 @@
             this.nudCountOfPeople = new System.Windows.Forms.NumericUpDown();
             this.lIdOfGroup = new System.Windows.Forms.Label();
             this.lCountOfGroup = new System.Windows.Forms.Label();
-            this.lAbroadDoc = new System.Windows.Forms.Label();
+            this.lCountry = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -66,7 +66,7 @@
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(508, 165);
+            this.pictureBox1.Location = new System.Drawing.Point(508, 181);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(477, 484);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -205,7 +205,7 @@
             // 
             this.lIdOfGroup.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lIdOfGroup.AutoSize = true;
-            this.lIdOfGroup.Location = new System.Drawing.Point(656, 181);
+            this.lIdOfGroup.Location = new System.Drawing.Point(548, 218);
             this.lIdOfGroup.Name = "lIdOfGroup";
             this.lIdOfGroup.Size = new System.Drawing.Size(57, 21);
             this.lIdOfGroup.TabIndex = 9;
@@ -221,15 +221,15 @@
             this.lCountOfGroup.TabIndex = 10;
             this.lCountOfGroup.Text = "label3";
             // 
-            // lAbroadDoc
+            // lCountry
             // 
-            this.lAbroadDoc.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.lAbroadDoc.AutoSize = true;
-            this.lAbroadDoc.Location = new System.Drawing.Point(560, 218);
-            this.lAbroadDoc.Name = "lAbroadDoc";
-            this.lAbroadDoc.Size = new System.Drawing.Size(57, 21);
-            this.lAbroadDoc.TabIndex = 11;
-            this.lAbroadDoc.Text = "label3";
+            this.lCountry.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.lCountry.AutoSize = true;
+            this.lCountry.Location = new System.Drawing.Point(548, 264);
+            this.lCountry.Name = "lCountry";
+            this.lCountry.Size = new System.Drawing.Size(57, 21);
+            this.lCountry.TabIndex = 12;
+            this.lCountry.Text = "label3";
             // 
             // usSales
             // 
@@ -250,7 +250,7 @@
             this.Controls.Add(this.cbNameOfRoute);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lCountOfGroup);
-            this.Controls.Add(this.lAbroadDoc);
+            this.Controls.Add(this.lCountry);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "usSales";
@@ -281,6 +281,6 @@
         private System.Windows.Forms.NumericUpDown nudCountOfPeople;
         private System.Windows.Forms.Label lIdOfGroup;
         private System.Windows.Forms.Label lCountOfGroup;
-        private System.Windows.Forms.Label lAbroadDoc;
+        private System.Windows.Forms.Label lCountry;
     }
 }

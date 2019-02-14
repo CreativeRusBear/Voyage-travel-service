@@ -18,27 +18,36 @@ namespace Voyage
         DataTable dt, dtForAddClients;
         SqlDataAdapter adapter;
         BindingSource bs, bsForAddClients;
-        int ID = 0, countOfClients=0;
+        int ID = 0, countOfClients=0, abroadDoc=0;
 
         public ClientsWithSales()
         {
             InitializeComponent();
         }
 
-        public ClientsWithSales(int ID, int countOfClients)
+        public ClientsWithSales(int ID, int countOfClients, int abroadDoc)
         {
             InitializeComponent();
             this.ID = ID;
             this.countOfClients = countOfClients;
+            this.abroadDoc = abroadDoc;
             this.ForeColor = Color.FromArgb(0, 71, 160);
             topPanel.BackColor = Color.FromArgb(0, 71, 160);
-           // LoadDataFromClients();
-            //MessageBox.Show($"{this.ID} {this.countOfClients}");
+            LoadDataFromClients();
+           // MessageBox.Show($"{this.ID} {this.countOfClients} {this.abroadDoc}");
         }
 
-        /*void LoadDataFromClients()
+        void LoadDataFromClients()
         {
-            adapter = new SqlDataAdapter("SELECT tClients.ID_Client,  CONCAT(sName,' ',sSurname) as FIO from tClients LEFT JOIN tGroupsClients ON  tClients.ID_Client=tGroupsClients.ID_Client WHERE tGroupsClients.ID_Client IS NULL", connection);
+            if (this.abroadDoc==1)
+            {
+                //adapter = new SqlDataAdapter("SELECT tClients.ID_Client,  CONCAT(sName,' ',sSurname) as FIO from tClients LEFT JOIN tGroupsClients ON  tClients.ID_Client=tGroupsClients.ID_Client WHERE tGroupsClients.ID_Client IS NULL", connection);
+                adapter = new SqlDataAdapter("SELECT tClients.ID_Client,  CONCAT(sName,' ',sSurname) as FIO from tClients Where AbroadDoc=1", connection);
+            }
+            else
+            {
+                adapter = new SqlDataAdapter("SELECT tClients.ID_Client,  CONCAT(sName,' ',sSurname) as FIO from tClients", connection);
+            }
             dt = new DataTable();
             adapter.Fill(dt);
             bs = new BindingSource();
@@ -46,7 +55,7 @@ namespace Voyage
             cbAllClients.DataSource = bs;
             cbAllClients.ValueMember = "ID_Client";
             cbAllClients.DisplayMember = "FIO";
-        }*/
+        }
 
         private void ClientsWithSales_Load(object sender, EventArgs e)
         {
