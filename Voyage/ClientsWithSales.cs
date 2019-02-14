@@ -34,19 +34,22 @@ namespace Voyage
             this.ForeColor = Color.FromArgb(0, 71, 160);
             topPanel.BackColor = Color.FromArgb(0, 71, 160);
             LoadDataFromClients();
-           // MessageBox.Show($"{this.ID} {this.countOfClients} {this.abroadDoc}");
         }
 
         void LoadDataFromClients()
         {
             if (this.abroadDoc==1)
             {
-                //adapter = new SqlDataAdapter("SELECT tClients.ID_Client,  CONCAT(sName,' ',sSurname) as FIO from tClients LEFT JOIN tGroupsClients ON  tClients.ID_Client=tGroupsClients.ID_Client WHERE tGroupsClients.ID_Client IS NULL", connection);
-                adapter = new SqlDataAdapter("SELECT tClients.ID_Client,  CONCAT(sName,' ',sSurname) as FIO from tClients Where AbroadDoc=1", connection);
+                adapter = new SqlDataAdapter("Select tClients.ID_Client, concat (sName,' ', sSurname) as " +
+                    "FIO from tClients LEFT JOIN tGroupsClients ON (tClients.ID_Client=tGroupsClients.ID_Client " +
+                    "and tGroupsClients.ID_Group="+this.ID+ ") where (tClients.AbroadDoc=1 and " +
+                    "tGroupsClients.ID_Client IS NULL)", connection);
             }
             else
             {
-                adapter = new SqlDataAdapter("SELECT tClients.ID_Client,  CONCAT(sName,' ',sSurname) as FIO from tClients", connection);
+                adapter = new SqlDataAdapter("Select tClients.ID_Client, concat (sName,' ', sSurname) as " +
+                    "FIO from tClients LEFT JOIN tGroupsClients ON (tClients.ID_Client=tGroupsClients.ID_Client " +
+                    "and tGroupsClients.ID_Group=" + this.ID + ") where (tGroupsClients.ID_Client IS NULL)", connection);
             }
             dt = new DataTable();
             adapter.Fill(dt);
