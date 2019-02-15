@@ -163,9 +163,6 @@
         tne9LG0rtmIrtmIrtmIrtvJ6Fju7/wO/FjyiIoI7EAAAAABJRU5ErkJggg==
 </value>
   </data>
-  <metadata name="dragComponent1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAjQAAAJ+CAYAAACkSJoJAAAAIGNIUk0AAHolAACAgwAA+f8AAIDpAAB1
@@ -1111,4 +1108,7 @@
         vALZKNGgzxPQv5Eqb4b4G7aRnoJEIglg2P/7/6G2WgaySH+sAAAAAElFTkSuQmCC
 </value>
   </data>
+  <metadata name="dragComponent1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

@@ -19,10 +19,41 @@ namespace Voyage
         SqlDataAdapter adapter;
         BindingSource bs, bsForAddClients;
         int ID = 0, countOfClients=0, abroadDoc=0;
+        List<int> ID_User = new List<int>();
 
         public ClientsWithSales()
         {
             InitializeComponent();
+        }
+
+        private void addPunct_Click(object sender, EventArgs e)
+        {
+            if (ID_User.Count != this.countOfClients)
+            {
+                bool add = false;
+                if (cbClientsWithSales.Items.Count > 0)
+                {
+                    for (int i = 0; i < cbClientsWithSales.Items.Count; i++)
+                    {
+                        if (cbAllClients.Text == cbClientsWithSales.Items[i].ToString()) add = true;
+                    }
+                }
+                if (add == false)
+                {
+                    ID_User.Add(Convert.ToInt32(cbAllClients.SelectedValue));
+                    cbClientsWithSales.Items.Add(cbAllClients.Text);
+                    cbClientsWithSales.SelectedItem = cbAllClients.Text;
+                    if (ID_User.Count == 3)
+                    {
+                        addNewClientsWithSales.Enabled = true;
+                    }
+                }
+            }
+        }
+
+        private void addNewClientsWithSales_Click(object sender, EventArgs e)
+        {
+
         }
 
         public ClientsWithSales(int ID, int countOfClients, int abroadDoc)
