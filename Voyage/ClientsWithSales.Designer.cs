@@ -140,6 +140,7 @@
             this.delPunct.TabIndex = 220;
             this.delPunct.Text = "-";
             this.delPunct.UseVisualStyleBackColor = false;
+            this.delPunct.Click += new System.EventHandler(this.delPunct_Click);
             // 
             // addPunct
             // 

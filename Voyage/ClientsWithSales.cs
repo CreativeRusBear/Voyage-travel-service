@@ -25,7 +25,18 @@ namespace Voyage
         {
             InitializeComponent();
         }
+        public ClientsWithSales(int ID, int countOfClients, int abroadDoc)
+        {
+            InitializeComponent();
+            this.ID = ID;
+            this.countOfClients = countOfClients;
+            this.abroadDoc = abroadDoc;
+            this.ForeColor = Color.FromArgb(0, 71, 160);
+            topPanel.BackColor = Color.FromArgb(0, 71, 160);
+            LoadDataFromClients();
+        }
 
+        //добавить клиента в список
         private void addPunct_Click(object sender, EventArgs e)
         {
             if (ID_User.Count != this.countOfClients)
@@ -43,7 +54,7 @@ namespace Voyage
                     ID_User.Add(Convert.ToInt32(cbAllClients.SelectedValue));
                     cbClientsWithSales.Items.Add(cbAllClients.Text);
                     cbClientsWithSales.SelectedItem = cbAllClients.Text;
-                    if (ID_User.Count == 3)
+                    if (ID_User.Count == this.countOfClients)
                     {
                         addNewClientsWithSales.Enabled = true;
                     }
@@ -51,22 +62,49 @@ namespace Voyage
             }
         }
 
+        //добавление клиентов со сидкой в бд
         private void addNewClientsWithSales_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                for (int i = 0; i < this.ID_User.Count; i++)
+                {
+                    connection.Open();
+                    SqlCommand commandInsert = new SqlCommand("INSERT INTO [tGroupsClients]" +
+                          " VALUES (@ID_Group, @ID_Client)", connection);
+                    commandInsert.Parameters.AddWithValue("@ID_Group", this.ID);
+                    commandInsert.Parameters.AddWithValue("@ID_Client", this.ID_User[i]);
+                    commandInsert.ExecuteNonQuery();
+                    connection.Close();
+                }
+                MessageBox.Show("Скидка успешно оформлена");
+                this.Dispose();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
-        public ClientsWithSales(int ID, int countOfClients, int abroadDoc)
+        //удалить клиента из списока
+        private void delPunct_Click(object sender, EventArgs e)
         {
-            InitializeComponent();
-            this.ID = ID;
-            this.countOfClients = countOfClients;
-            this.abroadDoc = abroadDoc;
-            this.ForeColor = Color.FromArgb(0, 71, 160);
-            topPanel.BackColor = Color.FromArgb(0, 71, 160);
-            LoadDataFromClients();
+            if (cbClientsWithSales.Items.Count > 0)
+            {
+                ID_User.RemoveAt(cbClientsWithSales.SelectedIndex);
+                cbClientsWithSales.Items.RemoveAt(cbClientsWithSales.SelectedIndex);
+                if (ID_User.Count != this.countOfClients)
+                {
+                    addNewClientsWithSales.Enabled = false;
+                }
+                if (cbClientsWithSales.Items.Count > 0)
+                {
+                    cbClientsWithSales.SelectedIndex = 0;
+                }
+            }
         }
 
+        //загрузка клиентов
         void LoadDataFromClients()
         {
             if (this.abroadDoc==1)
