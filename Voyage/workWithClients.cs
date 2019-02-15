@@ -81,9 +81,10 @@ namespace Voyage
                 if (add == false)
                 {
                     SqlCommand commandInsert = new SqlCommand("INSERT INTO [tGroupsClients]" +
-                        " VALUES (@ID_Group, @ID_Client)", connection);
+                        " VALUES (@ID_Group, @ID_Client, @Sale)", connection);
                     commandInsert.Parameters.AddWithValue("@ID_Group", ID_group);
                     commandInsert.Parameters.AddWithValue("@ID_Client", Convert.ToInt32(cbAllClients.SelectedValue));
+                    commandInsert.Parameters.AddWithValue("@Sale", false);
                     commandInsert.ExecuteNonQuery();
                     MessageBox.Show("Клиент успешно добавлен");
                 }
