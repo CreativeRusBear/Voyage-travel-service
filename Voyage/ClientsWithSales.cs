@@ -15,9 +15,9 @@ namespace Voyage
     public partial class ClientsWithSales : Form
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
-        DataTable dt, dtForAddClients;
+        DataTable dt;
         SqlDataAdapter adapter;
-        BindingSource bs, bsForAddClients;
+        BindingSource bs;
         int ID = 0, countOfClients=0, abroadDoc=0;
         List<int> ID_User = new List<int>();
 

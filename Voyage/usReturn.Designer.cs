@@ -33,9 +33,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.comboBox3 = new System.Windows.Forms.ComboBox();
+            this.cbRoutes = new System.Windows.Forms.ComboBox();
+            this.cbClients = new System.Windows.Forms.ComboBox();
+            this.cbCauses = new System.Windows.Forms.ComboBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.addNewClientsWithSales = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -82,32 +82,44 @@
             this.label4.TabIndex = 1;
             this.label4.Text = "Причина возврата";
             // 
-            // comboBox1
+            // cbRoutes
             // 
-            this.comboBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(47, 213);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(150, 29);
-            this.comboBox1.TabIndex = 2;
+            this.cbRoutes.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbRoutes.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbRoutes.FormattingEnabled = true;
+            this.cbRoutes.Location = new System.Drawing.Point(47, 213);
+            this.cbRoutes.Name = "cbRoutes";
+            this.cbRoutes.Size = new System.Drawing.Size(255, 29);
+            this.cbRoutes.TabIndex = 2;
             // 
-            // comboBox2
+            // cbClients
             // 
-            this.comboBox2.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(47, 371);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(150, 29);
-            this.comboBox2.TabIndex = 2;
+            this.cbClients.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbClients.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbClients.FormattingEnabled = true;
+            this.cbClients.Location = new System.Drawing.Point(47, 371);
+            this.cbClients.Name = "cbClients";
+            this.cbClients.Size = new System.Drawing.Size(255, 29);
+            this.cbClients.TabIndex = 2;
             // 
-            // comboBox3
+            // cbCauses
             // 
-            this.comboBox3.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.comboBox3.FormattingEnabled = true;
-            this.comboBox3.Location = new System.Drawing.Point(47, 536);
-            this.comboBox3.Name = "comboBox3";
-            this.comboBox3.Size = new System.Drawing.Size(150, 29);
-            this.comboBox3.TabIndex = 2;
+            this.cbCauses.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.cbCauses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbCauses.FormattingEnabled = true;
+            this.cbCauses.Items.AddRange(new object[] {
+            "Отмена или задержка рейса",
+            "Отказ в выдаче шенгенской визы",
+            "Задолжность",
+            "Изменения перевозчиком маршрута перевозки",
+            "Задержка пассажира в аэропорту из-за продолжительности проведения досмотра",
+            "Внезапная болезнь пассажира",
+            "Добровольный отказ",
+            "Другое"});
+            this.cbCauses.Location = new System.Drawing.Point(47, 536);
+            this.cbCauses.Name = "cbCauses";
+            this.cbCauses.Size = new System.Drawing.Size(464, 29);
+            this.cbCauses.TabIndex = 2;
             // 
             // pictureBox1
             // 
@@ -133,6 +145,7 @@
             this.addNewClientsWithSales.Text = "     Вернуть деньги";
             this.addNewClientsWithSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewClientsWithSales.UseVisualStyleBackColor = true;
+            this.addNewClientsWithSales.Click += new System.EventHandler(this.addNewClientsWithSales_Click);
             // 
             // usReturn
             // 
@@ -141,9 +154,9 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.addNewClientsWithSales);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.comboBox3);
-            this.Controls.Add(this.comboBox2);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.cbCauses);
+            this.Controls.Add(this.cbClients);
+            this.Controls.Add(this.cbRoutes);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
@@ -164,9 +177,9 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.ComboBox comboBox3;
+        private System.Windows.Forms.ComboBox cbRoutes;
+        private System.Windows.Forms.ComboBox cbClients;
+        private System.Windows.Forms.ComboBox cbCauses;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Button addNewClientsWithSales;
     }
