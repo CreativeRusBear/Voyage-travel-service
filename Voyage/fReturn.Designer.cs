@@ -32,14 +32,14 @@
             this.topPanel = new System.Windows.Forms.Panel();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.shutdownBtn = new System.Windows.Forms.Button();
-            this.dragComponent1 = new Voyage.DragComponent();
             this.cbCauses = new System.Windows.Forms.ComboBox();
             this.cbClients = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.addNewClientsWithSales = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
+            this.returnBtn = new System.Windows.Forms.Button();
+            this.dragComponent1 = new Voyage.DragComponent();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -81,10 +81,6 @@
             this.shutdownBtn.TabIndex = 12;
             this.shutdownBtn.UseVisualStyleBackColor = true;
             this.shutdownBtn.Click += new System.EventHandler(this.shutdownBtn_Click);
-            // 
-            // dragComponent1
-            // 
-            this.dragComponent1.SelectControl = this.topPanel;
             // 
             // cbCauses
             // 
@@ -135,21 +131,6 @@
             this.label1.TabIndex = 247;
             this.label1.Text = "Выберите клиента, которому необходимо вернуть деньги";
             // 
-            // addNewClientsWithSales
-            // 
-            this.addNewClientsWithSales.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.addNewClientsWithSales.Enabled = false;
-            this.addNewClientsWithSales.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addNewClientsWithSales.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addNewClientsWithSales.Image = ((System.Drawing.Image)(resources.GetObject("addNewClientsWithSales.Image")));
-            this.addNewClientsWithSales.Location = new System.Drawing.Point(270, 674);
-            this.addNewClientsWithSales.Name = "addNewClientsWithSales";
-            this.addNewClientsWithSales.Size = new System.Drawing.Size(201, 74);
-            this.addNewClientsWithSales.TabIndex = 243;
-            this.addNewClientsWithSales.Text = "     Вернуть";
-            this.addNewClientsWithSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.addNewClientsWithSales.UseVisualStyleBackColor = true;
-            // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -172,23 +153,43 @@
             this.label2.TabIndex = 244;
             this.label2.Text = "Работа с клиентами";
             // 
+            // returnBtn
+            // 
+            this.returnBtn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.returnBtn.Enabled = false;
+            this.returnBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.returnBtn.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.returnBtn.Image = ((System.Drawing.Image)(resources.GetObject("returnBtn.Image")));
+            this.returnBtn.Location = new System.Drawing.Point(268, 671);
+            this.returnBtn.Name = "returnBtn";
+            this.returnBtn.Size = new System.Drawing.Size(190, 74);
+            this.returnBtn.TabIndex = 250;
+            this.returnBtn.Text = "     Вернуть";
+            this.returnBtn.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.returnBtn.UseVisualStyleBackColor = true;
+            this.returnBtn.Click += new System.EventHandler(this.returnBtn_Click);
+            // 
+            // dragComponent1
+            // 
+            this.dragComponent1.SelectControl = this.topPanel;
+            // 
             // fReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(733, 772);
+            this.Controls.Add(this.returnBtn);
             this.Controls.Add(this.cbCauses);
             this.Controls.Add(this.cbClients);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.addNewClientsWithSales);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.topPanel);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "fReturn";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "fReturn";
@@ -210,8 +211,8 @@
         private System.Windows.Forms.ComboBox cbClients;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button addNewClientsWithSales;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button returnBtn;
     }
 }

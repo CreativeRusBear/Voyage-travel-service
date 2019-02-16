@@ -15,62 +15,51 @@ namespace Voyage
     public partial class usReturn : UserControl
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
-        DataTable dt,dtForClients;
-        SqlDataAdapter adapter, adapterForClients;
-        BindingSource bs, bsForClients;
+        DataTable dt;
+        SqlDataAdapter adapter;
+        BindingSource bs;
         public usReturn()
         {
             InitializeComponent();
             this.ForeColor = Color.FromArgb(0, 71, 160);
-           // cbCauses.SelectedIndex = 0;
-            LoadDataFromTables();
+            LoadDataFromTable();
         }
 
-        private void cbRoutes_DropDownClosed(object sender, EventArgs e)
+        //начальная настройка для отображения и работы с данными
+        void starterSettings()
         {
-            int id = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Group"]);
-            LoadDataAboutClients(id);
-         }
-
-        private void cbRoutes_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            int id = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Group"]);
-            LoadDataAboutClients(id);
-        }
-
-        void LoadDataFromTables()
-        {
-            adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tRoutes.sCountry,tGroups.ID_Group, tRoutes.sNameOfRoute, tRoutes.Sale, " +
-                   "tGroups.ID_Group, tGroups.sCount, tGroups.sName FROM tGroups INNER JOIN " +
-                   "tGroupsRoutes ON tGroups.ID_Group =tGroupsRoutes.ID_Group " +
-                   "inner join tRoutes ON tGroupsRoutes.ID_Route = tRoutes.ID_Route", connection);
             dt = new DataTable();
             adapter.Fill(dt);
             bs = new BindingSource();
             bs.DataSource = dt;
+            textAboutSale.Text = $"Возврат денежных средств из общей суммы составляет {Convert.ToString(((DataRowView)this.bs.Current).Row["sReturn"])}%";
+        }
+
+        private void cbRoutes_DropDownClosed(object sender, EventArgs e)
+        {
+            adapter = new SqlDataAdapter("SELECT sReturn from tRoutes where sNameOfRoute=" + "'" +
+            cbRoutes.Text + "'", connection);
+            starterSettings();
+        }
+
+        void LoadDataFromTable()
+        {
+            adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tGroups.ID_Group, tRoutes.sNameOfRoute, tRoutes.sReturn, " +
+                   "tGroups.sName FROM tGroups INNER JOIN " +
+                   "tGroupsRoutes ON tGroups.ID_Group =tGroupsRoutes.ID_Group " +
+                   "inner join tRoutes ON tGroupsRoutes.ID_Route = tRoutes.ID_Route", connection);
+            starterSettings();
             cbRoutes.DataSource = bs;
             cbRoutes.ValueMember = "ID_Route";
             cbRoutes.DisplayMember = "sNameOfRoute";
-            int id = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Group"]);
-            LoadDataAboutClients(id);
+            ID_Group.DataBindings.Clear();
+            ID_Group.DataBindings.Add(new Binding("Text", bs, "ID_Group"));
         }
-        void LoadDataAboutClients(int id)
-        {
-            adapter = new SqlDataAdapter("Select tGroupsClients.ID_Client, concat (tClients.sName, ' ', tClients.sSurname) " +
-                "as FIO FROM tGroupsClients inner join tClients on tGroupsClients.ID_Client=tClients.ID_Client " +
-                "where tGroupsClients.ID_Group=" + id, connection);
-            dtForClients = new DataTable();
-            adapter.Fill(dtForClients);
-            bsForClients = new BindingSource();
-            bsForClients.DataSource = dtForClients;
-           /* cbClients.DataSource = bsForClients;
-            cbClients.ValueMember = "ID_Client";
-            cbClients.DisplayMember = "FIO";*/
-
-        }
+        
         private void addNewClientsWithSales_Click(object sender, EventArgs e)
         {
-            fReturn rtrn = new fReturn();
+            
+            fReturn rtrn = new fReturn(Convert.ToInt32(ID_Group.Text));
             rtrn.ShowDialog();
         }
     }

@@ -36,6 +36,7 @@
             this.addNewClientsWithSales = new System.Windows.Forms.Button();
             this.textAboutSale = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.ID_Group = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,7 +70,6 @@
             this.cbRoutes.Name = "cbRoutes";
             this.cbRoutes.Size = new System.Drawing.Size(255, 29);
             this.cbRoutes.TabIndex = 2;
-            this.cbRoutes.SelectedIndexChanged += new System.EventHandler(this.cbRoutes_SelectedIndexChanged);
             this.cbRoutes.DropDownClosed += new System.EventHandler(this.cbRoutes_DropDownClosed);
             // 
             // pictureBox1
@@ -120,6 +120,16 @@
             this.label3.TabIndex = 8;
             this.label3.Text = "Рассмотрение возврата осуществляется в течении 7 рабочих дней";
             // 
+            // ID_Group
+            // 
+            this.ID_Group.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ID_Group.AutoSize = true;
+            this.ID_Group.Location = new System.Drawing.Point(546, 197);
+            this.ID_Group.Name = "ID_Group";
+            this.ID_Group.Size = new System.Drawing.Size(57, 21);
+            this.ID_Group.TabIndex = 9;
+            this.ID_Group.Text = "label4";
+            // 
             // usReturn
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -132,6 +142,7 @@
             this.Controls.Add(this.cbRoutes);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.ID_Group);
             this.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "usReturn";
@@ -151,5 +162,6 @@
         private System.Windows.Forms.Button addNewClientsWithSales;
         private System.Windows.Forms.Label textAboutSale;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label ID_Group;
     }
 }
