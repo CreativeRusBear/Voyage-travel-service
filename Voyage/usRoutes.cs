@@ -42,7 +42,7 @@ namespace Voyage
             bsForWorkers.DataSource = dtForWorkers;
             cbWorker.DataSource = bsForWorkers;
             cbWorker.ValueMember = "ID_Worker";
-            cbWorker.DisplayMember = "FIO";/*добавить sName*/
+            cbWorker.DisplayMember = "FIO";
             if (bsForRoutes.Count>0)
             cbWorker.SelectedValue = Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Worker"]);/*отмечает выбранный эл-т*/
         }

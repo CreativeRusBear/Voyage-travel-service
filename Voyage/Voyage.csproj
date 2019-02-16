@@ -72,6 +72,12 @@
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="formAnimationAPI.cs" />
+    <Compile Include="fReturn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fReturn.Designer.cs">
+      <DependentUpon>fReturn.cs</DependentUpon>
+    </Compile>
     <Compile Include="MainMenu.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -160,6 +166,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fReturn.resx">
+      <DependentUpon>fReturn.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MainMenu.resx">
       <DependentUpon>MainMenu.cs</DependentUpon>
