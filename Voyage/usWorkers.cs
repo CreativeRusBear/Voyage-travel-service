@@ -17,12 +17,13 @@ namespace Voyage
     public partial class usWorkers : UserControl
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
-        DataTable dt;
+        //DataTable dt;
         DataSet ds;
         SqlDataAdapter adapter;
         BindingSource bs;
         bool forBtn;
 
+        //загрузка данных 
         void LoadDataFromTable()
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString))
@@ -59,6 +60,7 @@ namespace Voyage
             }
         }
 
+        //загрузка фотографии
         void LoadPhoto()
         {
             string fileName = "";
@@ -77,6 +79,7 @@ namespace Voyage
             nameOfPhoto.Text = fileName;
         }
 
+        //очистка необходимых полей
         private void ClearText()
         {
             photoOfWorker.Image = imageList1.Images[0];
@@ -114,6 +117,7 @@ namespace Voyage
 
         }
 
+        //показ/скрытие окна поиска
         private void searchBtn_Click(object sender, EventArgs e)
         {
             if(tbSearch.Visible)
@@ -127,7 +131,7 @@ namespace Voyage
                 label11.Visible = true;
             }
         }
-
+        //отмена/удаление записи
         private void delBtn_Click(object sender, EventArgs e)
         {
             saveBtn.Enabled = false;
@@ -184,6 +188,7 @@ namespace Voyage
             }
         }
 
+        //изменение текущей фотографии
         private void photoOfWorker_DoubleClick(object sender, EventArgs e)
         {
             Stream myStream = null;
@@ -233,6 +238,7 @@ namespace Voyage
             EnabledBtn(tbSurname);
         }
 
+        //нажатие кнопки добавления новой записи
         private void addBtn_Click(object sender, EventArgs e)
         {
             ClearText();
@@ -240,6 +246,7 @@ namespace Voyage
             saveBtn.Enabled = false;
         }
 
+        //переход по записям таблицы
         private void dgvWorkers_SelectionChanged(object sender, EventArgs e)
         {
             if (bs.Count > 0)
@@ -250,6 +257,7 @@ namespace Voyage
             saveBtn.Enabled = false;
         }
 
+        //обновление/сохранение записи
         private void saveBtn_Click(object sender, EventArgs e)
         {
             if (forBtn)
@@ -325,6 +333,7 @@ namespace Voyage
             saveBtn.Enabled = false;
         }
 
+        //вывод в Excel
         private void excelBtn_Click(object sender, EventArgs e)
         {
             Excel.Application excelApp = new Excel.Application();
@@ -383,6 +392,7 @@ namespace Voyage
             excelApp.UserControl = true;
         }
 
+        //работа с поисковым запросом
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
             bs.Filter = "sName LIKE '%" + tbSearch.Text + "%' OR sSurname LIKE '%" + tbSearch.Text + "%'";

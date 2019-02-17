@@ -17,6 +17,7 @@ namespace Voyage
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
         int i=0;
+
         //стартовые настройки
         void Settings()
         {
@@ -26,6 +27,7 @@ namespace Voyage
             cbPosition.SelectedIndex = 0;
             cbPosition.Items.Add("Главный");
         }
+
         //загрузка данных о пользователе
         void loadData(int ID)
         {
@@ -43,6 +45,7 @@ namespace Voyage
             }
             connection.Close();
         }
+
         //работа с данными при нажатии на кнопку "Зарегестрироваться"
         void workWithLoadData(SqlCommand nameOfCommand)
         {
@@ -56,6 +59,8 @@ namespace Voyage
             InitializeComponent();
             Settings();
         }
+
+        //обновление данных пользователя
         public Registration(int i)
         {
             InitializeComponent();
@@ -64,6 +69,7 @@ namespace Voyage
             loadData(i);
             signInBtn.Text = "Обновить";
         }
+
         private void backBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -84,6 +90,7 @@ namespace Voyage
             else tbPassword.UseSystemPasswordChar = true;
         }
 
+        //событие для регистрации/обновления данных о клиенте
         private void signInBtn_Click(object sender, EventArgs e)
         {
             if (tbLog.Text!="" || tbPassword.Text!= "")
@@ -121,11 +128,10 @@ namespace Voyage
             }
         }
 
+        //запуск анимации
         private void Registration_Load(object sender, EventArgs e)
         {
             formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.V_Positive);
         }
-
-
     }
 }

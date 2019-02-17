@@ -15,19 +15,27 @@ namespace Voyage
     public partial class usSettings : UserControl
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
+        SqlDataAdapter adapter;
+        DataTable dt;
+        BindingSource bs;
         string login="";
         string password = "";
         public usSettings()
         {
             InitializeComponent();
         }
-        public usSettings(string login, string password)
+        public usSettings(string login)
         {
             InitializeComponent();
             this.ForeColor = Color.FromArgb(0, 71, 160);
             changeBtn.BackColor = Color.FromArgb(0, 71, 160);
             this.login = login;
-            this.password = password;
+            adapter = new SqlDataAdapter("SELECT sPassword from tUser WHERE sLog='" + this.login+"'", connection);
+            dt = new DataTable();
+            adapter.Fill(dt);
+            bs= new BindingSource();
+            bs.DataSource = dt;
+            this.password = Convert.ToString(((DataRowView)this.bs.Current).Row["sPassword"]);
         }
         private void cbChangePassword_CheckedChanged(object sender, EventArgs e)
         {
@@ -56,6 +64,7 @@ namespace Voyage
             }
         }
 
+        //изменение пароля
         private void changeBtn_Click(object sender, EventArgs e)
         {
             if (tbOldPassword.Text!="" && tbNewPassword.Text != ""){
@@ -71,6 +80,7 @@ namespace Voyage
                         updateUserData.Parameters.AddWithValue("@Login", this.login);
                         updateUserData.ExecuteNonQuery();
                         MessageBox.Show("Пароль был обновлен", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        this.password = tbNewPassword.Text;
                     }
                     catch (Exception ex)
                     {

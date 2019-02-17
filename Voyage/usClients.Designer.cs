@@ -558,7 +558,6 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "usClients";
             this.Size = new System.Drawing.Size(997, 886);
-            this.Load += new System.EventHandler(this.usClients_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

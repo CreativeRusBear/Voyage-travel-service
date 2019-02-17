@@ -19,10 +19,12 @@ namespace Voyage
         SqlDataAdapter adapter;
         BindingSource bs;
         int ID_Group = 0;
+
         public fReturn()
         {
             InitializeComponent();
         }
+
         public fReturn(int ID_Group)
         {
             InitializeComponent();
@@ -32,6 +34,7 @@ namespace Voyage
             LoadDataAboutClients();
             cbCauses.SelectedIndex = 0;
         }
+
         //загрузка добавленных клиентов
         void LoadDataAboutClients()
         {
@@ -49,6 +52,8 @@ namespace Voyage
                 returnBtn.Enabled = true;
             }
         }
+        
+        //запуск анимации
         private void fReturn_Load(object sender, EventArgs e)
         {
             formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.V_Positive);
@@ -59,6 +64,7 @@ namespace Voyage
             this.Dispose();
         }
 
+        //отправка данных
         private void returnBtn_Click(object sender, EventArgs e)
         {
             if (bs.Count > 0)

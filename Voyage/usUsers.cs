@@ -18,6 +18,8 @@ namespace Voyage
         DataTable dt;
         SqlDataAdapter adapter;
         BindingSource bs;
+        
+        //загрузка данных обо всех пользователях
         void LoadDataFromTable()
         {
             adapter = new SqlDataAdapter("Select * from tUser",connection);
@@ -41,7 +43,7 @@ namespace Voyage
             headerPanel.BackColor = Color.FromArgb(0, 71, 160);
             LoadDataFromTable();
         }
-
+        //добавление нового пользователя
         private void addBtn_Click(object sender, EventArgs e)
         {
             Registration reg = new Registration();
@@ -49,6 +51,7 @@ namespace Voyage
             LoadDataFromTable();
         }
 
+        //изменение данных опр. пользователя
         private void editBtn_Click(object sender, EventArgs e)
         {
             int ID_SS = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_User"]);
@@ -57,6 +60,7 @@ namespace Voyage
             LoadDataFromTable();
         }
 
+        //удаление пользователя
         private void delBtn_Click(object sender, EventArgs e)
         {
             if (bs.Count > 0)

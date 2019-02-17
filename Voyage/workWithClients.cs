@@ -16,7 +16,7 @@ namespace Voyage
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
         DataTable dt, dtForAddClients;
-        DataSet ds;
+        //DataSet ds;
         SqlDataAdapter adapter;
         BindingSource bs, bsForAddClients;
         int ID_group = 0;
@@ -64,7 +64,7 @@ namespace Voyage
         {
             this.Dispose();
         }
-
+        //добавление клиента в текущую группу
         private void addPunct_Click(object sender, EventArgs e)
         {
             bool add = false;
@@ -101,7 +101,7 @@ namespace Voyage
                 workWithFreePlaces();
             }
         }
-
+        //удаление клиента из текущей группы
         private void delPunct_Click(object sender, EventArgs e)
         {
             if (bs.Count > 0)
@@ -151,6 +151,7 @@ namespace Voyage
             }
         }
 
+        //работа с анимацией
         private void workWithClients_Load(object sender, EventArgs e)
         {
             formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.Center);
@@ -170,6 +171,7 @@ namespace Voyage
             cbClientsInThisGroup.DisplayMember = "FIO";
         }
 
+        //метод для работы и подсчета свободных мест 
         void workWithFreePlaces()
         {
             lFreePlacesCount.Text = Convert.ToString(PlacesCount - cbClientsInThisGroup.Items.Count);

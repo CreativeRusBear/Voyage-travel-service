@@ -47,7 +47,7 @@ namespace Voyage
             topPanel.BackColor = Color.FromArgb(0, 71, 160);
         }
 
-        /*загрузка маршрутов*/
+        //метод загрузки маршрутов
         void LoadDataFromRoutes()
         {
             adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tRoutes.sNameOfRoute from tRoutes LEFT JOIN tGroupsRoutes ON tRoutes.ID_Route=tGroupsRoutes.ID_Route WHERE tGroupsRoutes.ID_Route IS NULL", connection);
@@ -102,11 +102,13 @@ namespace Voyage
             connection.Close();
         }
 
+        //событие кнопки выхода
         private void shutdownBtn_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
+        //срабатывание анимации
         private void createNewGroup_Load(object sender, EventArgs e)
         {
             formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.H_Positive);
@@ -120,6 +122,7 @@ namespace Voyage
             }
         }
 
+        //событие кнопки сохранения
         private void saveBtn_Click(object sender, EventArgs e)
         {
             try

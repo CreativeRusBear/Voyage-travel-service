@@ -36,7 +36,7 @@ namespace Voyage
             LoadDataFromClients();
         }
 
-        //добавить клиента в список
+        //событие добавления клиента в список
         private void addPunct_Click(object sender, EventArgs e)
         {
             if (ID_User.Count != this.countOfClients)
@@ -62,7 +62,7 @@ namespace Voyage
             }
         }
 
-        //добавление клиентов со сидкой в бд
+        //событие добавления клиентов со сидкой в бд
         private void addNewClientsWithSales_Click(object sender, EventArgs e)
         {
             try
@@ -87,7 +87,7 @@ namespace Voyage
             }
         }
 
-        //удалить клиента из списока
+        //событие удаления клиента из списка
         private void delPunct_Click(object sender, EventArgs e)
         {
             if (cbClientsWithSales.Items.Count > 0)
@@ -105,7 +105,7 @@ namespace Voyage
             }
         }
 
-        //загрузка клиентов
+        //метод загрузки клиентов
         void LoadDataFromClients()
         {
             if (this.abroadDoc==1)
@@ -130,11 +130,13 @@ namespace Voyage
             cbAllClients.DisplayMember = "FIO";
         }
 
+        //срабатывание анимации
         private void ClientsWithSales_Load(object sender, EventArgs e)
         {
             formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.Blend);
         }
 
+        //событие для кнопки выхода
         private void shutdownBtn_Click(object sender, EventArgs e)
         {
             this.Dispose();

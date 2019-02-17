@@ -35,6 +35,7 @@ namespace Voyage
             textAboutSale.Text = $"Возврат денежных средств из общей суммы составляет {Convert.ToString(((DataRowView)this.bs.Current).Row["sReturn"])}%";
         }
 
+        //загрузка возврата при выборе другого маршрута
         private void cbRoutes_DropDownClosed(object sender, EventArgs e)
         {
             adapter = new SqlDataAdapter("SELECT sReturn from tRoutes where sNameOfRoute=" + "'" +
@@ -42,6 +43,7 @@ namespace Voyage
             starterSettings();
         }
 
+        //загрузка данных
         void LoadDataFromTable()
         {
             adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tGroups.ID_Group, tRoutes.sNameOfRoute, tRoutes.sReturn, " +
@@ -55,10 +57,10 @@ namespace Voyage
             ID_Group.DataBindings.Clear();
             ID_Group.DataBindings.Add(new Binding("Text", bs, "ID_Group"));
         }
-        
+
+        //переход к след. пункту
         private void addNewClientsWithSales_Click(object sender, EventArgs e)
         {
-            
             fReturn rtrn = new fReturn(Convert.ToInt32(ID_Group.Text));
             rtrn.ShowDialog();
         }

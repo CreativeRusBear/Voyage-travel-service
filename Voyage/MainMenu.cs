@@ -12,19 +12,19 @@ namespace Voyage
 {
     public partial class MainMenu : Form
     {
-        /*переменные для отображения личных данных пользователя*/
+        //переменные для отображения личных данных пользователя
         string username = "";
         string role = "";
         string password = "";
         int panelWidth;
-        /*свернуть/развернуть меню*/
-        bool isCollapsed;
+
+        bool isCollapsed; //переменная, отвечающая за состояние бокового меню (свернуто/развернуто)
         public MainMenu()
         {
             InitializeComponent();
         }
 
-        public MainMenu(string role, string username, string password)
+        public MainMenu(string role, string username)
         {
             InitializeComponent();
             pItemsOfMenu.BackColor = Color.FromArgb(0, 71, 160);
@@ -38,7 +38,6 @@ namespace Voyage
 
             this.role = role;
             this.username = username;
-            this.password = password;
             lName.Text += this.username;
             lRole.Text += this.role;
             //для отображения вкладки "Сотрудники"
@@ -51,7 +50,8 @@ namespace Voyage
         {
             this.Dispose();
         }
-
+        
+        //сворачивание/разворачивание бокового меню
         private void timer1_Tick(object sender, EventArgs e)
         {
             if (isCollapsed)
@@ -76,24 +76,31 @@ namespace Voyage
             }
         }
 
+        //при нажатии на кнопку "бургера"
         private void button1_Click(object sender, EventArgs e)
         {
             timer1.Start();
         }
-        /*метод для перемещения левого ползунка меню*/
+
+        //метод для перемещения белого ползунка в меню
         private void moveSidePanel (Control btn)
         {
             pYourChoice.Top = btn.Top;
             pYourChoice.Height = btn.Height;
 
         }
-        /*метод загрузки необходимой страницы в полном размере*/
+
+        //метод загрузки необходимой страницы в полном размере
         private void loadNecessaryPage(Control page)
         {
             page.Dock = DockStyle.Fill;
             contentPanel.Controls.Clear();
             contentPanel.Controls.Add(page);
         }
+
+
+
+        //события, срабатывающие при нажатии на один из пунктов меню
         private void homeBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(homeBtn);
@@ -153,7 +160,7 @@ namespace Voyage
         private void settingsBtn_Click(object sender, EventArgs e)
         {
             moveSidePanel(settingsBtn);
-            usSettings settings= new usSettings(username, password);
+            usSettings settings= new usSettings(username);
             loadNecessaryPage(settings);
         }
 

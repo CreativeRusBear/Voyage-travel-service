@@ -38,6 +38,7 @@ namespace Voyage
             $" каждому";
         }
 
+        //переход к след. пункту
         private void addNewClientsWithSales_Click(object sender, EventArgs e)
         {
             SqlCommand command = new SqlCommand("SELECT Count(ID_Client) from tGroupsClients where ID_Group=" + lIdOfGroup.Text, connection);
@@ -60,6 +61,7 @@ namespace Voyage
             connection.Close();
         }
 
+        //загрузка данных
         void LoadDataFromTable()
         {
             adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tRoutes.sCountry, tRoutes.sNameOfRoute, tRoutes.Sale, " +
@@ -78,6 +80,7 @@ namespace Voyage
             lCountry.DataBindings.Add(new Binding("Text", bs, "sCountry"));
         }
         
+        //обновление данных о скидке на выбранный маршрут
         private void cbNameOfRoute_DropDownClosed(object sender, EventArgs e)
         {
             adapter = new SqlDataAdapter("SELECT Sale from tRoutes where sNameOfRoute=" + "'" + 

@@ -15,9 +15,7 @@ namespace Voyage
         public usMain()
         {
             InitializeComponent();
-            lSlogan.ForeColor = Color.FromArgb(0, 71, 160);
-            lContact.ForeColor = Color.FromArgb(0, 71, 160);
-            lCountries.ForeColor = Color.FromArgb(0, 71, 160);
+            this.ForeColor=Color.FromArgb(0, 71, 160);
         }
     }
 }

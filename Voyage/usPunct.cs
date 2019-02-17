@@ -15,7 +15,7 @@ namespace Voyage
     public partial class usPunct : UserControl
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
-        DataTable dt;
+        //DataTable dt;
         DataSet ds;
         SqlDataAdapter adapter;
         BindingSource bs;
@@ -24,8 +24,8 @@ namespace Voyage
         //переменные для корректной работы рейтинга
         bool clickImg;
         string click="";
-       // int rating = 0;
 
+        //загрузка данных из таблицы   
         void LoadDataFromTable()
         {
             using (SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString))
@@ -66,6 +66,7 @@ namespace Voyage
             }
         }
 
+        //метод работы с рейтингом
         void LoadRating()
         {
             string s = ((DataRowView)this.bs.Current).Row["class"].ToString();
@@ -106,6 +107,8 @@ namespace Voyage
                     printStarsBack(fiveStars, clickImg, click);
                 }
         }
+
+        //метод отображения оранжевых звезд рейтинга
         void printStars(PictureBox nameOfPicture)
         {
             switch (nameOfPicture.Name.ToString())
@@ -138,6 +141,7 @@ namespace Voyage
             }
         }
 
+        //метод отображения синих звезд рейтинга
         void printStarsBack(PictureBox nameOfPicture, bool star,string click)
         {
             if (star)
@@ -152,7 +156,6 @@ namespace Voyage
                             threeStars.Load(@"img\btn\star_blue.png");
                             fourStars.Load(@"img\btn\star_blue.png");
                             fiveStars.Load(@"img\btn\star_blue.png");
-                            //rating = 1;
                             lRaiting.Text = "1";
                             break;
                         case "twoStars":
@@ -161,7 +164,6 @@ namespace Voyage
                             threeStars.Load(@"img\btn\star_blue.png");
                             fourStars.Load(@"img\btn\star_blue.png");
                             fiveStars.Load(@"img\btn\star_blue.png");
-                            //rating = 2;
                             lRaiting.Text = "2";
                             break;
                         case "threeStars":
@@ -170,7 +172,6 @@ namespace Voyage
                             nameOfPicture.Load(@"img\btn\star_orange.png");
                             fourStars.Load(@"img\btn\star_blue.png");
                             fiveStars.Load(@"img\btn\star_blue.png");
-                            //rating = 3;
                             lRaiting.Text = "3";
                             break;
                         case "fourStars":
@@ -179,7 +180,6 @@ namespace Voyage
                             threeStars.Load(@"img\btn\star_orange.png");
                             nameOfPicture.Load(@"img\btn\star_orange.png");
                             fiveStars.Load(@"img\btn\star_blue.png");
-                          //  rating = 4;
                             lRaiting.Text = "4";
                             break;
                         case "fiveStars":
@@ -188,7 +188,6 @@ namespace Voyage
                             threeStars.Load(@"img\btn\star_orange.png");
                             fourStars.Load(@"img\btn\star_orange.png");
                             nameOfPicture.Load(@"img\btn\star_orange.png");
-                            //rating = 5;
                             lRaiting.Text = "5";
                             break;
                     }
@@ -204,11 +203,11 @@ namespace Voyage
             }
         }
 
+        //очитка необходмых полей
         private void ClearText()
         {
             cbCountry.SelectedIndex = 0;
             clickImg = false;
-           // rating = 0;
             lRaiting.Text = "0";
             click = "";
             tbPunct.Text = "";
@@ -240,17 +239,18 @@ namespace Voyage
             panel4.BackColor = Color.FromArgb(0, 71, 160);
         }
 
+        //закрашевание оранжевым/синим цветом звезд при фокусе/исчезновении фокуса на звезды
         private void oneStar_MouseEnter(object sender, EventArgs e)
         {
             printStars((sender as PictureBox));
         }
-
         private void oneStar_MouseLeave(object sender, EventArgs e)
         {
            
             printStarsBack((sender as PictureBox), clickImg,click);
         }
 
+        //отображение/скрытие поисквого окна
         private void searchBtn_Click(object sender, EventArgs e)
         {
             if (label11.Visible)
@@ -265,6 +265,7 @@ namespace Voyage
             }
         }
 
+        //сохранение/обновление данных
         private void saveBtn_Click(object sender, EventArgs e)
         {
             if (forBtn)
@@ -335,6 +336,7 @@ namespace Voyage
             saveBtn.Enabled = false;
         }
 
+        //событие, которое срабатывает при нажатии на одну из звезд рейтинга
         private void oneStar_Click(object sender, EventArgs e)
         {
             clickImg = true;
@@ -342,6 +344,7 @@ namespace Voyage
             printStarsBack((sender as PictureBox), clickImg, click);
         }
 
+        //отмена/удаление
         private void delBtn_Click(object sender, EventArgs e)
         {
             saveBtn.Enabled = false;
@@ -431,7 +434,8 @@ namespace Voyage
         {
             EnabledBtn(tbExcurse);
         }
-
+        
+        //добавление новой записи
         private void addBtn_Click(object sender, EventArgs e)
         {
             ClearText();
@@ -448,6 +452,7 @@ namespace Voyage
             saveBtn.Enabled = false;
         }
 
+        //вывод в Excel
         private void excelBtn_Click(object sender, EventArgs e)
         {
             Excel.Application excelApp = new Excel.Application();
@@ -493,7 +498,8 @@ namespace Voyage
             excelApp.Visible = true;
             excelApp.UserControl = true;
         }
-
+        
+        //работа с поисковым запросом
         private void tbSearchPuncts_TextChanged(object sender, EventArgs e)
         {
             bs.Filter = "sPunct LIKE '%" + tbSearchPuncts.Text + "%' OR sHotel LIKE '%" + tbSearchPuncts.Text + "%'";

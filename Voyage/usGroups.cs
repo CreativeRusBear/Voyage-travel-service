@@ -141,6 +141,7 @@ namespace Voyage
             delNotes();
         }
 
+        //создание новой группы
         private void createNewGroupBtn_Click(object sender, EventArgs e)
         {
             createNewGroup cng = new createNewGroup();
@@ -148,11 +149,13 @@ namespace Voyage
             LoadDataFromTables();
         }
 
+        //редактирование группы
         private void editBtn_Click(object sender, EventArgs e)
         {
             EditApplic("editGroup");
         }
 
+        //окткрытие окна "Работа с клиентами"
         private void workWithClientsBtn_Click(object sender, EventArgs e)
         {
             EditApplic("workWithClients");
@@ -257,6 +260,7 @@ namespace Voyage
             excelApp.UserControl = true;
         }
 
+        //кнопка обновления записей
         private void reloadBtn_Click(object sender, EventArgs e)
         {
             LoadDataFromTables();

@@ -16,26 +16,22 @@ namespace Voyage
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
         DataTable dtForRoutes, dtForWorkers, dtForPuncts, dtForAddPuncts;
-        DataSet ds;
+        //DataSet ds;
         SqlDataAdapter adapter;
         BindingSource bsForRoutes, bsForWorkers, bsForPuncts, bsForAddPuncts;
         bool forBtn;
 
-        void loadWorkersWithoutAbroadDoc()
-        {
-            adapter = new SqlDataAdapter("SELECT ID_Worker, concat (sName,' ',sSurname) as FIO from tWorkers Order by sName, sSurname", connection);
-        }
-
-        void loadWorkersWithAbroadDoc()
-        {
-            adapter = new SqlDataAdapter("SELECT ID_Worker, concat (sName,' ',sSurname) as FIO from tWorkers WHERE AbroadDoc=1 Order by sName, sSurname", connection);
-        }
-
         //загрузка представителей компании
         void LoadDataFromWorkers(string country)
-        {        
-            if (country == "Россия") loadWorkersWithoutAbroadDoc();
-            else loadWorkersWithAbroadDoc();
+        {
+            if (country == "Россия")
+            {
+                adapter = new SqlDataAdapter("SELECT ID_Worker, concat (sName,' ',sSurname) as FIO from tWorkers Order by sName, sSurname", connection);
+            }
+            else
+            {
+                adapter = new SqlDataAdapter("SELECT ID_Worker, concat (sName,' ',sSurname) as FIO from tWorkers WHERE AbroadDoc=1 Order by sName, sSurname", connection);
+            }
             dtForWorkers = new DataTable();
             adapter.Fill(dtForWorkers);
             bsForWorkers = new BindingSource();
@@ -43,8 +39,10 @@ namespace Voyage
             cbWorker.DataSource = bsForWorkers;
             cbWorker.ValueMember = "ID_Worker";
             cbWorker.DisplayMember = "FIO";
-            if (bsForRoutes.Count>0)
-            cbWorker.SelectedValue = Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Worker"]);/*отмечает выбранный эл-т*/
+            if (bsForRoutes.Count > 0)
+            {
+                cbWorker.SelectedValue = Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Worker"]);
+            }
         }
 
         //загрузка всевозможных пунктов
@@ -76,6 +74,7 @@ namespace Voyage
             else cbCountries.Enabled = true;
         }
 
+        //загрузка всех данных воедино
         void LoadDataFromTable()
         {
             adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tRoutes.sNameOfRoute, tRoutes.sCountry, tRoutes.sDays, tWorkers.ID_Worker, tWorkers.sName, tWorkers.sSurname," +
@@ -128,10 +127,17 @@ namespace Voyage
                 LoadDataFromPuncts("Россия");
             }
             lCount.Text = bsForRoutes.Count.ToString();
-            if (cbAddPuncts.Items.Count > 0) cbCountries.Enabled = false;
-            else cbCountries.Enabled = true;
+            if (cbAddPuncts.Items.Count > 0)
+            {
+                cbCountries.Enabled = false;
+            }
+            else
+            {
+                cbCountries.Enabled = true;
+            }
         }
 
+        //показ/скрытие поискового меню
         private void searchBtn_Click(object sender, EventArgs e)
         {
             if (label11.Visible)
@@ -146,6 +152,7 @@ namespace Voyage
             }
         }
 
+        //отмена/удаление
         private void delBtn_Click(object sender, EventArgs e)
         {
             saveBtn.Enabled = false;
@@ -217,6 +224,7 @@ namespace Voyage
             }
         }
 
+        //добавление новой записи 
         private void addBtn_Click(object sender, EventArgs e)
         {
             ClearText();
@@ -224,6 +232,7 @@ namespace Voyage
             saveBtn.Enabled = false;
         }
 
+        //сохранение/обновление записи
         private void saveBtn_Click(object sender, EventArgs e)
         {
             if (forBtn)
@@ -302,6 +311,7 @@ namespace Voyage
             saveBtn.Enabled = false;
         }
 
+        //вывод в Excel
         private void excelBtn_Click(object sender, EventArgs e)
         {
             Excel.Application excelApp = new Excel.Application();
@@ -373,11 +383,13 @@ namespace Voyage
             excelApp.UserControl = true;
         }
 
+        //работа с поисковым запросом
         private void tbSearchRoutes_TextChanged(object sender, EventArgs e)
         {
             bsForRoutes.Filter = "sNameOfRoute LIKE '%" + tbSearchRoutes.Text + "%' OR sCountry LIKE '%" + tbSearchRoutes.Text + "%'";
         }
 
+        //при выборе др. страны
         private void cbCountries_SelectedIndexChanged(object sender, EventArgs e)
         {
             LoadDataFromWorkers(cbCountries.SelectedItem.ToString());
@@ -385,6 +397,7 @@ namespace Voyage
             EnabledBtnForMask(mtbDays);
         }
 
+        //перемещение по записям таблицы
         private void dgvRoutes_SelectionChanged(object sender, EventArgs e)
         {
             saveBtn.Enabled = false;
@@ -395,6 +408,7 @@ namespace Voyage
             }
         }
 
+        //очистка необходимых полей
         private void ClearText()
         {
             nameOfRoute.Text = "";

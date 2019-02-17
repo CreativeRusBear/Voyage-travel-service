@@ -31,12 +31,13 @@ namespace Voyage
             if (seePassword.Checked) tbPassword.UseSystemPasswordChar = false;
             else tbPassword.UseSystemPasswordChar = true;
         }
-
+        
         private void shutdownBtn_Click(object sender, EventArgs e)
         {
             this.Dispose();
         }
 
+        //авторизация
         private void signInBtn_Click(object sender, EventArgs e)
         {
             SqlDataReader reader;
@@ -60,10 +61,10 @@ namespace Voyage
                             username = reader[0].ToString().Trim();
                             role = reader[1].ToString();
                         }
+                        seePassword.Checked = false;
+                        MainMenu mm = new MainMenu(role, username);
                         tbLog.Text = "";
                         tbPassword.Text = "";
-                        seePassword.Checked = false;
-                        MainMenu mm = new MainMenu(role, username, tbPassword.Text);
                         mm.Owner = this;
                         mm.Show();
                     }
@@ -81,7 +82,8 @@ namespace Voyage
                 MessageBox.Show(ex.ToString());
             }
         }
-
+        
+        //открытие окна регистрации
         private void regBtn_Click(object sender, EventArgs e)
         {
             Registration reg = new Registration();
@@ -89,9 +91,9 @@ namespace Voyage
             reg.ShowDialog();
         }
 
+        //переход по ссылкам
         private void pbGitHub_Click(object sender, EventArgs e)
         {
-            //переход по ссылке
             Process.Start("https://github.com/CreativeRusBear/Voyage-travel-service");
         }
 
@@ -105,6 +107,7 @@ namespace Voyage
             Process.Start("https://github.com/CreativeRusBear/Voyage-travel-service/blob/master/docs/docs.md");
         }
 
+        //запуск анимации
         private void fAuthorization_Load(object sender, EventArgs e)
         {
             formAnimationAPI.AnimateWindow(this.Handle, 2000, formAnimationAPI.H_Negative);

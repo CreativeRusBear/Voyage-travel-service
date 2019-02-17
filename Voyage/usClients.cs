@@ -16,12 +16,13 @@ namespace Voyage
     public partial class usClients : UserControl
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
-        DataTable dt;
+        //DataTable dt;
         DataSet ds;
         SqlDataAdapter adapter;
         BindingSource bs;
         bool forBtn;
 
+        //загрузка данных  из таблиц
         void LoadDataFromTable()
         {
             using(SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString))
@@ -80,6 +81,7 @@ namespace Voyage
             }
         }
 
+        //загузка фото
         void LoadPhoto()
         {
             string fileName = "";
@@ -98,6 +100,7 @@ namespace Voyage
             nameOfPhoto.Text = fileName;
         }
 
+        //очистка необходимых полей и ячеек
         private void ClearText()
         {
             photoOfClient.Image = imageList1.Images[0];
@@ -113,6 +116,8 @@ namespace Voyage
             dtpDateIssue.Text= DateTime.Now.ToString();
             AbroadDoc.Checked = false;
         }
+
+        //методы, использующиеся для показа/скрытия кнопки сохранить
         void EnabledBtn(TextBox tb)
         {
             if (tb.Text == "")
@@ -135,6 +140,7 @@ namespace Voyage
                 saveBtn.Enabled = true;
             }
         }
+
         public usClients()
         {
             InitializeComponent();
@@ -148,6 +154,7 @@ namespace Voyage
             panel4.BackColor = Color.FromArgb(0, 71, 160);
         }
 
+        //отображение/скрытие окна поиска 
         private void searchBtn_Click(object sender, EventArgs e)
         {
             if (label11.Visible)
@@ -162,11 +169,7 @@ namespace Voyage
             }
         }
 
-        private void usClients_Load(object sender, EventArgs e)
-        {
-
-        }
-
+        //кнопка отмены/удаления 
         private void delBtn_Click(object sender, EventArgs e)
         {
             saveBtn.Enabled = false;
@@ -179,6 +182,7 @@ namespace Voyage
             }
             else if (bs.Count > 0)
             {
+                //удаление
                 int rowPosition = bs.Position;
                 int delId = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Client"]);
                 try
@@ -224,6 +228,7 @@ namespace Voyage
             }
         }
 
+        //изменение текущей фотографии
         private void photoOfClient_DoubleClick(object sender, EventArgs e)
         {
             Stream myStream = null;
@@ -264,6 +269,7 @@ namespace Voyage
             EnabledBtn(tbName);
         }
 
+        //добавление новой записи
         private void addBtn_Click(object sender, EventArgs e)
         {
             ClearText();
@@ -271,6 +277,7 @@ namespace Voyage
             saveBtn.Enabled = false;
         }
 
+        //событие для перехода по записям
         private void dgvClients_SelectionChanged(object sender, EventArgs e)
         {
             if (bs.Count > 0)
@@ -281,6 +288,7 @@ namespace Voyage
             saveBtn.Enabled = false;
         }
 
+        //кнопка сохранения/обновления данных
         private void saveBtn_Click(object sender, EventArgs e)
         {
             if (forBtn)
@@ -291,8 +299,6 @@ namespace Voyage
                     connection.Open();
                     SqlCommand MaxID = new SqlCommand("Select Max(ID_Client) from tClients", connection);
                     int max = int.Parse(dgvClients.RowCount.ToString());
-                    //int max = 0;
-                    // if (MaxID.ExecuteScalar() != null) max = Convert.ToInt32(MaxID.ExecuteScalar());
                     SqlCommand commandInsert = new SqlCommand("INSERT INTO [tClients]" +
                         " VALUES(@Name, @Surname, @Patronymic, @Photo, @Bithday, @Doc, @Series, @Number,"+
                         " @DocIssue, @DateIssue, @AbroadDoc)", connection);
@@ -367,6 +373,7 @@ namespace Voyage
             saveBtn.Enabled = false;
         }
 
+        //вывод в Excel
         private void excelBtn_Click(object sender, EventArgs e)
         {
             Excel.Application excelApp = new Excel.Application();
@@ -431,6 +438,7 @@ namespace Voyage
             excelApp.UserControl = true;
         }
 
+        //поиск
         private void tbSearchClient_TextChanged(object sender, EventArgs e)
         {
             bs.Filter = "sName LIKE '%" + tbSearchClient.Text + "%' OR sSurname LIKE '%" + tbSearchClient.Text + "%'";
