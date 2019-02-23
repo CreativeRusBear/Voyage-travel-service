@@ -99,7 +99,7 @@ namespace Voyage
 
         private void pbSite_Click(object sender, EventArgs e)
         {
-            Process.Start("https://creativerusbear.github.io/education/dist/main.html");
+            Process.Start("https://creativerusbear.github.io/voyage/");
         }
 
         private void pbDocs_Click(object sender, EventArgs e)
