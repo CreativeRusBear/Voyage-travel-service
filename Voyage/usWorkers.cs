@@ -138,8 +138,6 @@ namespace Voyage
             if (forBtn)
             {
                 forBtn = false;
-                LoadDataFromTable();
-
             }
             else if (bs.Count > 0)
             {
@@ -147,25 +145,10 @@ namespace Voyage
                 int delId = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Worker"]);
                 try
                 {
-                    DialogResult result = MessageBox.Show(
-                    "Вы действительно хотите удалить данную запись",
-                    "Удаление",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
-                    if (result == DialogResult.No)
-                    {
-                        LoadDataFromTable();
-                        return;
-                    }
-                    if (result == DialogResult.Yes)
-                    {
                         connection.Open();
                         SqlCommand Delete = new SqlCommand("Delete From dbo.tWorkers where ID_Worker = @ID", connection);
                         Delete.Parameters.AddWithValue("@ID", delId);
                         Delete.ExecuteNonQuery();
-                    }
                 }
                 catch (SqlException ex)
                 {
@@ -177,15 +160,24 @@ namespace Voyage
                         MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1,
                         MessageBoxOptions.DefaultDesktopOnly);
+                    else if ((uint)ex.ErrorCode == 0x80131904)
+                        MessageBox.Show(
+                        "Данный представитель компании обслуживает один из существующих маршрутов",
+                        "Предупреждение",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly);
                     else
                         MessageBox.Show(ex.ToString());
                 }
                 finally
                 {
                     connection.Close();
-                    LoadDataFromTable();
                 }
             }
+            ClearText();
+            LoadDataFromTable();
         }
 
         //изменение текущей фотографии

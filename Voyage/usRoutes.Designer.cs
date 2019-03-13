@@ -59,15 +59,15 @@
             this.cbCountries = new System.Windows.Forms.ComboBox();
             this.cbWorker = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.mtbDays = new System.Windows.Forms.MaskedTextBox();
-            this.mtbMoney = new System.Windows.Forms.MaskedTextBox();
-            this.mtbSale = new System.Windows.Forms.MaskedTextBox();
-            this.mtbReturn = new System.Windows.Forms.MaskedTextBox();
             this.cbAllPuncts = new System.Windows.Forms.ComboBox();
             this.cbAddPuncts = new System.Windows.Forms.ComboBox();
             this.label10 = new System.Windows.Forms.Label();
             this.addPunct = new System.Windows.Forms.Button();
             this.delPunct = new System.Windows.Forms.Button();
+            this.mtbDays = new System.Windows.Forms.TextBox();
+            this.mtbMoney = new System.Windows.Forms.TextBox();
+            this.mtbSale = new System.Windows.Forms.TextBox();
+            this.mtbReturn = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.pForBtn.SuspendLayout();
@@ -430,50 +430,6 @@
             this.label5.TabIndex = 33;
             this.label5.Text = "Неустойка (%)";
             // 
-            // mtbDays
-            // 
-            this.mtbDays.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtbDays.Location = new System.Drawing.Point(471, 229);
-            this.mtbDays.Mask = "00";
-            this.mtbDays.Name = "mtbDays";
-            this.mtbDays.Size = new System.Drawing.Size(163, 27);
-            this.mtbDays.TabIndex = 43;
-            this.mtbDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mtbDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
-            // 
-            // mtbMoney
-            // 
-            this.mtbMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtbMoney.Location = new System.Drawing.Point(471, 366);
-            this.mtbMoney.Mask = "000000";
-            this.mtbMoney.Name = "mtbMoney";
-            this.mtbMoney.Size = new System.Drawing.Size(163, 27);
-            this.mtbMoney.TabIndex = 43;
-            this.mtbMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mtbMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
-            // 
-            // mtbSale
-            // 
-            this.mtbSale.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtbSale.Location = new System.Drawing.Point(471, 410);
-            this.mtbSale.Mask = "00";
-            this.mtbSale.Name = "mtbSale";
-            this.mtbSale.Size = new System.Drawing.Size(163, 27);
-            this.mtbSale.TabIndex = 43;
-            this.mtbSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mtbSale.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
-            // 
-            // mtbReturn
-            // 
-            this.mtbReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.mtbReturn.Location = new System.Drawing.Point(471, 453);
-            this.mtbReturn.Mask = "0";
-            this.mtbReturn.Name = "mtbReturn";
-            this.mtbReturn.Size = new System.Drawing.Size(163, 27);
-            this.mtbReturn.TabIndex = 43;
-            this.mtbReturn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.mtbReturn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
-            // 
             // cbAllPuncts
             // 
             this.cbAllPuncts.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -538,6 +494,49 @@
             this.delPunct.UseVisualStyleBackColor = false;
             this.delPunct.Click += new System.EventHandler(this.delPunct_Click);
             // 
+            // mtbDays
+            // 
+            this.mtbDays.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mtbDays.Location = new System.Drawing.Point(471, 232);
+            this.mtbDays.MaxLength = 2;
+            this.mtbDays.Name = "mtbDays";
+            this.mtbDays.Size = new System.Drawing.Size(162, 27);
+            this.mtbDays.TabIndex = 44;
+            this.mtbDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtbDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
+            // 
+            // mtbMoney
+            // 
+            this.mtbMoney.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mtbMoney.Location = new System.Drawing.Point(471, 363);
+            this.mtbMoney.MaxLength = 6;
+            this.mtbMoney.Name = "mtbMoney";
+            this.mtbMoney.Size = new System.Drawing.Size(162, 27);
+            this.mtbMoney.TabIndex = 44;
+            this.mtbMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtbMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
+            // 
+            // mtbSale
+            // 
+            this.mtbSale.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mtbSale.Location = new System.Drawing.Point(471, 410);
+            this.mtbSale.MaxLength = 2;
+            this.mtbSale.Name = "mtbSale";
+            this.mtbSale.Size = new System.Drawing.Size(162, 27);
+            this.mtbSale.TabIndex = 44;
+            this.mtbSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtbSale.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
+            // 
+            // mtbReturn
+            // 
+            this.mtbReturn.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.mtbReturn.Location = new System.Drawing.Point(470, 453);
+            this.mtbReturn.MaxLength = 1;
+            this.mtbReturn.Name = "mtbReturn";
+            this.mtbReturn.Size = new System.Drawing.Size(162, 27);
+            this.mtbReturn.TabIndex = 44;
+            this.mtbReturn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // usRoutes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
@@ -545,10 +544,10 @@
             this.BackColor = System.Drawing.Color.White;
             this.Controls.Add(this.mtbReturn);
             this.Controls.Add(this.mtbSale);
-            this.Controls.Add(this.delPunct);
             this.Controls.Add(this.mtbMoney);
-            this.Controls.Add(this.addPunct);
             this.Controls.Add(this.mtbDays);
+            this.Controls.Add(this.delPunct);
+            this.Controls.Add(this.addPunct);
             this.Controls.Add(this.cbAddPuncts);
             this.Controls.Add(this.cbAllPuncts);
             this.Controls.Add(this.cbWorker);
@@ -610,15 +609,15 @@
         private System.Windows.Forms.ComboBox cbCountries;
         private System.Windows.Forms.ComboBox cbWorker;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.MaskedTextBox mtbDays;
-        private System.Windows.Forms.MaskedTextBox mtbMoney;
-        private System.Windows.Forms.MaskedTextBox mtbSale;
-        private System.Windows.Forms.MaskedTextBox mtbReturn;
         private System.Windows.Forms.Button saveBtn;
         private System.Windows.Forms.ComboBox cbAllPuncts;
         private System.Windows.Forms.ComboBox cbAddPuncts;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Button addPunct;
         private System.Windows.Forms.Button delPunct;
+        private System.Windows.Forms.TextBox mtbDays;
+        private System.Windows.Forms.TextBox mtbMoney;
+        private System.Windows.Forms.TextBox mtbSale;
+        private System.Windows.Forms.TextBox mtbReturn;
     }
 }

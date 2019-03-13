@@ -494,6 +494,7 @@
             // 
             // tbSeries
             // 
+            this.tbSeries.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbSeries.Location = new System.Drawing.Point(229, 340);
             this.tbSeries.MaxLength = 4;
             this.tbSeries.Name = "tbSeries";
@@ -505,6 +506,7 @@
             // 
             // tbNumber
             // 
+            this.tbNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.tbNumber.Location = new System.Drawing.Point(505, 340);
             this.tbNumber.MaxLength = 6;
             this.tbNumber.Name = "tbNumber";

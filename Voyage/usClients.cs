@@ -16,7 +16,6 @@ namespace Voyage
     public partial class usClients : UserControl
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
-        //DataTable dt;
         DataSet ds;
         SqlDataAdapter adapter;
         BindingSource bs;
@@ -173,8 +172,6 @@ namespace Voyage
             {
                 //отмена
                 forBtn = false;
-                LoadDataFromTable();
-
             }
             else if (bs.Count > 0)
             {
@@ -184,18 +181,19 @@ namespace Voyage
                 try
                 {
                     DialogResult result = MessageBox.Show(
-                    "Вы действительно хотите удалить данную запись",
-                    "Удаление",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
-                    if (result == DialogResult.No)
+                   "Нажмите \"Да\", чтобы удалить запись. \"Отмена\" - для того, чтобы отменить внесенные изменения",
+                   "Удаление",
+                   MessageBoxButtons.OKCancel,
+                   MessageBoxIcon.Question,
+                   MessageBoxDefaultButton.Button1,
+                   MessageBoxOptions.DefaultDesktopOnly);
+                    if (result == DialogResult.Cancel)
                     {
+                        ClearText();
                         LoadDataFromTable();
                         return;
                     }
-                    if (result == DialogResult.Yes)
+                    if (result == DialogResult.OK)
                     {
                         connection.Open();
                         SqlCommand Delete = new SqlCommand("Delete From dbo.tClients where ID_Client = @ID", connection);
@@ -219,9 +217,10 @@ namespace Voyage
                 finally
                 {
                     connection.Close();
-                    LoadDataFromTable();
                 }
             }
+            ClearText();
+            LoadDataFromTable();
         }
 
         //изменение текущей фотографии

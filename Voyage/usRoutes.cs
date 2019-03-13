@@ -16,7 +16,6 @@ namespace Voyage
     {
         SqlConnection connection = new SqlConnection(ConfigurationManager.ConnectionStrings["SqlCon"].ConnectionString);
         DataTable dtForRoutes, dtForWorkers, dtForPuncts, dtForAddPuncts;
-        //DataSet ds;
         SqlDataAdapter adapter;
         BindingSource bsForRoutes, bsForWorkers, bsForPuncts, bsForAddPuncts;
         bool forBtn;
@@ -155,17 +154,9 @@ namespace Voyage
         //отмена/удаление
         private void delBtn_Click(object sender, EventArgs e)
         {
-            saveBtn.Enabled = false;
             if (forBtn)
             {
                 forBtn = false;
-                LoadDataFromTable();
-                cbAddPuncts.Visible = true;
-                cbAllPuncts.Visible = true;
-                label10.Visible = true;
-                addPunct.Visible = true;
-                delPunct.Visible = true;
-
             }
             else if (bsForRoutes.Count > 0)
             {
@@ -174,20 +165,17 @@ namespace Voyage
                 try
                 {
                     DialogResult result = MessageBox.Show(
-                    "Вы действительно хотите удалить данную запись",
-                    "Удаление",
-                    MessageBoxButtons.YesNo,
-                    MessageBoxIcon.Question,
-                    MessageBoxDefaultButton.Button1,
-                    MessageBoxOptions.DefaultDesktopOnly);
+                   "Вы действительно хотите удалить данную запись",
+                   "Удаление",
+                   MessageBoxButtons.YesNo,
+                   MessageBoxIcon.Question,
+                   MessageBoxDefaultButton.Button1,
+                   MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.No)
                     {
+                        ClearData();
                         LoadDataFromTable();
-                        cbAddPuncts.Visible = true;
-                        cbAllPuncts.Visible = true;
-                        label10.Visible = true;
-                        addPunct.Visible = true;
-                        delPunct.Visible = true;
+                        saveBtn.Enabled = false;
                         return;
                     }
                     if (result == DialogResult.Yes)
@@ -219,9 +207,12 @@ namespace Voyage
                 finally
                 {
                     connection.Close();
-                    LoadDataFromTable();
+                    cbCountries.Enabled = true;
                 }
             }
+            ClearData();
+            LoadDataFromTable();
+            saveBtn.Enabled = false;
         }
 
         //добавление новой записи 
@@ -394,22 +385,39 @@ namespace Voyage
         {
             LoadDataFromWorkers(cbCountries.SelectedItem.ToString());
             LoadDataFromPuncts(cbCountries.SelectedItem.ToString());
-            EnabledBtnForMask(mtbDays);
+            EnabledBtn(mtbDays);
         }
 
         //перемещение по записям таблицы
         private void dgvRoutes_SelectionChanged(object sender, EventArgs e)
         {
             saveBtn.Enabled = false;
-            LoadDataFromRoutesPuncts(Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
             if (bsForRoutes.Count > 0)
             {
+                LoadDataFromRoutesPuncts(Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
                 cbWorker.SelectedValue = Convert.ToInt32(((DataRowView)this.bsForRoutes.Current).Row["ID_Worker"]);
             }
         }
 
         //очистка необходимых полей
         private void ClearText()
+        {
+            try
+            {
+                ClearData();
+                cbCountries.Enabled = true;
+                label10.Visible = false;
+                cbAddPuncts.Visible = false;
+                cbAllPuncts.Visible = false;
+                addPunct.Visible = false;
+                delPunct.Visible = false;
+            }
+            catch
+            {
+                MessageBox.Show("Для продолжения работы необходимо заполнить данные в других таблицах", "Предупреждение", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+        private void ClearData()
         {
             nameOfRoute.Text = "";
             cbCountries.SelectedIndex = 0;
@@ -419,12 +427,6 @@ namespace Voyage
             mtbSale.Text = "";
             mtbReturn.Text = "";
             dateOfFly.Text = DateTime.Now.ToString();
-            cbCountries.Enabled = true;
-            label10.Visible = false;
-            cbAddPuncts.Visible = false;
-            cbAllPuncts.Visible = false;
-            addPunct.Visible = false;
-            delPunct.Visible = false;
         }
 
         private void nameOfRoute_KeyPress(object sender, KeyPressEventArgs e)
@@ -529,17 +531,22 @@ namespace Voyage
 
         private void mtbDays_KeyPress(object sender, KeyPressEventArgs e)
         {
-            EnabledBtnForMask(mtbDays);
+            char word = e.KeyChar;
+            if ((word < '0' || word > '9') && word != '\b')
+            {
+                e.Handled = true;
+            }
+            EnabledBtn(mtbDays);
         }
 
         private void cbWorker_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EnabledBtnForMask(mtbDays);
+            EnabledBtn(mtbDays);
         }
 
         private void dateOfFly_ValueChanged(object sender, EventArgs e)
         {
-            EnabledBtnForMask(mtbDays);
+            EnabledBtn(mtbDays);
         }
 
         void EnabledBtnForMask(MaskedTextBox tb)
