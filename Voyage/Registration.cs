@@ -25,7 +25,6 @@ namespace Voyage
             this.ForeColor = Color.FromArgb(0, 71, 160);
             signInBtn.BackColor = Color.FromArgb(0, 71, 160);
             cbPosition.SelectedIndex = 0;
-            cbPosition.Items.Add("Главный");
         }
 
         //загрузка данных о пользователе
@@ -54,18 +53,22 @@ namespace Voyage
             nameOfCommand.Parameters.AddWithValue("@Position", cbPosition.SelectedItem);
         }
 
-        public Registration()
+        public Registration(string role="user")
         {
             InitializeComponent();
             Settings();
+            if (role == "admin")
+            {
+                cbPosition.Items.Add("Главный");
+            }
         }
-
         //обновление данных пользователя
         public Registration(int i)
         {
             InitializeComponent();
             this.i = i;
             Settings();
+            cbPosition.Items.Add("Главный");
             loadData(i);
             signInBtn.Text = "Обновить";
         }

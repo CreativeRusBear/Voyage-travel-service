@@ -46,7 +46,7 @@ namespace Voyage
         //добавление нового пользователя
         private void addBtn_Click(object sender, EventArgs e)
         {
-            Registration reg = new Registration();
+            Registration reg = new Registration("admin");
             reg.ShowDialog();
             LoadDataFromTable();
         }

@@ -66,9 +66,9 @@
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.nameOfPhoto = new System.Windows.Forms.Label();
             this.saveBtn = new System.Windows.Forms.Button();
-            this.tbSeries = new System.Windows.Forms.MaskedTextBox();
-            this.tbNumber = new System.Windows.Forms.MaskedTextBox();
             this.lbDocIssue = new System.Windows.Forms.TextBox();
+            this.tbSeries = new System.Windows.Forms.TextBox();
+            this.tbNumber = new System.Windows.Forms.TextBox();
             this.photoOfClient = new Voyage.CircularPictureBoxAPI();
             this.panel1.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -371,7 +371,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(71, 334);
+            this.label6.Location = new System.Drawing.Point(71, 343);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(61, 21);
             this.label6.TabIndex = 6;
@@ -481,28 +481,6 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
-            // tbSeries
-            // 
-            this.tbSeries.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbSeries.Location = new System.Drawing.Point(229, 331);
-            this.tbSeries.Mask = "0000";
-            this.tbSeries.Name = "tbSeries";
-            this.tbSeries.Size = new System.Drawing.Size(163, 27);
-            this.tbSeries.TabIndex = 21;
-            this.tbSeries.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbSeries.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSeries_KeyPress);
-            // 
-            // tbNumber
-            // 
-            this.tbNumber.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbNumber.Location = new System.Drawing.Point(505, 334);
-            this.tbNumber.Mask = "000000";
-            this.tbNumber.Name = "tbNumber";
-            this.tbNumber.Size = new System.Drawing.Size(163, 27);
-            this.tbNumber.TabIndex = 21;
-            this.tbNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumber_KeyPress);
-            // 
             // lbDocIssue
             // 
             this.lbDocIssue.Anchor = System.Windows.Forms.AnchorStyles.None;
@@ -513,6 +491,28 @@
             this.lbDocIssue.Size = new System.Drawing.Size(593, 201);
             this.lbDocIssue.TabIndex = 22;
             this.lbDocIssue.TextChanged += new System.EventHandler(this.lbDocIssue_TextChanged);
+            // 
+            // tbSeries
+            // 
+            this.tbSeries.Location = new System.Drawing.Point(229, 340);
+            this.tbSeries.MaxLength = 4;
+            this.tbSeries.Name = "tbSeries";
+            this.tbSeries.Size = new System.Drawing.Size(163, 27);
+            this.tbSeries.TabIndex = 24;
+            this.tbSeries.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbSeries.TextChanged += new System.EventHandler(this.tbSeries_TextChanged);
+            this.tbSeries.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSeries_KeyPress);
+            // 
+            // tbNumber
+            // 
+            this.tbNumber.Location = new System.Drawing.Point(505, 340);
+            this.tbNumber.MaxLength = 6;
+            this.tbNumber.Name = "tbNumber";
+            this.tbNumber.Size = new System.Drawing.Size(163, 27);
+            this.tbNumber.TabIndex = 25;
+            this.tbNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbNumber.TextChanged += new System.EventHandler(this.tbNumber_TextChanged);
+            this.tbNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumber_KeyPress);
             // 
             // photoOfClient
             // 
@@ -530,10 +530,10 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.Controls.Add(this.photoOfClient);
-            this.Controls.Add(this.lbDocIssue);
             this.Controls.Add(this.tbNumber);
             this.Controls.Add(this.tbSeries);
+            this.Controls.Add(this.photoOfClient);
+            this.Controls.Add(this.lbDocIssue);
             this.Controls.Add(this.saveBtn);
             this.Controls.Add(this.nameOfPhoto);
             this.Controls.Add(this.AbroadDoc);
@@ -606,9 +606,9 @@
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.Label nameOfPhoto;
         private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.MaskedTextBox tbSeries;
-        private System.Windows.Forms.MaskedTextBox tbNumber;
         private System.Windows.Forms.TextBox lbDocIssue;
         private CircularPictureBoxAPI photoOfClient;
+        private System.Windows.Forms.TextBox tbSeries;
+        private System.Windows.Forms.TextBox tbNumber;
     }
 }

@@ -41,7 +41,7 @@ namespace Voyage
             lName.Text += this.username;
             lRole.Text += this.role;
             //для отображения вкладки "Сотрудники"
-            if (this.username == "admin") {
+            if (this.role == "Главный") {
                 employeeBtn.Visible = true;
             }
         }

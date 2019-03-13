@@ -117,28 +117,24 @@ namespace Voyage
             AbroadDoc.Checked = false;
         }
 
-        //методы, использующиеся для показа/скрытия кнопки сохранить
+        //метод, использующиеся для показа/скрытия кнопки сохранить
         void EnabledBtn(TextBox tb)
         {
-            if (tb.Text == "")
+            if ((tbSeries.Text.Length - tbSeries.MaxLength == 0) && (tbNumber.Text.Length - tbNumber.MaxLength == 0))
+            {
+                if (tb.Text == "")
+                {
+                    saveBtn.Enabled = false;
+                }
+                else if (tbName.Text != "" && tbSurname.Text != "")
+                {
+                    saveBtn.Enabled = true;
+                }
+            }
+            else
             {
                 saveBtn.Enabled = false;
-            }
-            else if(tbName.Text!="" && tbSurname.Text!=""  && tbSeries.Text!="" && tbNumber.Text!="")
-            {
-                saveBtn.Enabled = true;
-            }
-        }
-        void EnabledBtnForMask(MaskedTextBox tb)
-        {
-            if (tb.Text == "")
-            {
-                saveBtn.Enabled = false;
-            }
-            else if (tbName.Text != "" && tbSurname.Text != "" && tbSeries.Text != "" && tbNumber.Text != "")
-            {
-                saveBtn.Enabled = true;
-            }
+            }   
         }
 
         public usClients()
@@ -456,12 +452,22 @@ namespace Voyage
 
         private void tbSeries_KeyPress(object sender, KeyPressEventArgs e)
         {
-            EnabledBtnForMask(tbSeries);
+            char word = e.KeyChar;
+            if ((word < '0' || word > '9') && word != '\b')
+            {
+                e.Handled = true;
+            }
+            EnabledBtn(tbSeries);
         }
 
         private void tbNumber_KeyPress(object sender, KeyPressEventArgs e)
         {
-            EnabledBtnForMask(tbNumber);
+            char word = e.KeyChar;
+            if ((word < '0' || word > '9') && word != '\b')
+            {
+                e.Handled = true;
+            }
+            EnabledBtn(tbNumber);
         }
 
         private void cbDoc_SelectedIndexChanged(object sender, EventArgs e)
@@ -487,6 +493,16 @@ namespace Voyage
         private void AbroadDoc_CheckedChanged(object sender, EventArgs e)
         {
             EnabledBtn(tbSurname);
+        }
+
+        private void tbSeries_TextChanged(object sender, EventArgs e)
+        {
+            EnabledBtn(tbSeries);
+        }
+
+        private void tbNumber_TextChanged(object sender, EventArgs e)
+        {
+            EnabledBtn(tbNumber);
         }
     }
 }
