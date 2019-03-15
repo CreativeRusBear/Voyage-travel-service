@@ -80,7 +80,7 @@
             this.AbroadDoc.TabIndex = 42;
             this.AbroadDoc.Text = "Наличие загрант паспорта";
             this.AbroadDoc.UseVisualStyleBackColor = true;
-            this.AbroadDoc.CheckedChanged += new System.EventHandler(this.AbroadDoc_CheckedChanged);
+            this.AbroadDoc.CheckedChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // dtpBithday
             // 
@@ -90,7 +90,7 @@
             this.dtpBithday.Name = "dtpBithday";
             this.dtpBithday.Size = new System.Drawing.Size(566, 27);
             this.dtpBithday.TabIndex = 39;
-            this.dtpBithday.ValueChanged += new System.EventHandler(this.dtpBithday_ValueChanged);
+            this.dtpBithday.ValueChanged += new System.EventHandler(this.tbName_TextChanged);
             // 
             // label9
             // 
@@ -109,6 +109,7 @@
             this.tbPatronymic.Name = "tbPatronymic";
             this.tbPatronymic.Size = new System.Drawing.Size(163, 27);
             this.tbPatronymic.TabIndex = 30;
+            this.tbPatronymic.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             this.tbPatronymic.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // label4
@@ -128,7 +129,8 @@
             this.tbSurname.Name = "tbSurname";
             this.tbSurname.Size = new System.Drawing.Size(163, 27);
             this.tbSurname.TabIndex = 29;
-            this.tbSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSurname_KeyPress);
+            this.tbSurname.TextChanged += new System.EventHandler(this.tbName_TextChanged);
+            this.tbSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // label3
             // 
@@ -191,6 +193,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(163, 27);
             this.tbName.TabIndex = 22;
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // panel1

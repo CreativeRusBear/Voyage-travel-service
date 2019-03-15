@@ -91,15 +91,15 @@ namespace Voyage
             AbroadDoc.Checked = false;
         }
 
-        void EnabledBtn(TextBox tb)
+        void EnabledBtn()
         {
-            if (tb.Text == "")
-            {
-                saveBtn.Enabled = false;
-            }
-            else if (tbName.Text != "" && tbSurname.Text != "")
+           if (tbName.Text != "" && tbSurname.Text != "")
             {
                 saveBtn.Enabled = true;
+            }
+            else
+            {
+                saveBtn.Enabled = false;
             }
         }
 
@@ -145,10 +145,26 @@ namespace Voyage
                 int delId = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Worker"]);
                 try
                 {
+                    DialogResult result = MessageBox.Show(
+                   "Нажмите \"Ок\", чтобы удалить запись. \"Отмена\" - для того, чтобы отменить внесенные изменения",
+                   "Удаление",
+                   MessageBoxButtons.OKCancel,
+                   MessageBoxIcon.Question,
+                   MessageBoxDefaultButton.Button1,
+                   MessageBoxOptions.DefaultDesktopOnly);
+                    if (result == DialogResult.Cancel)
+                    {
+                        ClearText();
+                        LoadDataFromTable();
+                        return;
+                    }
+                    if (result == DialogResult.OK)
+                    {
                         connection.Open();
                         SqlCommand Delete = new SqlCommand("Delete From dbo.tWorkers where ID_Worker = @ID", connection);
                         Delete.Parameters.AddWithValue("@ID", delId);
                         Delete.ExecuteNonQuery();
+                    }
                 }
                 catch (SqlException ex)
                 {
@@ -199,7 +215,7 @@ namespace Voyage
                         {
                             photoOfWorker.Image = Image.FromFile(Dialog.FileName);
                             nameOfPhoto.Text = Dialog.SafeFileName.ToString();
-                            if (tbName.Text != "" && tbSurname.Text != "") saveBtn.Enabled = true;
+                            EnabledBtn();
                         }
                     }
                 }
@@ -217,17 +233,7 @@ namespace Voyage
             {
                 e.Handled = true;
             }
-            EnabledBtn(tbName);
-        }
-
-        private void tbSurname_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char word = e.KeyChar;
-            if ((word < 'А' || word > 'Я') && (word < 'A' || word > 'Z') && word != '\b' && (word < 'a' || word > 'z') && (word < 'а' || word > 'я'))
-            {
-                e.Handled = true;
-            }
-            EnabledBtn(tbSurname);
+            EnabledBtn();
         }
 
         //нажатие кнопки добавления новой записи
@@ -390,14 +396,9 @@ namespace Voyage
             bs.Filter = "sName LIKE '%" + tbSearch.Text + "%' OR sSurname LIKE '%" + tbSearch.Text + "%'";
         }
 
-        private void dtpBithday_ValueChanged(object sender, EventArgs e)
+        private void tbName_TextChanged(object sender, EventArgs e)
         {
-            EnabledBtn(tbSurname);
-        }
-
-        private void AbroadDoc_CheckedChanged(object sender, EventArgs e)
-        {
-            EnabledBtn(tbSurname);
+            EnabledBtn();
         }
     }
 }
