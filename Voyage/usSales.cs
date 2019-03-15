@@ -20,7 +20,6 @@ namespace Voyage
         BindingSource bs;
         public usSales()
         {
-
             InitializeComponent();
             LoadDataFromTable();
             this.ForeColor = Color.FromArgb(0, 71, 160);
@@ -64,20 +63,38 @@ namespace Voyage
         //загрузка данных
         void LoadDataFromTable()
         {
-            adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tRoutes.sCountry, tRoutes.sNameOfRoute, tRoutes.Sale, " +
-                "tGroups.ID_Group, tGroups.sCount, tGroups.sName FROM tGroups INNER JOIN " +
-                "tGroupsRoutes ON tGroups.ID_Group =tGroupsRoutes.ID_Group " +
-                "inner join tRoutes ON tGroupsRoutes.ID_Route = tRoutes.ID_Route", connection);
-            starterSettings();
-            cbNameOfRoute.DataSource = bs;
-            cbNameOfRoute.ValueMember = "ID_Route";
-            cbNameOfRoute.DisplayMember = "sNameOfRoute";
-            lIdOfGroup.DataBindings.Clear();
-            lIdOfGroup.DataBindings.Add(new Binding("Text", bs, "ID_Group"));
-            lCountOfGroup.DataBindings.Clear();
-            lCountOfGroup.DataBindings.Add(new Binding("Text", bs, "sCount"));
-            lCountry.DataBindings.Clear();
-            lCountry.DataBindings.Add(new Binding("Text", bs, "sCountry"));
+            try
+            {
+                adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tRoutes.sCountry, tRoutes.sNameOfRoute, tRoutes.Sale, " +
+                    "tGroups.ID_Group, tGroups.sCount, tGroups.sName FROM tGroups INNER JOIN " +
+                    "tGroupsRoutes ON tGroups.ID_Group =tGroupsRoutes.ID_Group " +
+                    "inner join tRoutes ON tGroupsRoutes.ID_Route = tRoutes.ID_Route", connection);
+                starterSettings();
+                cbNameOfRoute.DataSource = bs;
+                cbNameOfRoute.ValueMember = "ID_Route";
+                cbNameOfRoute.DisplayMember = "sNameOfRoute";
+                lIdOfGroup.DataBindings.Clear();
+                lIdOfGroup.DataBindings.Add(new Binding("Text", bs, "ID_Group"));
+                lCountOfGroup.DataBindings.Clear();
+                lCountOfGroup.DataBindings.Add(new Binding("Text", bs, "sCount"));
+                lCountry.DataBindings.Clear();
+                lCountry.DataBindings.Add(new Binding("Text", bs, "sCountry"));
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show(
+                "Прежде чем начать работу с разделом 'Скидки', необходимо добавить группу",
+                "Предупреждение",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+                mainElements.Visible=false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
         
         //обновление данных о скидке на выбранный маршрут
@@ -87,5 +104,6 @@ namespace Voyage
             cbNameOfRoute.Text + "'", connection);
             starterSettings();
         }
+
     }
 }
