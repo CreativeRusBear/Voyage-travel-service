@@ -178,6 +178,7 @@
             this.nameOfRoute.Name = "nameOfRoute";
             this.nameOfRoute.Size = new System.Drawing.Size(163, 27);
             this.nameOfRoute.TabIndex = 21;
+            this.nameOfRoute.TextChanged += new System.EventHandler(this.mtbMoney_TextChanged);
             this.nameOfRoute.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.nameOfRoute_KeyPress);
             // 
             // panel1
@@ -503,6 +504,7 @@
             this.mtbDays.Size = new System.Drawing.Size(162, 27);
             this.mtbDays.TabIndex = 44;
             this.mtbDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtbDays.TextChanged += new System.EventHandler(this.mtbMoney_TextChanged);
             this.mtbDays.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
             // 
             // mtbMoney
@@ -514,6 +516,7 @@
             this.mtbMoney.Size = new System.Drawing.Size(162, 27);
             this.mtbMoney.TabIndex = 44;
             this.mtbMoney.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtbMoney.TextChanged += new System.EventHandler(this.mtbMoney_TextChanged);
             this.mtbMoney.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
             // 
             // mtbSale
@@ -525,6 +528,7 @@
             this.mtbSale.Size = new System.Drawing.Size(162, 27);
             this.mtbSale.TabIndex = 44;
             this.mtbSale.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtbSale.TextChanged += new System.EventHandler(this.mtbMoney_TextChanged);
             this.mtbSale.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
             // 
             // mtbReturn
@@ -536,6 +540,8 @@
             this.mtbReturn.Size = new System.Drawing.Size(162, 27);
             this.mtbReturn.TabIndex = 44;
             this.mtbReturn.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.mtbReturn.TextChanged += new System.EventHandler(this.mtbMoney_TextChanged);
+            this.mtbReturn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.mtbDays_KeyPress);
             // 
             // usRoutes
             // 

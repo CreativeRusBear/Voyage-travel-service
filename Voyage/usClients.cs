@@ -181,7 +181,7 @@ namespace Voyage
                 try
                 {
                     DialogResult result = MessageBox.Show(
-                   "Нажмите \"Да\", чтобы удалить запись. \"Отмена\" - для того, чтобы отменить внесенные изменения",
+                   "Нажмите \"Ок\", чтобы удалить запись. \"Отмена\" - для того, чтобы отменить внесенные изменения",
                    "Удаление",
                    MessageBoxButtons.OKCancel,
                    MessageBoxIcon.Question,

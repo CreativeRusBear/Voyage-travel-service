@@ -157,6 +157,11 @@ namespace Voyage
             if (forBtn)
             {
                 forBtn = false;
+                cbAddPuncts.Visible = true;
+                cbAllPuncts.Visible = true;
+                label10.Visible = true;
+                addPunct.Visible = true;
+                delPunct.Visible = true;
             }
             else if (bsForRoutes.Count > 0)
             {
@@ -165,20 +170,20 @@ namespace Voyage
                 try
                 {
                     DialogResult result = MessageBox.Show(
-                   "Вы действительно хотите удалить данную запись",
+                   "Нажмите \"Ок\", чтобы удалить запись. \"Отмена\" - для того, чтобы отменить внесенные изменения",
                    "Удаление",
-                   MessageBoxButtons.YesNo,
+                   MessageBoxButtons.OKCancel,
                    MessageBoxIcon.Question,
                    MessageBoxDefaultButton.Button1,
                    MessageBoxOptions.DefaultDesktopOnly);
-                    if (result == DialogResult.No)
+                    if (result == DialogResult.Cancel)
                     {
                         ClearData();
                         LoadDataFromTable();
                         saveBtn.Enabled = false;
                         return;
                     }
-                    if (result == DialogResult.Yes)
+                    if (result == DialogResult.OK)
                     {
                         connection.Open();
                         SqlCommand del = new SqlCommand("Delete From tRoutesPuncts where ID_Route=@ID", connection);
@@ -521,11 +526,21 @@ namespace Voyage
             saveBtn.Enabled = false;
         }
 
+        private void mtbMoney_TextChanged(object sender, EventArgs e)
+        {
+            EnabledBtn(mtbDays);
+        }
+
         void EnabledBtn(TextBox tb)
         {
-            if (nameOfRoute.Text != "")
+            if (nameOfRoute.Text.Trim() != "" && mtbMoney.Text!="" && mtbReturn.Text != "" && mtbSale.Text != "" &&
+                mtbDays.Text!="")
             {
                 saveBtn.Enabled = true;
+            }
+            else
+            {
+                saveBtn.Enabled = false;
             }
         }
 
