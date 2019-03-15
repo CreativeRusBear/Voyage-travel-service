@@ -30,7 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(createNewGroup));
             this.saveBtn = new System.Windows.Forms.Button();
-            this.tbCount = new System.Windows.Forms.MaskedTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tbName = new System.Windows.Forms.TextBox();
@@ -42,6 +41,7 @@
             this.shutdownBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.dragComponent1 = new Voyage.DragComponent();
+            this.tbCount = new System.Windows.Forms.TextBox();
             this.topPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -63,17 +63,6 @@
             this.saveBtn.UseVisualStyleBackColor = true;
             this.saveBtn.Click += new System.EventHandler(this.saveBtn_Click);
             // 
-            // tbCount
-            // 
-            this.tbCount.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.tbCount.Location = new System.Drawing.Point(322, 542);
-            this.tbCount.Mask = "00";
-            this.tbCount.Name = "tbCount";
-            this.tbCount.Size = new System.Drawing.Size(357, 27);
-            this.tbCount.TabIndex = 165;
-            this.tbCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
-            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -88,7 +77,7 @@
             // 
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(324, 411);
+            this.label3.Location = new System.Drawing.Point(318, 411);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 21);
             this.label3.TabIndex = 161;
@@ -101,13 +90,15 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(357, 27);
             this.tbName.TabIndex = 162;
+            this.tbName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbName.TextChanged += new System.EventHandler(this.tbName_TextChanged);
             this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // label4
             // 
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(318, 603);
+            this.label4.Location = new System.Drawing.Point(318, 602);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(87, 21);
             this.label4.TabIndex = 160;
@@ -129,7 +120,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(324, 505);
+            this.label5.Location = new System.Drawing.Point(318, 508);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(299, 21);
             this.label5.TabIndex = 163;
@@ -186,16 +177,27 @@
             // 
             this.dragComponent1.SelectControl = this.topPanel;
             // 
+            // tbCount
+            // 
+            this.tbCount.Location = new System.Drawing.Point(322, 551);
+            this.tbCount.MaxLength = 3;
+            this.tbCount.Name = "tbCount";
+            this.tbCount.Size = new System.Drawing.Size(357, 27);
+            this.tbCount.TabIndex = 169;
+            this.tbCount.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.tbCount.TextChanged += new System.EventHandler(this.tbName_TextChanged);
+            this.tbCount.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbCount_KeyPress);
+            // 
             // createNewGroup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 21F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(926, 717);
+            this.Controls.Add(this.tbCount);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.topPanel);
             this.Controls.Add(this.saveBtn);
-            this.Controls.Add(this.tbCount);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.tbName);
@@ -218,7 +220,6 @@
 
         #endregion
         private System.Windows.Forms.Button saveBtn;
-        private System.Windows.Forms.MaskedTextBox tbCount;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox tbName;
@@ -230,5 +231,6 @@
         private System.Windows.Forms.Button shutdownBtn;
         private System.Windows.Forms.PictureBox pictureBox1;
         private DragComponent dragComponent1;
+        private System.Windows.Forms.TextBox tbCount;
     }
 }

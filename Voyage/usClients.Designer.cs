@@ -100,6 +100,7 @@
             this.tbName.Name = "tbName";
             this.tbName.Size = new System.Drawing.Size(163, 27);
             this.tbName.TabIndex = 2;
+            this.tbName.TextChanged += new System.EventHandler(this.tbSeries_TextChanged);
             this.tbName.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // pBorderLeft
@@ -321,7 +322,8 @@
             this.tbSurname.Name = "tbSurname";
             this.tbSurname.Size = new System.Drawing.Size(163, 27);
             this.tbSurname.TabIndex = 7;
-            this.tbSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSurname_KeyPress);
+            this.tbSurname.TextChanged += new System.EventHandler(this.tbSeries_TextChanged);
+            this.tbSurname.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // label4
             // 
@@ -340,6 +342,7 @@
             this.tbPatronymic.Name = "tbPatronymic";
             this.tbPatronymic.Size = new System.Drawing.Size(163, 27);
             this.tbPatronymic.TabIndex = 7;
+            this.tbPatronymic.TextChanged += new System.EventHandler(this.tbSeries_TextChanged);
             this.tbPatronymic.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbName_KeyPress);
             // 
             // label5
@@ -405,7 +408,7 @@
             this.dtpDateIssue.Name = "dtpDateIssue";
             this.dtpDateIssue.Size = new System.Drawing.Size(163, 27);
             this.dtpDateIssue.TabIndex = 13;
-            this.dtpDateIssue.ValueChanged += new System.EventHandler(this.dtpDateIssue_ValueChanged);
+            this.dtpDateIssue.ValueChanged += new System.EventHandler(this.tbSeries_TextChanged);
             // 
             // dtpBithday
             // 
@@ -415,7 +418,7 @@
             this.dtpBithday.Name = "dtpBithday";
             this.dtpBithday.Size = new System.Drawing.Size(163, 27);
             this.dtpBithday.TabIndex = 15;
-            this.dtpBithday.ValueChanged += new System.EventHandler(this.dtpBithday_ValueChanged);
+            this.dtpBithday.ValueChanged += new System.EventHandler(this.tbSeries_TextChanged);
             // 
             // label9
             // 
@@ -490,7 +493,7 @@
             this.lbDocIssue.Name = "lbDocIssue";
             this.lbDocIssue.Size = new System.Drawing.Size(593, 201);
             this.lbDocIssue.TabIndex = 22;
-            this.lbDocIssue.TextChanged += new System.EventHandler(this.lbDocIssue_TextChanged);
+            this.lbDocIssue.TextChanged += new System.EventHandler(this.tbSeries_TextChanged);
             // 
             // tbSeries
             // 
@@ -513,8 +516,8 @@
             this.tbNumber.Size = new System.Drawing.Size(163, 27);
             this.tbNumber.TabIndex = 25;
             this.tbNumber.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.tbNumber.TextChanged += new System.EventHandler(this.tbNumber_TextChanged);
-            this.tbNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbNumber_KeyPress);
+            this.tbNumber.TextChanged += new System.EventHandler(this.tbSeries_TextChanged);
+            this.tbNumber.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbSeries_KeyPress);
             // 
             // photoOfClient
             // 
@@ -560,6 +563,7 @@
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "usClients";
             this.Size = new System.Drawing.Size(997, 886);
+            this.Load += new System.EventHandler(this.usClients_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel3.ResumeLayout(false);

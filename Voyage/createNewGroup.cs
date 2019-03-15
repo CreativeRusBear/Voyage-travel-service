@@ -122,6 +122,16 @@ namespace Voyage
             }
         }
 
+        private void tbCount_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            char word = e.KeyChar;
+            if ((word < '0' || word > '9') && word != '\b')
+            {
+                e.Handled = true;
+            }
+            EnabledBtn();
+        }
+
         //событие кнопки сохранения
         private void saveBtn_Click(object sender, EventArgs e)
         {
@@ -167,9 +177,20 @@ namespace Voyage
             }
         }
 
+        private void tbName_TextChanged(object sender, EventArgs e)
+        {
+            EnabledBtn();
+        }
+
         private void tbName_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (tbName.Text != "" && tbCount.Text != "")
+            EnabledBtn();
+        }
+
+        //проверка на возможность сохранения
+        void EnabledBtn()
+        {
+            if (tbName.Text.Trim() != "" && tbCount.Text != "" && cbRoutes.Text.Trim()!="")
             {
                 saveBtn.Enabled = true;
             }

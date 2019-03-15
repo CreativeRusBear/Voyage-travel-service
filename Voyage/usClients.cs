@@ -56,7 +56,6 @@ namespace Voyage
                 dtpDateIssue.DataBindings.Add(new Binding("Text", bs, "DateIssue"));
                 AbroadDoc.DataBindings.Clear();
                 AbroadDoc.DataBindings.Add(new Binding("Checked", bs, "AbroadDoc"));
-
                 // Отображаем данные
                 dgvClients.DataSource = bs;
                 dgvClients.Columns[0].Visible = false;
@@ -117,18 +116,12 @@ namespace Voyage
         }
 
         //метод, использующиеся для показа/скрытия кнопки сохранить
-        void EnabledBtn(TextBox tb)
+        void EnabledBtn()
         {
-            if ((tbSeries.Text.Length - tbSeries.MaxLength == 0) && (tbNumber.Text.Length - tbNumber.MaxLength == 0))
+            if ((tbSeries.Text.Length - tbSeries.MaxLength == 0) && (tbNumber.Text.Length - tbNumber.MaxLength == 0) 
+                && tbName.Text.Length != 0 && tbSurname.Text.Length != 0)
             {
-                if (tb.Text == "")
-                {
-                    saveBtn.Enabled = false;
-                }
-                else if (tbName.Text != "" && tbSurname.Text != "")
-                {
-                    saveBtn.Enabled = true;
-                }
+                saveBtn.Enabled = true;
             }
             else
             {
@@ -141,7 +134,6 @@ namespace Voyage
             InitializeComponent();
             LoadDataFromTable();
             forBtn = false;
-            saveBtn.Enabled = false;
             this.ForeColor=Color.FromArgb(0, 71, 160);
             pBorderLeft.BackColor= Color.FromArgb(0, 71, 160);
             pBorderRight.BackColor=Color.FromArgb(0, 71, 160);
@@ -261,7 +253,7 @@ namespace Voyage
             {
                 e.Handled = true;
             }
-            EnabledBtn(tbName);
+            EnabledBtn();
         }
 
         //добавление новой записи
@@ -439,16 +431,6 @@ namespace Voyage
             bs.Filter = "sName LIKE '%" + tbSearchClient.Text + "%' OR sSurname LIKE '%" + tbSearchClient.Text + "%'";
         }
 
-        private void tbSurname_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char word = e.KeyChar;
-            if ((word < 'А' || word > 'Я') && (word < 'A' || word > 'Z') && word != '\b' && (word < 'a' || word > 'z') && (word < 'а' || word > 'я'))
-            {
-                e.Handled = true;
-            }
-            EnabledBtn(tbSurname);
-        }
-
         private void tbSeries_KeyPress(object sender, KeyPressEventArgs e)
         {
             char word = e.KeyChar;
@@ -456,52 +438,27 @@ namespace Voyage
             {
                 e.Handled = true;
             }
-            EnabledBtn(tbSeries);
-        }
-
-        private void tbNumber_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            char word = e.KeyChar;
-            if ((word < '0' || word > '9') && word != '\b')
-            {
-                e.Handled = true;
-            }
-            EnabledBtn(tbNumber);
+            EnabledBtn();
         }
 
         private void cbDoc_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EnabledBtn(tbSurname);
-        }
-
-        private void lbDocIssue_TextChanged(object sender, EventArgs e)
-        {
-            EnabledBtn(tbSurname);
-        }
-
-        private void dtpBithday_ValueChanged(object sender, EventArgs e)
-        {
-            EnabledBtn(tbSurname);
-        }
-
-        private void dtpDateIssue_ValueChanged(object sender, EventArgs e)
-        {
-            EnabledBtn(tbSurname);
+            EnabledBtn();
         }
 
         private void AbroadDoc_CheckedChanged(object sender, EventArgs e)
         {
-            EnabledBtn(tbSurname);
+            EnabledBtn();
         }
 
         private void tbSeries_TextChanged(object sender, EventArgs e)
         {
-            EnabledBtn(tbSeries);
+            EnabledBtn();
         }
 
-        private void tbNumber_TextChanged(object sender, EventArgs e)
+        private void usClients_Load(object sender, EventArgs e)
         {
-            EnabledBtn(tbNumber);
+            saveBtn.Enabled = false;
         }
     }
 }
