@@ -203,6 +203,14 @@ namespace Voyage
                         MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1,
                         MessageBoxOptions.DefaultDesktopOnly);
+                    else if ((uint)ex.ErrorCode == 0x80131904)
+                        MessageBox.Show(
+                        "Клиент добавлен в одну из существующих групп",
+                        "Предупреждение",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly);
                     else
                         MessageBox.Show(ex.ToString());
                 }
@@ -234,7 +242,7 @@ namespace Voyage
                         {
                             photoOfClient.Image = Image.FromFile(Dialog.FileName);
                             nameOfPhoto.Text = Dialog.SafeFileName.ToString();
-                            if(tbName.Text != "" && tbSurname.Text != "" && tbSeries.Text != "" && tbNumber.Text != "") saveBtn.Enabled = true;
+                            EnabledBtn();
                         }
                     }
                 }

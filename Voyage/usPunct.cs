@@ -217,11 +217,15 @@ namespace Voyage
             printStarsBack(fiveStars, clickImg, "fiveStars");
         }
 
-        void EnabledBtn(TextBox tb)
+        void EnabledBtn()
         {
-            if (tbPunct.Text != "" && tbHotel.Text!="")
+            if (tbPunct.Text.Trim() != "" && tbHotel.Text.Trim() != "" && Convert.ToInt32(lRaiting.Text)!=0)
             {
                 saveBtn.Enabled = true;
+            }
+            else
+            {
+                saveBtn.Enabled = false;
             }
         }
 
@@ -350,7 +354,6 @@ namespace Voyage
             if (forBtn)
             {
                 forBtn = false;
-                LoadDataFromTable();
             }
             else if (bs.Count > 0)
             {
@@ -358,10 +361,26 @@ namespace Voyage
                 int delId = Convert.ToInt32(((DataRowView)this.bs.Current).Row["ID_Punct"]);
                 try
                 {
-                    connection.Open();
-                    SqlCommand Delete = new SqlCommand("Delete From dbo.tPuncts where ID_Punct = @ID", connection);
-                    Delete.Parameters.AddWithValue("@ID", delId);
-                    Delete.ExecuteNonQuery();
+                    DialogResult result = MessageBox.Show(
+                   "Нажмите \"Ок\", чтобы удалить запись. \"Отмена\" - для того, чтобы отменить внесенные изменения",
+                   "Удаление",
+                   MessageBoxButtons.OKCancel,
+                   MessageBoxIcon.Question,
+                   MessageBoxDefaultButton.Button1,
+                   MessageBoxOptions.DefaultDesktopOnly);
+                    if (result == DialogResult.Cancel)
+                    {
+                        ClearText();
+                        LoadDataFromTable();
+                        return;
+                    }
+                    if (result == DialogResult.OK)
+                    {
+                        connection.Open();
+                        SqlCommand Delete = new SqlCommand("Delete From dbo.tPuncts where ID_Punct = @ID", connection);
+                        Delete.Parameters.AddWithValue("@ID", delId);
+                        Delete.ExecuteNonQuery();
+                    }
                 }
                 catch (SqlException ex)
                 {
@@ -384,48 +403,33 @@ namespace Voyage
                     else
                         MessageBox.Show(ex.ToString());
                 }
-               
                 finally
                 {
                     connection.Close();
-                    LoadDataFromTable();
                 }
             }
+            ClearText();
+            LoadDataFromTable();
         }
 
         private void tbPunct_KeyPress(object sender, KeyPressEventArgs e)
         {
-            EnabledBtn(tbPunct);
+            char word = e.KeyChar;
+            if ((word < 'А' || word > 'Я') && (word < 'A' || word > 'Z') && word != '\b' && (word < 'a' || word > 'z') && (word < 'а' || word > 'я'))
+            {
+                e.Handled = true;
+            }
+            EnabledBtn();
         }
 
         private void tbHotel_KeyPress(object sender, KeyPressEventArgs e)
         {
-            EnabledBtn(tbHotel);
+            EnabledBtn();
         }
 
         private void cbCountry_SelectedIndexChanged(object sender, EventArgs e)
         {
-            EnabledBtn(tbExcurse);
-        }
-
-        private void dateStart_ValueChanged(object sender, EventArgs e)
-        {
-            EnabledBtn(tbExcurse);
-        }
-
-        private void dateEnd_ValueChanged(object sender, EventArgs e)
-        {
-            EnabledBtn(tbExcurse);
-        }
-
-        private void tbExcurse_TextChanged(object sender, EventArgs e)
-        {
-            EnabledBtn(tbExcurse);
-        }
-
-        private void lRaiting_TextChanged(object sender, EventArgs e)
-        {
-            EnabledBtn(tbExcurse);
+            EnabledBtn();
         }
         
         //добавление новой записи

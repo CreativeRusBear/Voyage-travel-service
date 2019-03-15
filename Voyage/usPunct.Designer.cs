@@ -326,6 +326,7 @@
             this.tbPunct.Name = "tbPunct";
             this.tbPunct.Size = new System.Drawing.Size(163, 27);
             this.tbPunct.TabIndex = 46;
+            this.tbPunct.TextChanged += new System.EventHandler(this.cbCountry_SelectedIndexChanged);
             this.tbPunct.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbPunct_KeyPress);
             // 
             // dateStart
@@ -336,7 +337,7 @@
             this.dateStart.Name = "dateStart";
             this.dateStart.Size = new System.Drawing.Size(163, 27);
             this.dateStart.TabIndex = 47;
-            this.dateStart.ValueChanged += new System.EventHandler(this.dateStart_ValueChanged);
+            this.dateStart.ValueChanged += new System.EventHandler(this.cbCountry_SelectedIndexChanged);
             // 
             // dateEnd
             // 
@@ -346,7 +347,7 @@
             this.dateEnd.Name = "dateEnd";
             this.dateEnd.Size = new System.Drawing.Size(163, 27);
             this.dateEnd.TabIndex = 48;
-            this.dateEnd.ValueChanged += new System.EventHandler(this.dateEnd_ValueChanged);
+            this.dateEnd.ValueChanged += new System.EventHandler(this.cbCountry_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -365,6 +366,7 @@
             this.tbHotel.Name = "tbHotel";
             this.tbHotel.Size = new System.Drawing.Size(163, 27);
             this.tbHotel.TabIndex = 46;
+            this.tbHotel.TextChanged += new System.EventHandler(this.cbCountry_SelectedIndexChanged);
             this.tbHotel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbHotel_KeyPress);
             // 
             // label6
@@ -497,7 +499,8 @@
             this.tbExcurse.Name = "tbExcurse";
             this.tbExcurse.Size = new System.Drawing.Size(602, 201);
             this.tbExcurse.TabIndex = 51;
-            this.tbExcurse.TextChanged += new System.EventHandler(this.tbExcurse_TextChanged);
+            this.tbExcurse.TextChanged += new System.EventHandler(this.cbCountry_SelectedIndexChanged);
+            this.tbExcurse.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tbHotel_KeyPress);
             // 
             // lRaiting
             // 
@@ -509,7 +512,7 @@
             this.lRaiting.TabIndex = 27;
             this.lRaiting.Text = "0";
             this.lRaiting.Visible = false;
-            this.lRaiting.TextChanged += new System.EventHandler(this.lRaiting_TextChanged);
+            this.lRaiting.TextChanged += new System.EventHandler(this.cbCountry_SelectedIndexChanged);
             // 
             // usPunct
             // 

@@ -206,6 +206,14 @@ namespace Voyage
                         MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1,
                         MessageBoxOptions.DefaultDesktopOnly);
+                    else if ((uint)ex.ErrorCode == 0x80131904)
+                        MessageBox.Show(
+                        "Один из существующих групп использует данный маршрут",
+                        "Предупреждение",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly);
                     else
                         MessageBox.Show(ex.ToString());
                 }
