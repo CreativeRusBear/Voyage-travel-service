@@ -46,6 +46,7 @@ namespace Voyage
         //загрузка данных
         void LoadDataFromTable()
         {
+            try { 
             adapter = new SqlDataAdapter("SELECT tRoutes.ID_Route, tGroups.ID_Group, tRoutes.sNameOfRoute, tRoutes.sReturn, " +
                    "tGroups.sName FROM tGroups INNER JOIN " +
                    "tGroupsRoutes ON tGroups.ID_Group =tGroupsRoutes.ID_Group " +
@@ -56,6 +57,23 @@ namespace Voyage
             cbRoutes.DisplayMember = "sNameOfRoute";
             ID_Group.DataBindings.Clear();
             ID_Group.DataBindings.Add(new Binding("Text", bs, "ID_Group"));
+            }
+            catch (NullReferenceException)
+            {
+                MessageBox.Show(
+                "Прежде чем начать работу с разделом 'Возвраты', необходимо добавить группу",
+                "Предупреждение",
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information,
+                MessageBoxDefaultButton.Button1,
+                MessageBoxOptions.DefaultDesktopOnly);
+                mainElements.Visible = false;
+                addNewClientsWithSales.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         //переход к след. пункту

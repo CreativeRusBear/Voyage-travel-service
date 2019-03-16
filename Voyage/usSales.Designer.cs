@@ -200,6 +200,7 @@
             this.addNewClientsWithSales.Text = "     Оформить заказ";
             this.addNewClientsWithSales.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.addNewClientsWithSales.UseVisualStyleBackColor = true;
+            this.addNewClientsWithSales.Click += new System.EventHandler(this.addNewClientsWithSales_Click);
             // 
             // textAboutSale
             // 
@@ -244,6 +245,7 @@
             this.cbNameOfRoute.Name = "cbNameOfRoute";
             this.cbNameOfRoute.Size = new System.Drawing.Size(275, 29);
             this.cbNameOfRoute.TabIndex = 8;
+            this.cbNameOfRoute.DropDownClosed += new System.EventHandler(this.cbNameOfRoute_DropDownClosed);
             // 
             // usSales
             // 
