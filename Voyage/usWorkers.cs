@@ -57,6 +57,7 @@ namespace Voyage
                 dgvWorkers.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvWorkers.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
                 dgvWorkers.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                checkForAvailability();
             }
         }
 
@@ -90,6 +91,30 @@ namespace Voyage
             dtpBithday.Text = DateTime.Now.ToString();
             AbroadDoc.Checked = false;
         }
+
+        //метод проверки наличия записей
+        void checkForAvailability()
+        {
+            if (bs.Count == 0)
+            {
+                chooseDisplay(false);
+            }
+            else
+            {
+                chooseDisplay(true);
+            }
+        }
+        //методотображения элементов
+        void chooseDisplay(bool val)
+        {
+            tbName.Enabled = val;
+            tbSurname.Enabled = val;
+            tbPatronymic.Enabled = val;
+            dtpBithday.Enabled = val;
+            photoOfWorker.Enabled = val;
+            AbroadDoc.Enabled = val;
+        }
+
 
         void EnabledBtn()
         {
@@ -242,6 +267,7 @@ namespace Voyage
             ClearText();
             forBtn = true;
             saveBtn.Enabled = false;
+            chooseDisplay(true);
         }
 
         //переход по записям таблицы
@@ -280,7 +306,7 @@ namespace Voyage
                     }
                     commandInsert.Parameters.AddWithValue("@Photo", nameOfPhoto.Text);
                     commandInsert.ExecuteNonQuery();
-                    MessageBox.Show("Запись добавлена");
+                    MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     forBtn = false;
                 }
                 catch (SqlException ex)
@@ -314,7 +340,7 @@ namespace Voyage
                     commandUpdate.Parameters.AddWithValue("@Photo", nameOfPhoto.Text);
                     commandUpdate.Parameters.AddWithValue("@IDSS", ID_SS);
                     commandUpdate.ExecuteNonQuery();
-                    MessageBox.Show("Запись обновлена");
+                    MessageBox.Show("Запись обновлена", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (SqlException ex)
                 {

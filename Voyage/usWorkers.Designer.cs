@@ -38,7 +38,6 @@
             this.tbSurname = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.groupBtn = new System.Windows.Forms.Button();
             this.addBtn = new System.Windows.Forms.Button();
             this.tbName = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -151,24 +150,6 @@
             this.label2.Size = new System.Drawing.Size(43, 21);
             this.label2.TabIndex = 25;
             this.label2.Text = "Имя";
-            // 
-            // groupBtn
-            // 
-            this.groupBtn.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.groupBtn.BackColor = System.Drawing.Color.Transparent;
-            this.groupBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("groupBtn.BackgroundImage")));
-            this.groupBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.groupBtn.FlatAppearance.BorderSize = 0;
-            this.groupBtn.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.groupBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.groupBtn.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.groupBtn.ForeColor = System.Drawing.Color.White;
-            this.groupBtn.Location = new System.Drawing.Point(588, 782);
-            this.groupBtn.Name = "groupBtn";
-            this.groupBtn.Size = new System.Drawing.Size(118, 104);
-            this.groupBtn.TabIndex = 21;
-            this.groupBtn.UseVisualStyleBackColor = false;
-            this.groupBtn.Visible = false;
             // 
             // addBtn
             // 
@@ -444,7 +425,6 @@
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.AbroadDoc);
             this.Controls.Add(this.dtpBithday);
-            this.Controls.Add(this.groupBtn);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.tbPatronymic);
             this.Controls.Add(this.label4);
@@ -481,7 +461,6 @@
         private System.Windows.Forms.TextBox tbSurname;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Button groupBtn;
         private System.Windows.Forms.Button addBtn;
         private System.Windows.Forms.TextBox tbName;
         private System.Windows.Forms.Panel panel1;

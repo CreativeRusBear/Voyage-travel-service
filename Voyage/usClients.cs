@@ -128,7 +128,7 @@ namespace Voyage
                 chooseDisplay(true);
             }
         }
-        //методотображения элементов
+        //метод отображения элементов
         void chooseDisplay(bool val)
         {
             tbName.Enabled = val;
@@ -343,7 +343,7 @@ namespace Voyage
                     }
                     commandInsert.Parameters.AddWithValue("@Photo", nameOfPhoto.Text);
                     commandInsert.ExecuteNonQuery();
-                    MessageBox.Show("Запись добавлена");
+                    MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     forBtn = false;
                 }
                 catch (SqlException ex)
@@ -381,7 +381,7 @@ namespace Voyage
                     commandUpdate.Parameters.AddWithValue("@Photo", nameOfPhoto.Text);
                     commandUpdate.Parameters.AddWithValue("@IDSS", ID_SS);
                     commandUpdate.ExecuteNonQuery();
-                    MessageBox.Show("Запись обновлена");
+                    MessageBox.Show("Запись обновлена", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (SqlException ex)
                 {

@@ -86,7 +86,7 @@ namespace Voyage
                     commandInsert.Parameters.AddWithValue("@ID_Client", Convert.ToInt32(cbAllClients.SelectedValue));
                     commandInsert.Parameters.AddWithValue("@Sale", false);
                     commandInsert.ExecuteNonQuery();
-                    MessageBox.Show("Клиент успешно добавлен");
+                    MessageBox.Show("Клиент успешно добавлен", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (SqlException ex)

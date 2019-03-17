@@ -62,6 +62,7 @@ namespace Voyage
                 dgvPuncts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 dgvPuncts.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
                 dgvPuncts.RowsDefaultCellStyle.WrapMode = DataGridViewTriState.True;
+                checkForAvailability();
             }
         }
 
@@ -217,6 +218,35 @@ namespace Voyage
             printStarsBack(fiveStars, clickImg, "fiveStars");
         }
 
+        //метод проверки наличия записей
+        void checkForAvailability()
+        {
+            if (bs.Count == 0)
+            {
+                chooseDisplay(false);
+            }
+            else
+            {
+                chooseDisplay(true);
+            }
+        }
+
+        //метод отображения элементов
+        void chooseDisplay(bool val)
+        {
+            cbCountry.Enabled = val;
+            tbHotel.Enabled = val;
+            tbExcurse.Enabled = val;
+            tbPunct.Enabled = val;
+            dateStart.Enabled = val;
+            dateEnd.Enabled = val;
+            oneStar.Enabled = val;
+            twoStars.Enabled = val;
+            threeStars.Enabled = val;
+            fourStars.Enabled = val;
+            fiveStars.Enabled = val;
+        }
+
         void EnabledBtn()
         {
             if (tbPunct.Text.Trim() != "" && tbHotel.Text.Trim() != "" && Convert.ToInt32(lRaiting.Text)!=0)
@@ -289,7 +319,7 @@ namespace Voyage
                     commandInsert.Parameters.AddWithValue("@class", lRaiting.Text);
                     commandInsert.Parameters.AddWithValue("@Excurse", tbExcurse.Text);
                     commandInsert.ExecuteNonQuery();
-                    MessageBox.Show("Запись добавлена");
+                    MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     forBtn = false;
                 }
                 catch (SqlException ex)
@@ -322,7 +352,7 @@ namespace Voyage
                     commandUpdate.Parameters.AddWithValue("@Excurse", tbExcurse.Text);
                     commandUpdate.Parameters.AddWithValue("@IDSS", ID_SS);
                     commandUpdate.ExecuteNonQuery();
-                    MessageBox.Show("Запись обновлена");
+                    MessageBox.Show("Запись обновлена", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (SqlException ex)
                 {
@@ -438,6 +468,7 @@ namespace Voyage
             ClearText();
             forBtn = true;
             saveBtn.Enabled = false;
+            chooseDisplay(true);
         }
 
         private void dgvPuncts_SelectionChanged(object sender, EventArgs e)

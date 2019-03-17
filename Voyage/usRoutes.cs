@@ -289,7 +289,7 @@ namespace Voyage
                     commandInsert.Parameters.AddWithValue("@Return", mtbReturn.Text);
                     commandInsert.Parameters.AddWithValue("@DayStart", dateOfFly.Text);
                     commandInsert.ExecuteNonQuery();
-                    MessageBox.Show("Запись добавлена");
+                    MessageBox.Show("Запись добавлена", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     forBtn = false;
                     cbAddPuncts.Visible = true;
                     cbAllPuncts.Visible = true;
@@ -329,7 +329,7 @@ namespace Voyage
                     commandUpdate.Parameters.AddWithValue("@DayStart", dateOfFly.Text);
                     commandUpdate.Parameters.AddWithValue("@IDSS", ID_SS);
                     commandUpdate.ExecuteNonQuery();
-                    MessageBox.Show("Запись обновлена");
+                    MessageBox.Show("Запись обновлена", "Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 catch (SqlException ex)
                 {
@@ -482,6 +482,7 @@ namespace Voyage
         private void addPunct_Click(object sender, EventArgs e)
         {
             bool add = false;
+            int pos= bsForRoutes.Position;
             try
             {
                 int id = Convert.ToInt32(cbAllPuncts.SelectedValue);
@@ -499,25 +500,26 @@ namespace Voyage
                     commandInsert.Parameters.AddWithValue("@ID_Route", Convert.ToString(((DataRowView)this.bsForRoutes.Current).Row["ID_Route"]));
                     commandInsert.Parameters.AddWithValue("@ID_Punct", Convert.ToInt32(cbAllPuncts.SelectedValue));
                     commandInsert.ExecuteNonQuery();
-                    MessageBox.Show("Маршрут добавлен");
+                    MessageBox.Show("Маршрут добавлен","Уведомление", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
             catch (SqlException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
-
             finally
             {
                 connection.Close();
                 LoadDataFromTable();
                 saveBtn.Enabled = false;
+                bsForRoutes.Position = pos;
             }
         }
 
         //удаление добавленных пунктов маршрута
         private void delPunct_Click(object sender, EventArgs e)
         {
+            int pos = bsForRoutes.Position;
             if (bsForAddPuncts.Count > 0)
             {
                 try
@@ -560,6 +562,7 @@ namespace Voyage
                 {
                     connection.Close();
                     LoadDataFromTable();
+                    bsForRoutes.Position = pos;
                 }
             }
             saveBtn.Enabled = false;
