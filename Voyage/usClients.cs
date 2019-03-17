@@ -76,6 +76,7 @@ namespace Voyage
 
                 //подсчет клиентов
                 lCount.Text = bs.Count.ToString()+" человек";
+                checkForAvailability();
             }
         }
 
@@ -113,6 +114,34 @@ namespace Voyage
             dtpBithday.Text = DateTime.Now.ToString();
             dtpDateIssue.Text= DateTime.Now.ToString();
             AbroadDoc.Checked = false;
+        }
+
+        //метод проверки наличия записей
+        void checkForAvailability()
+        {
+            if (bs.Count == 0)
+            {
+                chooseDisplay(false);
+            }
+            else
+            {
+                chooseDisplay(true);
+            }
+        }
+        //методотображения элементов
+        void chooseDisplay(bool val)
+        {
+            tbName.Enabled = val;
+            tbSurname.Enabled = val;
+            tbPatronymic.Enabled = val;
+            dtpBithday.Enabled = val;
+            photoOfClient.Enabled = val;
+            cbDoc.Enabled = val;
+            tbSeries.Enabled = val;
+            tbNumber.Enabled = val;
+            lbDocIssue.Enabled = val;
+            dtpDateIssue.Enabled = val;
+            AbroadDoc.Enabled = val;
         }
 
         //метод, использующиеся для показа/скрытия кнопки сохранить
@@ -270,6 +299,7 @@ namespace Voyage
             ClearText();
             forBtn = true;
             saveBtn.Enabled = false;
+            chooseDisplay(true);
         }
 
         //событие для перехода по записям

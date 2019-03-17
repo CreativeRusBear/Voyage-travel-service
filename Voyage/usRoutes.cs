@@ -19,6 +19,35 @@ namespace Voyage
         SqlDataAdapter adapter;
         BindingSource bsForRoutes, bsForWorkers, bsForPuncts, bsForAddPuncts;
         bool forBtn;
+        //метод проверки наличия записей
+        void checkForAvailability()
+        {
+            if (bsForRoutes.Count == 0)
+            {
+                chooseDisplay(false);
+            }
+            else
+            {
+                chooseDisplay(true);
+            }
+        }
+
+        //методотображения элементов
+        void chooseDisplay(bool val)
+        {
+            cbCountries.Enabled = val;
+            nameOfRoute.Enabled = val;
+            mtbDays.Enabled = val;
+            cbWorker.Enabled = val;
+            mtbMoney.Enabled = val;
+            mtbSale.Enabled = val;
+            mtbReturn.Enabled = val;
+            dateOfFly.Enabled = val;
+            cbAllPuncts.Enabled = val;
+            cbAddPuncts.Enabled = val;
+            addPunct.Enabled = val;
+            delPunct.Enabled = val;
+        }
 
         //загрузка представителей компании
         void LoadDataFromWorkers(string country)
@@ -134,6 +163,7 @@ namespace Voyage
             {
                 cbCountries.Enabled = true;
             }
+            checkForAvailability();
         }
 
         //показ/скрытие поискового меню
@@ -234,6 +264,7 @@ namespace Voyage
             ClearText();
             forBtn = true;
             saveBtn.Enabled = false;
+            chooseDisplay(true);
         }
 
         //сохранение/обновление записи
