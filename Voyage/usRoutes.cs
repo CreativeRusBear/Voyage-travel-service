@@ -155,6 +155,7 @@ namespace Voyage
                 LoadDataFromPuncts("Россия");
             }
             lCount.Text = bsForRoutes.Count.ToString();
+            checkForAvailability();
             if (cbAddPuncts.Items.Count > 0)
             {
                 cbCountries.Enabled = false;
@@ -163,7 +164,6 @@ namespace Voyage
             {
                 cbCountries.Enabled = true;
             }
-            checkForAvailability();
         }
 
         //показ/скрытие поискового меню
@@ -208,9 +208,10 @@ namespace Voyage
                    MessageBoxOptions.DefaultDesktopOnly);
                     if (result == DialogResult.Cancel)
                     {
-                        ClearData();
+                        //ClearData();
                         LoadDataFromTable();
                         saveBtn.Enabled = false;
+                        bsForRoutes.Position = rowPosition;
                         return;
                     }
                     if (result == DialogResult.OK)
@@ -224,6 +225,7 @@ namespace Voyage
                         SqlCommand Delete = new SqlCommand("Delete From tRoutes where ID_Route = @ID", connection);
                         Delete.Parameters.AddWithValue("@ID", delId);
                         Delete.ExecuteNonQuery();
+                        cbCountries.Enabled = true;
                     }
                 }
                 catch (SqlException ex)
@@ -250,10 +252,10 @@ namespace Voyage
                 finally
                 {
                     connection.Close();
-                    cbCountries.Enabled = true;
+                    
                 }
             }
-            ClearData();
+            //ClearData();
             LoadDataFromTable();
             saveBtn.Enabled = false;
         }
@@ -512,6 +514,7 @@ namespace Voyage
                 connection.Close();
                 LoadDataFromTable();
                 saveBtn.Enabled = false;
+                cbCountries.Enabled = false;
                 bsForRoutes.Position = pos;
             }
         }
