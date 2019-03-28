@@ -216,16 +216,37 @@ namespace Voyage
                     }
                     if (result == DialogResult.OK)
                     {
+                        SqlDataReader reader;
+                        string command = String.Format("Select ID_Route From tGroupsRoutes Where " +
+                        "(ID_Route='{0}' Collate SQL_Latin1_General_CP1251_CS_AS)",
+                        delId);
+                        SqlCommand Select = new SqlCommand(command, connection);
                         connection.Open();
-                        SqlCommand del = new SqlCommand("Delete From tRoutesPuncts where ID_Route=@ID", connection);
-                        del.Parameters.AddWithValue("@ID", delId);
-                        del.ExecuteNonQuery();
-                        connection.Close();
-                        connection.Open();
-                        SqlCommand Delete = new SqlCommand("Delete From tRoutes where ID_Route = @ID", connection);
-                        Delete.Parameters.AddWithValue("@ID", delId);
-                        Delete.ExecuteNonQuery();
-                        cbCountries.Enabled = true;
+                        reader = Select.ExecuteReader();
+                        if (reader.HasRows)
+                        {
+                            MessageBox.Show(
+                        "Один из существующих групп использует данный маршрут",
+                        "Предупреждение",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Information,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly);
+                        }
+                        else
+                        {
+                            connection.Close();
+                            connection.Open();
+                            SqlCommand del = new SqlCommand("Delete From tRoutesPuncts where ID_Route=@ID", connection);
+                            del.Parameters.AddWithValue("@ID", delId);
+                            del.ExecuteNonQuery();
+                            connection.Close();
+                            connection.Open();
+                            SqlCommand Delete = new SqlCommand("Delete From tRoutes where ID_Route = @ID", connection);
+                            Delete.Parameters.AddWithValue("@ID", delId);
+                            Delete.ExecuteNonQuery();
+                            cbCountries.Enabled = true;
+                        } 
                     }
                 }
                 catch (SqlException ex)
@@ -238,14 +259,14 @@ namespace Voyage
                         MessageBoxIcon.Error,
                         MessageBoxDefaultButton.Button1,
                         MessageBoxOptions.DefaultDesktopOnly);
-                    else if ((uint)ex.ErrorCode == 0x80131904)
+                    /*else if ((uint)ex.ErrorCode == 0x80131904)
                         MessageBox.Show(
                         "Один из существующих групп использует данный маршрут",
                         "Предупреждение",
                         MessageBoxButtons.OK,
                         MessageBoxIcon.Information,
                         MessageBoxDefaultButton.Button1,
-                        MessageBoxOptions.DefaultDesktopOnly);
+                        MessageBoxOptions.DefaultDesktopOnly);*/
                     else
                         MessageBox.Show(ex.ToString());
                 }
