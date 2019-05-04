@@ -444,7 +444,7 @@ namespace Voyage
         //работа с поисковым запросом
         private void tbSearchRoutes_TextChanged(object sender, EventArgs e)
         {
-            bsForRoutes.Filter = "sNameOfRoute LIKE '%" + tbSearchRoutes.Text + "%' OR sCountry LIKE '%" + tbSearchRoutes.Text + "%'";
+            bsForRoutes.Filter = string.Format("sNameOfRoute LIKE '{0}%' OR sCountry LIKE '{0}%'", tbSearchRoutes.Text);
         }
 
         //при выборе др. страны

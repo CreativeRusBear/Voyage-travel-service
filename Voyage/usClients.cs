@@ -466,7 +466,8 @@ namespace Voyage
         //поиск
         private void tbSearchClient_TextChanged(object sender, EventArgs e)
         {
-            bs.Filter = "sName LIKE '%" + tbSearchClient.Text + "%' OR sSurname LIKE '%" + tbSearchClient.Text + "%'";
+           // bs.Filter = "sName LIKE '" + tbSearchClient.Text + "%' OR sSurname LIKE '" + tbSearchClient.Text + "%'";
+            bs.Filter = string.Format("sName LIKE '{0}%' OR sSurname LIKE '{0}%'", tbSearchClient.Text);
         }
 
         private void tbSeries_KeyPress(object sender, KeyPressEventArgs e)

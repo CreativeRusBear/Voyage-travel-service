@@ -96,7 +96,7 @@ namespace Voyage
         //событие для регистрации/обновления данных о клиенте
         private void signInBtn_Click(object sender, EventArgs e)
         {
-            if (tbLog.Text!="" || tbPassword.Text!= "")
+            if (tbLog.Text.Trim()!="" && tbPassword.Text.Trim()!= "")
             {
                 try
                 {
@@ -120,9 +120,18 @@ namespace Voyage
                     connection.Close();
                     this.Close();
                 }
-                catch (Exception ex)
+                catch (SqlException ex)
                 {
-                    MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    if ((uint)ex.ErrorCode == 0x80131904)
+                        MessageBox.Show(
+                        "Пользователь с таким логином уже зарегестрирован. Придумайте новый и повтрите попытку.",
+                        "Ошибка",
+                        MessageBoxButtons.OK,
+                        MessageBoxIcon.Error,
+                        MessageBoxDefaultButton.Button1,
+                        MessageBoxOptions.DefaultDesktopOnly);
+                    else
+                        MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
             else

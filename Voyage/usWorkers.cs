@@ -419,7 +419,7 @@ namespace Voyage
         //работа с поисковым запросом
         private void tbSearch_TextChanged(object sender, EventArgs e)
         {
-            bs.Filter = "sName LIKE '%" + tbSearch.Text + "%' OR sSurname LIKE '%" + tbSearch.Text + "%'";
+            bs.Filter = string.Format("sName LIKE '{0}%' OR sSurname LIKE '{0}%'", tbSearch.Text);
         }
 
         private void tbName_TextChanged(object sender, EventArgs e)

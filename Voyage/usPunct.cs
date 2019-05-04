@@ -530,7 +530,7 @@ namespace Voyage
         //работа с поисковым запросом
         private void tbSearchPuncts_TextChanged(object sender, EventArgs e)
         {
-            bs.Filter = "sPunct LIKE '%" + tbSearchPuncts.Text + "%' OR sHotel LIKE '%" + tbSearchPuncts.Text + "%'";
+            bs.Filter = string.Format("sPunct LIKE '{0}%' OR sHotel LIKE '{0}%'", tbSearchPuncts.Text);
         }
     }
 }
