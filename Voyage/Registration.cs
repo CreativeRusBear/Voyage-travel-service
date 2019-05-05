@@ -126,10 +126,8 @@ namespace Voyage
                         MessageBox.Show(
                         "Пользователь с таким логином уже зарегестрирован. Придумайте новый и повтрите попытку.",
                         "Ошибка",
-                        MessageBoxButtons.OK,
-                        MessageBoxIcon.Error,
-                        MessageBoxDefaultButton.Button1,
-                        MessageBoxOptions.DefaultDesktopOnly);
+                        MessageBoxButtons.OK, 
+                        MessageBoxIcon.Error);
                     else
                         MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }

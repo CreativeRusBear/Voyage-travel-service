@@ -67,29 +67,35 @@ namespace Voyage
         //изменение пароля
         private void changeBtn_Click(object sender, EventArgs e)
         {
-            if (tbOldPassword.Text!="" && tbNewPassword.Text != ""){
-                if(tbOldPassword.Text == this.password)
+            if (tbOldPassword.Text!="" && tbNewPassword.Text != "") {
+                if (tbOldPassword.Text == this.password)
                 {
-                    try
-                    {
-                        connection.Close();
-                        connection.Open();
-                        SqlCommand updateUserData = new SqlCommand("UPDATE tUser SET " +
-                           "sPassword=@Password WHERE sLog=@Login", connection);
-                        updateUserData.Parameters.AddWithValue("@Password", tbNewPassword.Text);
-                        updateUserData.Parameters.AddWithValue("@Login", this.login);
-                        updateUserData.ExecuteNonQuery();
-                        MessageBox.Show("Пароль был обновлен", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        this.password = tbNewPassword.Text;
+                    if (tbOldPassword.Text != tbNewPassword.Text) {
+                        try
+                        {
+                            connection.Close();
+                            connection.Open();
+                            SqlCommand updateUserData = new SqlCommand("UPDATE tUser SET " +
+                               "sPassword=@Password WHERE sLog=@Login", connection);
+                            updateUserData.Parameters.AddWithValue("@Password", tbNewPassword.Text);
+                            updateUserData.Parameters.AddWithValue("@Login", this.login);
+                            updateUserData.ExecuteNonQuery();
+                            MessageBox.Show("Пароль был обновлен", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                            this.password = tbNewPassword.Text;
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                        finally
+                        {
+                            tbOldPassword.Text = "";
+                            tbNewPassword.Text = "";
+                        }
                     }
-                    catch (Exception ex)
+                    else
                     {
-                        MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-                    finally
-                    {
-                        tbOldPassword.Text = "";
-                        tbNewPassword.Text = "";
+                        MessageBox.Show("Вы ввели один и тот же пароль в обе колонки", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
                 else
