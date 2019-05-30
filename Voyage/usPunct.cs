@@ -445,7 +445,7 @@ namespace Voyage
         private void tbPunct_KeyPress(object sender, KeyPressEventArgs e)
         {
             char word = e.KeyChar;
-            if ((word < 'А' || word > 'Я') && (word < 'A' || word > 'Z') && word != '\b' && (word < 'a' || word > 'z') && (word < 'а' || word > 'я'))
+            if ((word < 'А' || word > 'Я') && (word < 'A' || word > 'Z') && word != '\b' && word != ' ' && (word < 'a' || word > 'z') && (word < 'а' || word > 'я'))
             {
                 e.Handled = true;
             }
