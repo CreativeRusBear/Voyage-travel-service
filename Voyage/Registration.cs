@@ -96,6 +96,7 @@ namespace Voyage
         //событие для регистрации/обновления данных о клиенте
         private void signInBtn_Click(object sender, EventArgs e)
         {
+
             if (tbLog.Text.Trim()!="" && tbPassword.Text.Trim()!= "")
             {
                 try
@@ -130,6 +131,9 @@ namespace Voyage
                         MessageBoxIcon.Error);
                     else
                         MessageBox.Show(ex.ToString(), "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+
+                    connection.Close();
                 }
             }
             else
